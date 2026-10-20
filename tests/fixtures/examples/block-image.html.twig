@@ -1,0 +1,35 @@
+---
+title: Image
+description: Image component with title, content and buttons.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+<twig:block-image
+    class="my-4"
+    title="What is Twig?"
+    image="assets/derafu-dev-programmer.png"
+    content="A <a href='https://www.example.com/' target='_blank'>small branch</a>."
+    :buttons="[
+        {
+            text: 'Learn about Twig',
+            url: 'https://twig.symfony.com/'
+        }
+    ]"
+/>
+
+<twig:block-image
+    class="my-4"
+    size="small"
+    title="What is <a href='https://www.example.com/' target='_blank'>Twig</a>?"
+    image="assets/derafu-dev-programmer.png"
+    content="A small branch"
+    :buttons="[
+        {
+            text: 'Learn about Twig',
+            url: 'https://twig.symfony.com/'
+        }
+    ]"
+/>

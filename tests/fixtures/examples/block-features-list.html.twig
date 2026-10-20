@@ -1,0 +1,46 @@
+---
+title: Features List
+description: List of features with left and right alignment.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+<twig:block-features-list
+    class="my-4"
+    :featuresLeft="[
+        {
+            icon: 'fa-solid fa-laptop fa-fw',
+            title: 'Web <a href=\'https://www.example.com/\' target=\'_blank\'>Application.</a>',
+            content: 'With individual and <a href=\'https://www.example.com/\' target=\'_blank\'>bulk</a> document issuance.'
+        },
+        {
+            icon: 'fa-solid fa-chart-line fa-fw',
+            title: 'Reports',
+            content: 'Charts and statistics to visualize your data in a simple way.'
+        },
+        {
+            icon: 'fa-solid fa-cogs fa-fw',
+            title: 'Configuration',
+            content: 'Customize the application according to your specific needs.'
+        }
+    ]"
+    :featuresRight="[
+        {
+            icon: 'fa-solid fa-cubes fa-fw',
+            title: 'Products and Services',
+            content: 'Code your products and services to issue quickly.'
+        },
+        {
+            icon: 'fa-solid fa-cloud-download fa-fw',
+            title: 'Backup',
+            content: 'Download your data whenever you need it.'
+        },
+        {
+            icon: 'fa-solid fa-shield fa-fw',
+            title: 'Security',
+            content: 'Your data is protected with the highest security standards.'
+        }
+    ]"
+/>

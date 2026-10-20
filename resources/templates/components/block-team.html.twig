@@ -1,0 +1,48 @@
+{# templates/components/block-team.html.twig #}
+
+<div
+    class="derafu-block-team derafu-block-team--cols-{{ this.cols }} derafu-block-team--align-{{ this.align }} {{ attributes.render('class') }}"
+    {{ attributes }}
+    id="{{ this.id }}"
+>
+    <div class="row g-4">
+        {% for member in this.members %}
+            {% set cols = this.cols %}
+            <div class="col-sm-6 {% if cols == 1 %}col-lg-12
+                {% elseif cols == 2 %}col-lg-6
+                {% elseif cols == 3 %}col-lg-4
+                {% elseif cols == 4 %}col-lg-3
+                {% else %}col-lg-2{% endif %}">
+                <div class="derafu-block-team__member">
+                    {# Image #}
+                    <div class="derafu-block-team__image">
+                        <img src="{{ (member.image ?? null) }}" alt="{{ (member.name ?? null) }}" class="img-fluid">
+                    </div>
+
+                    {# Information #}
+                    <div class="derafu-block-team__info">
+                        <h3 class="derafu-block-team__name">{{ (member.name ?? null) }}</h3>
+                        <div class="derafu-block-team__role">{{ (member.role ?? null) }}</div>
+
+                        {% if (member.bio ?? null) %}
+                            <div class="derafu-block-team__bio">{{ (member.bio ?? null)|raw }}</div>
+                        {% endif %}
+
+                        {% if (member.links ?? null)|length > 0 %}
+                            <div class="derafu-block-team__links">
+                                {% for link in (member.links ?? null) %}
+                                    <a href="{{ (link.url ?? null) }}" class="derafu-block-team__link btn {% if (link.url ?? null) is empty %}disabled{% endif %}">
+                                        {% if (link.icon ?? null) %}
+                                            <i class="{{ (link.icon ?? null) }}"></i>
+                                        {% endif %}
+                                        <span>{{ (link.text ?? null) }}</span>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

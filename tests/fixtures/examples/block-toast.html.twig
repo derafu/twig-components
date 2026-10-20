@@ -1,0 +1,19 @@
+---
+title: Toast
+description: Toast notifications with customizable types.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+{% set types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] %}
+{% for type in types %}
+    <twig:block-toast
+        class="my-2"
+        type="{{ type }}"
+        title="Toast type: {{ type }}"
+        content="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a href>"
+        time="5 mins ago"
+    />
+{% endfor %}

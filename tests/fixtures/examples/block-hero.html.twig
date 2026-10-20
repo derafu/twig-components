@@ -1,0 +1,85 @@
+---
+title: Hero
+description: Hero section for landing pages.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+<twig:block-hero
+   class="my-4"
+   align="left"
+   background="assets/derafu-dev-programmer.png"
+   title="Lorem <a href='https://www.example.com/' target='_blank'>ipsum</a>"
+   subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+   :buttons="[
+       {
+           text: 'Example.com',
+           url: 'https://www.example.com'
+       }
+   ]"
+/>
+
+<twig:block-hero
+   class="my-4"
+   align="left"
+   background="assets/derafu-dev-programmer.png"
+   contentBackground="true"
+   title="Lorem ipsum"
+   subtitle="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a>"
+   :buttons="[
+       {
+           text: 'Example.com',
+           url: 'https://www.example.com'
+       }
+   ]"
+/>
+
+<twig:block-hero
+   class="my-4"
+   align="right"
+   background="assets/derafu-dev-programmer.png"
+   title="Lorem ipsum"
+   subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+   :buttons="[
+       {
+           text: 'Example.com',
+           url: 'https://www.example.com'
+       }
+   ]"
+/>
+
+<twig:block-hero
+    class="my-4"
+    title="Hero"
+    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    :buttons="[
+        {
+            text: 'Example.com 1',
+            url: 'https://www.example.com'
+        },
+        {
+            text: 'Example.com 2',
+            url: 'https://www.example.com'
+        }
+    ]"
+/>
+
+{% set sizes = ['mini', 'small', 'medium', 'large', 'full'] %}
+{% for size in sizes %}
+   <twig:block-hero
+       class="my-4"
+       align="right"
+       size="{{ size }}"
+       background="assets/derafu-dev-programmer.png"
+       title="Size: {{ size }}"
+       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+       :buttons="[
+           {
+               text: 'Example.com',
+               url: 'https://www.example.com'
+           }
+       ]"
+   />
+{% endfor %}

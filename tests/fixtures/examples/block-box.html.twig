@@ -1,0 +1,23 @@
+---
+title: Box
+description: Simple box container for content.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+<twig:block-box
+    class="rounded"
+    title="Box with rounded corners"
+    content='Lorem ipsum dolor sit amet, consectetur adipiscing <a href="https://www.example.com/" target="_blank">elit</a>.'
+/>
+
+<twig:block-box
+    title="Box without rounded corners"
+    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+/>
+
+<twig:block-box
+    title="Box without content"
+/>

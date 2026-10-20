@@ -1,0 +1,59 @@
+---
+title: Video Grid
+description: Grid layout for multiple videos.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+<twig:block-video-grid
+    class="my-4"
+    :cols="3"
+    :videos="[
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            title: 'Lorem ipsum',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore <a href=\'https://www.example.com/\' target=\'_blank\'>magna aliqua.</a>',
+            buttonText: 'Learn more',
+            buttonUrl: '#'
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            title: 'Lorem ipsum',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            buttonText: 'Learn more',
+            buttonUrl: ''
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            title: 'Lorem ipsum',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            buttonText: 'Learn more',
+            buttonUrl: '#'
+        }
+    ]"
+/>
+
+<twig:block-video-grid
+    class="my-4"
+    :cols="2"
+    :videos="[
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w'
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w'
+        }
+    ]"
+/>
+
+<twig:block-video-grid
+    class="my-4"
+    :cols="1"
+    :videos="[
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w'
+        }
+    ]"
+/>

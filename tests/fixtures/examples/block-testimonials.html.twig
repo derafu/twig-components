@@ -1,0 +1,72 @@
+---
+title: Testimonials
+description: Testimonials display with background and image.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+<twig:block-testimonials
+    class="my-4"
+    :testimonials="[
+        {
+            background: 'assets/derafu-dev-programmer.png',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            author: 'John Doe',
+            image: 'assets/derafu-dev-programmer.png',
+            note: 'Lorem ipsum',
+            url: 'https://www.example.com'
+        },
+        {
+            background: 'assets/derafu-dev-programmer.png',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            author: 'John Doe',
+            note: 'Lorem ipsum',
+            position: 'left'
+        },
+        {
+            background: 'assets/derafu-dev-programmer.png',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            author: 'John Doe',
+            image: 'assets/derafu-dev-programmer.png',
+            url: 'http://www.example.com',
+            position: 'right'
+        }
+    ]"
+/>
+
+<twig:block-testimonials
+    class="my-4"
+    interval="2000"
+    :testimonials="[
+        {
+            background: 'assets/derafu-dev-programmer.png',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href=\'https://www.example.com/\' target=\'_blank\'>tempus gravida.</a href>',
+            author: 'John Doe',
+            image: 'assets/derafu-dev-programmer.png',
+            note: 'Lorem ipsum',
+            url: 'http://www.example.com'
+        },
+        {
+            background: 'assets/derafu-dev-programmer.png',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            author: 'John Doe',
+            image: 'assets/derafu-dev-programmer.png',
+            url: 'http://www.example.com'
+        }
+    ]"
+/>
+
+<twig:block-testimonials
+    class="my-4"
+    :testimonials="[
+        {
+            background: 'assets/derafu-dev-programmer.png',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            author: 'John Doe',
+            image: 'assets/derafu-dev-programmer.png',
+            note: 'Lorem ipsum'
+        }
+    ]"
+/>

@@ -1,0 +1,137 @@
+---
+title: Gallery
+description: Grid of images and videos with a click-to-enlarge lightbox.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+{#
+    Basic gallery with images only. The "caption" field is optional per item
+    (the first photo below has none).
+    The "caption" text is shown two places: as an overlay at the bottom of
+    each thumbnail in the grid, and again under the media inside the
+    lightbox once you click a thumbnail to open it.
+    "size" controls the lightbox modal size. Valid values: "sm", "lg", "xl"
+    (default) and "fullscreen".
+#}
+<twig:block-gallery
+    class="my-4"
+    :cols="4"
+    size="sm"
+    :items="[
+        {
+            image: 'assets/derafu-dev-programmer.png',
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            caption: 'Caption for photo 2'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            caption: 'Caption for photo 3'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            caption: 'Caption for photo 4'
+        }
+    ]"
+/>
+
+{#
+    Gallery mixing images and videos in the same grid. Video thumbnails
+    without a custom "thumbnail" show a play icon over a dark background
+    (see the next example for a video with a real poster image instead).
+#}
+<twig:block-gallery
+    class="my-4"
+    :cols="3"
+    :items="[
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            caption: 'Photo 1'
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            caption: 'Video 1 (no thumbnail: play icon placeholder)'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            caption: 'Photo 2'
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            caption: 'Video 2 (no thumbnail: play icon placeholder)'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            caption: 'Photo 3'
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            caption: 'Video 3 (no thumbnail: play icon placeholder)'
+        }
+    ]"
+/>
+
+{#
+    Gallery combining every optional field: "thumbnail" as a custom poster
+    for a video item, "alt" as the accessible/tooltip text shown on hover
+    over image thumbnails, and "caption" shown under the thumbnail and in
+    the lightbox.
+#}
+<twig:block-gallery
+    class="my-4"
+    :cols="6"
+    :items="[
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            thumbnail: 'assets/derafu-dev-programmer.png',
+            alt: 'Product demo',
+            caption: 'Video with poster'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            alt: 'Team photo',
+            caption: 'Team'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            alt: 'Office',
+            caption: 'Office'
+        },
+        {
+            video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
+            alt: 'Tutorial',
+            caption: 'Video without poster'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            alt: 'Event',
+            caption: 'Event'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            alt: 'Conference',
+            caption: 'Conference'
+        }
+    ]"
+/>
+
+{# Gallery with a fullscreen lightbox (size="fullscreen") #}
+<twig:block-gallery
+    class="my-4"
+    :cols="2"
+    size="fullscreen"
+    :items="[
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            caption: 'Wide photo 1'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            caption: 'Wide photo 2'
+        }
+    ]"
+/>

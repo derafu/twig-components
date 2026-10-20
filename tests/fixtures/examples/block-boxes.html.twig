@@ -1,0 +1,67 @@
+---
+title: Boxes
+description: Large box display for information.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+<twig:block-boxes
+    class="my-4"
+    cols="1"
+    :boxes="[
+        {
+            icon: 'fa-solid fa-search',
+            title: 'Lorem ipsum dolor sit amet',
+            content: 'Lorem ipsum dolor sit amet, consectetur <a href=\'https://www.example.com/\' target=\'_blank\'>adipiscing elit.</a>',
+            buttonText: 'Lorem ipsum',
+            buttonUrl: '#'
+        }
+    ]"
+/>
+
+<twig:block-boxes
+    class="my-4"
+    :boxes="[
+        {
+            icon: 'fa-solid fa-search',
+            title: 'Lorem ipsum dolor sit amet',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            buttonText: 'Lorem ipsum',
+            buttonUrl: '#'
+        },
+        {
+            icon: 'fa-solid fa-file',
+            title: 'Lorem ipsum dolor sit amet',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            buttonText: 'Lorem ipsum',
+        }
+    ]"
+/>
+
+<twig:block-boxes
+    class="my-4"
+    cols="3"
+    :boxes="[
+        {
+            icon: 'fa-solid fa-search',
+            title: 'Lorem ipsum dolor sit amet',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        },
+        {
+            icon: 'fa-solid fa-file',
+            title: 'Lorem ipsum dolor sit amet',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            buttonText: 'Lorem ipsum',
+            buttonUrl: '#'
+        },
+        {
+            icon: 'fa-solid fa-file',
+            title: 'Lorem ipsum dolor sit amet',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            buttonText: 'Lorem ipsum',
+            buttonUrl: '#'
+        }
+    ]"
+/>

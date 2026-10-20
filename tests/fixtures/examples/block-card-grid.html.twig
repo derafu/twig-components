@@ -1,0 +1,83 @@
+---
+title: Card Grid
+description: Grid layout for multiple cards.
+show_title: true
+show_description: true
+hide_table_of_contents: true
+show_source: true
+---
+
+<twig:block-card-grid
+    class="my-4"
+    :cols="3"
+    :cards="[
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            title: 'Twig',
+            content: 'It is a twig. <a href=\'https://www.example.com/\' target=\'_blank\'>Link</a>',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com',
+            buttonColor: 'primary'
+        },
+        {
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            content: 'Twig is a twig'
+        }
+    ]"
+/>
+
+<twig:block-card-grid
+    class="my-4"
+    :cols="4"
+    :cards="[
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com'
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com',
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+        },
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com',
+            buttonColor: 'success'
+        }
+    ]"
+/>
+
+<twig:block-card-grid
+    class="my-4"
+    :cols="3"
+    :cards="[
+        {
+            image: 'assets/derafu-dev-programmer.png',
+            title: 'Twig',
+            content: 'It is a twig.',
+            buttonText: 'Learn about Twig',
+            buttonUrl: 'https://twig.symfony.com',
+            offset: 4
+        }
+    ]"
+/>
