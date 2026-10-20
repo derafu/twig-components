@@ -12,13 +12,16 @@ declare(strict_types=1);
 
 namespace Derafu\TestsTwigComponents;
 
+use Derafu\TwigComponents\Abstract\AbstractComponent;
 use Derafu\TwigComponents\Translation\TwigTranslationResourceProvider;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 /**
  * The wiring that the package ships for `symfony/dependency-injection`.
@@ -41,6 +44,18 @@ final class ServicesTest extends TestCase
         $definition = $this->load()->getDefinition(TwigTranslationResourceProvider::class);
 
         $this->assertArrayHasKey('derafu_translation.resource_provider', $definition->getTags());
+    }
+
+    #[Test]
+    public function everyComponentIsTaggedForTheTwigEnvironment(): void
+    {
+        $tagged = array_keys($this->load()->findTaggedServiceIds('derafu_twig.component'));
+
+        $this->assertCount(37, $tagged);
+        foreach ($tagged as $class) {
+            $this->assertTrue(is_subclass_of($class, AbstractComponent::class), $class);
+            $this->assertNotEmpty((new ReflectionClass($class))->getAttributes(AsTwigComponent::class), $class);
+        }
     }
 
     #[Test]

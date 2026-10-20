@@ -3,6 +3,11 @@
 #
 #   imports:
 #       - { resource: '../vendor/derafu/twig-components/resources/config/twig-components-services.yaml' }
+#
+# The components are tagged with `derafu_twig.component`: whoever creates the
+# Twig environment (see derafu/twig) takes them with
+# `!tagged_iterator derafu_twig.component`. The tag is explicit because
+# _instanceof does not propagate across imported files.
 
 services:
 
@@ -18,3 +23,8 @@ services:
     # explicit because _instanceof does not propagate across imported files.
     Derafu\TwigComponents\Translation\TwigTranslationResourceProvider:
         tags: ['derafu_translation.resource_provider']
+
+    # The components, tagged for the Twig environment that registers them.
+    Derafu\TwigComponents\Component\:
+        resource: '../../src/Component/*'
+        tags: ['derafu_twig.component']
