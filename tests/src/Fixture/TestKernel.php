@@ -67,11 +67,6 @@ final class TestKernel extends Kernel
             'paths' => ['%kernel.project_dir%/resources/templates' => null],
         ]);
 
-        $container->services()
-            ->defaults()
-                ->autowire()
-                ->autoconfigure()
-            ->load('Derafu\\TwigComponents\\Component\\', '%kernel.project_dir%/src/Component/')
-        ;
+        $container->import($this->getProjectDir() . '/resources/config/twig-components-services.yaml');
     }
 }
