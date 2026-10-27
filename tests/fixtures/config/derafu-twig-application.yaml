@@ -1,0 +1,7 @@
+imports:
+    - { resource: derafu-twig.yaml }
+
+services:
+    Derafu\TestsTwigComponents\Fixture\ApplicationTemplatePathProvider:
+        tags:
+            - { name: derafu_twig.template_path_provider, priority: 100 }

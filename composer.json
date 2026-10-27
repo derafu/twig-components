@@ -30,6 +30,7 @@
         "symfony/ux-twig-component": "^2.36"
     },
     "require-dev": {
+        "derafu/twig": "dev-main",
         "ext-xdebug": "*",
         "friendsofphp/php-cs-fixer": "^3.95",
         "phpstan/phpstan": "^2.3",
@@ -50,6 +51,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "suggest": {
+        "derafu/twig": "Required by the optional Derafu Twig integration in twig-components-twig-services.yaml.",
         "nikic/php-parser": "Required by the tests of the messages of the package (Derafu\\Translation\\Lint reads the code).",
         "symfony/framework-bundle": "To use the components in a Symfony application (see the README)."
     }

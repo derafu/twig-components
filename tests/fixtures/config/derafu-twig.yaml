@@ -1,0 +1,15 @@
+imports:
+    - { resource: '../../../vendor/derafu/twig/resources/config/twig-services.yaml' }
+    - { resource: '../../../resources/config/twig-components-twig-services.yaml' }
+
+parameters:
+    derafu.twig.options: { extra: false }
+
+services:
+    Symfony\Contracts\Translation\TranslatorInterface:
+        class: Symfony\Component\Translation\Translator
+        factory: ['Derafu\Translation\TranslatorFactory', 'create']
+        arguments:
+            $defaultLocale: es
+            $fallbackLocales: [en]
+            $resourceProviders: !tagged_iterator derafu_translation.resource_provider

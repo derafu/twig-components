@@ -1,0 +1,10 @@
+# Optional integration for applications with derafu/twig installed.
+# Import Twig's shared services (or Renderer, which imports them) in the
+# application, then import this file for components and their template paths.
+# Symfony's native integration uses twig-components-services.yaml directly.
+imports:
+    - { resource: twig-components-services.yaml }
+
+services:
+    Derafu\TwigComponents\Bridge\DerafuTwig\TwigComponentsTemplatePathProvider:
+        tags: ['derafu_twig.template_path_provider']
