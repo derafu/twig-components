@@ -52,14 +52,14 @@ class HeroComponent extends AbstractComponent
      *
      * @var string
      */
-    private string $size = 'medium';
+    private string $size = 'small';
 
     /**
      * Content alignment (left, center, right).
      *
      * @var string
      */
-    private string $align = 'center';
+    private string $align = 'left';
 
     /**
      * Background image URL or color.
