@@ -20,6 +20,7 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionNamedType;
+use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 /**
  * The options of every component are its properties: Twig Components fills them
@@ -86,12 +87,22 @@ final class ComponentAccessorsTest extends TestCase
     #[Test]
     public function theIdIsGeneratedOnceAndCanBeSet(): void
     {
-        $component = new class () extends AbstractComponent {
+        $component = new #[AsTwigComponent('id-example')] class () extends AbstractComponent {
         };
 
         $generated = $component->getId();
         $this->assertSame($generated, $component->getId());
         $this->assertSame($component, $component->setId('fixed'));
         $this->assertSame('fixed', $component->getId());
+    }
+
+    #[Test]
+    public function aNamedAttributeSuppliesTheIdPrefix(): void
+    {
+        $component = new #[AsTwigComponent(name: 'named-example')] class () extends AbstractComponent {
+        };
+
+        $this->assertStringStartsWith('named-example--', $component->getId());
+        $this->assertSame($component->getId(), $component->getId());
     }
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Derafu\TestsTwigComponents\Component;
 
+use Closure;
 use Derafu\Translation\TranslatorFactory;
 use Derafu\TwigComponents\Abstract\AbstractComponent;
 use Derafu\TwigComponents\Component\Block\AccordionComponent;
@@ -26,6 +27,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use stdClass;
+use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 /**
  * The error of a component names the component and says what is wrong, and both
@@ -109,6 +111,68 @@ final class ComponentErrorsTest extends TestCase
 
             $this->assertSame($english, $exception->getMessage());
             $this->assertSame($spanish, $exception->trans($translator));
+        }
+    }
+
+    /**
+     * @return iterable<string, array{Closure(): AbstractComponent, string}>
+     */
+    public static function provideComponentsWithoutAValidName(): iterable
+    {
+        yield 'no attribute' => [
+            static fn (): AbstractComponent => new class () extends AbstractComponent {
+            },
+            'missing attribute',
+        ];
+        yield 'name omitted' => [
+            static fn (): AbstractComponent => new #[AsTwigComponent()] class () extends AbstractComponent {
+            },
+            'null',
+        ];
+        yield 'explicit null' => [
+            static fn (): AbstractComponent => new #[AsTwigComponent(null)] class () extends AbstractComponent {
+            },
+            'null',
+        ];
+        yield 'empty string' => [
+            static fn (): AbstractComponent => new #[AsTwigComponent('')] class () extends AbstractComponent {
+            },
+            'string',
+        ];
+    }
+
+    /**
+     * @param Closure(): AbstractComponent $create
+     */
+    #[DataProvider('provideComponentsWithoutAValidName')]
+    public function testAComponentRequiresAnAttributeWithANonEmptyStringName(Closure $create, string $type): void
+    {
+        $component = $create();
+        $translator = TranslatorFactory::create('es', [], [new TwigTranslationResourceProvider()]);
+
+        try {
+            $component->getId();
+            $this->fail('A component must declare an attribute with a non-empty string name.');
+        } catch (TwigComponentException $exception) {
+            if ($type === 'missing attribute') {
+                $this->assertSame(
+                    'Twig component ' . $component::class . ' must declare the AsTwigComponent attribute.',
+                    $exception->getMessage()
+                );
+                $this->assertSame(
+                    'El componente Twig ' . $component::class . ' debe declarar el atributo AsTwigComponent.',
+                    $exception->trans($translator)
+                );
+            } else {
+                $this->assertSame(
+                    'The name of Twig component ' . $component::class . ' must be a non-empty string; ' . $type . ' given.',
+                    $exception->getMessage()
+                );
+                $this->assertSame(
+                    'El nombre del componente Twig ' . $component::class . ' debe ser un string no vacío; se recibió ' . $type . '.',
+                    $exception->trans($translator)
+                );
+            }
         }
     }
 }

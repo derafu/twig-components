@@ -11,6 +11,10 @@ declare(strict_types=1);
  */
 
 return [
+    'Twig component {component} must declare the AsTwigComponent attribute.' =>
+        'El componente Twig {component} debe declarar el atributo AsTwigComponent.',
+    'The name of Twig component {component} must be a non-empty string; {type} given.' =>
+        'El nombre del componente Twig {component} debe ser un string no vacío; se recibió {type}.',
     // Components.
     'Component {component}: {message}' =>
         'Componente {component}: {message}',

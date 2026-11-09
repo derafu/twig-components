@@ -53,6 +53,7 @@ final class TwigComponentsMessagesTest extends TestCase
     {
         $root = dirname(__DIR__, 3);
         $catalogue = require $root . '/resources/translations/twig+intl-icu.es.php';
+        $this->assertIsArray($catalogue);
 
         // What the templates translate: the texts that go through `|trans`.
         $used = [];

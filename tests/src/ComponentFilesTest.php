@@ -37,7 +37,8 @@ final class ComponentFilesTest extends TestCase
             /** @var class-string $class */
             $class = 'Derafu\\TwigComponents\\Component\\Block\\' . basename($file, '.php');
             $attributes = (new ReflectionClass($class))->getAttributes(AsTwigComponent::class);
-            $name = (string) ($attributes[0]->getArguments()[0] ?? '');
+            $name = $attributes[0]->getArguments()[0] ?? '';
+            self::assertIsString($name);
             $components[$name] = [$class, $name];
         }
 

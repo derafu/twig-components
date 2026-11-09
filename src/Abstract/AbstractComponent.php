@@ -61,27 +61,35 @@ abstract class AbstractComponent
     }
 
     /**
-     * Gets the component name.
+     * Gets the explicit non-empty name declared by the component attribute.
      *
-     * Extracts the name from the AsTwigComponent attribute,
+     * Supports positional and named arguments of AsTwigComponent.
      *
-     * Falls back to the lowercase class name if no attribute is found.
-     *
-     * @return string
+     * @return non-empty-string
+     * @throws TwigComponentException If the attribute is absent or its name is
+     * not a non-empty string.
      */
     protected function getComponentName(): string
     {
-        $reflection = new ReflectionClass($this);
-        $attributes = $reflection->getAttributes();
-
-        foreach ($attributes as $attribute) {
-            if ($attribute->getName() === AsTwigComponent::class) {
-                $args = $attribute->getArguments();
-                return $args[0];
-            }
+        $attributes = (new ReflectionClass($this))->getAttributes(AsTwigComponent::class);
+        if ($attributes === []) {
+            throw new TwigComponentException([
+                'Twig component {component} must declare the AsTwigComponent attribute.',
+                'component' => static::class,
+            ]);
         }
 
-        return strtolower(basename(str_replace('\\', '__', get_class($this))));
+        $args = $attributes[0]->getArguments();
+        $name = $args[0] ?? $args['name'] ?? null;
+        if (!is_string($name) || $name === '') {
+            throw new TwigComponentException([
+                'The name of Twig component {component} must be a non-empty string; {type} given.',
+                'component' => static::class,
+                'type' => get_debug_type($name),
+            ]);
+        }
+
+        return $name;
     }
 
     /**
