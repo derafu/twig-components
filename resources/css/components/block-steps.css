@@ -11,7 +11,6 @@
 /* Base Variables */
 :root {
     /* Spacing Variables */
-    --spacing-y: var(--spacing-lg, 2rem);
 
     /* Steps Structure Variables */
     --steps-container-padding: var(--spacing-sm, 1rem) 0;
@@ -31,7 +30,7 @@
     --steps-arrow-color: var(--bs-gray-600, #6c757d);
 
     /* Typography Variables */
-    --steps-icon-font-size: var(--font-size-lg, 1.5rem);
+    --steps-icon-font-size: var(--font-size-lg, 1.25rem);
     --steps-title-font-size: var(--font-size-lg, 1.25rem);
     --steps-title-font-weight: var(--font-weight-semibold, 600);
     --steps-content-font-size: var(--font-size-sm, 0.875rem);
@@ -51,25 +50,23 @@
 .derafu-block-steps__container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: safe center;
     flex-wrap: nowrap;
     overflow-x: auto; /* Allow horizontal scrolling on mobile */
     padding: var(--steps-container-padding);
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    scrollbar-width: thin;
 }
 
-/* Hide scrollbar in WebKit but maintain functionality */
-.derafu-block-steps__container::-webkit-scrollbar {
-    display: none;
-}
 
 .derafu-block-steps__step {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: var(--steps-step-min-width);
+    flex: 1 0 var(--steps-step-min-width);
+    min-width: 0;
+    overflow-wrap: anywhere;
     padding: var(--steps-step-padding);
 }
 
@@ -118,7 +115,9 @@
 
 /* Button Styling within Content */
 .derafu-block-steps__content .btn {
-    padding: 0.4rem 4rem;
+    padding: 0.4rem 1rem;
+    max-width: 100%;
+    white-space: normal;
     font-size: 0.875em;
     vertical-align: baseline;
     margin: 0.8rem 0.5rem 0;

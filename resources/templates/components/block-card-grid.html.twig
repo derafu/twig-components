@@ -1,7 +1,8 @@
 {# templates/components/block-card-grid.html.twig #}
+{% trans_default_domain 'twig+intl-icu' %}
 
 <div class="derafu-block-card-grid {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
-    <div class="row g-4">
+    <div class="row mx-0 g-4">
         {% for card in this.cards %}
             <div class="col-sm-6 {% if this.cols == 1 %}col-lg-12
                 {% elseif this.cols == 2 %}col-lg-6
@@ -10,12 +11,7 @@
                 {% else %}col-lg-2{% endif %}
                 {% if (card.offset ?? null) is not null %}offset-lg-{{ (card.offset ?? null) }}{% endif %}
             ">
-                {% if (card.url ?? null) %}
-                    <a href="{{ (card.url ?? null) }}" class="derafu-block-card-grid__card derafu-block-card-grid__card--linked">
-                {% else %}
-                    <div class="derafu-block-card-grid__card">
-                {% endif %}
-
+                <div class="derafu-block-card-grid__card{{ (card.url ?? null) ? ' derafu-block-card-grid__card--linked' : '' }}">
                     {% if (card.image ?? null) %}
                         <div class="derafu-block-card-grid__image">
                             <img src="{{ (card.image ?? null) }}" alt="{{ (card.title ?? null) }}">
@@ -57,11 +53,11 @@
                         </div>
                     {% endif %}
 
-                {% if (card.url ?? null) %}
-                    </a>
-                {% else %}
-                    </div>
-                {% endif %}
+                    {% if (card.url ?? null) %}
+                        <a href="{{ card.url }}" class="derafu-block-card-grid__link stretched-link"
+                           aria-label="{{ card.title|default(card.buttonText|default('Open card'|trans))|striptags }}"></a>
+                    {% endif %}
+                </div>
             </div>
         {% endfor %}
     </div>

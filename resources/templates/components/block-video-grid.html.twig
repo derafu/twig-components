@@ -5,7 +5,7 @@
     {{ attributes }}
     id="{{ this.id }}"
 >
-    <div class="row g-4">
+    <div class="row mx-0 g-4">
         {% for video in this.videos %}
             <div class="col-sm-6 {% if this.cols == 1 %}col-lg-12
                 {% elseif this.cols == 2 %}col-lg-6

@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Open each dialog and compare sizing, long titles, scrolling and fullscreen content.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 {# Simple modal #}
 <div class="mb-4">
     <button type="button" class="btn btn-light d-block" data-bs-toggle="modal" data-bs-target="#modal-1">
@@ -258,3 +261,8 @@ show_source: true
     title="Content Only"
     content="<p>This modal has no buttons in the footer, only the close button in the header.</p>"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#modal-long-copy">Open modal with a long title and action</button>
+<twig:block-modal id="modal-long-copy" title="Review the configuration and synchronization settings for all companies in this account" content="<p>This dialog has a longer heading and action so both can be checked on a small screen.</p>" :buttons="[{text: 'Close this dialog and return to the configuration overview', dismiss: true, type: 'secondary'}]" />

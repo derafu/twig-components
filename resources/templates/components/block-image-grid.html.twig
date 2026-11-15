@@ -1,7 +1,7 @@
 {# templates/components/block-image-grid.html.twig #}
 
 <div class="derafu-block-image-grid {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
-    <div class="row g-4">
+    <div class="row mx-0 g-4">
         {% for image in this.images %}
             <div class="col-6 col-md-4 {% if this.cols == 4 %}col-lg-3{% elseif this.cols == 3 %}col-lg-4{% else %}col-lg-2{% endif %}">
                 <div class="derafu-block-image-grid__item p-2">
@@ -21,9 +21,9 @@
 {% block javascripts %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+        const tooltipTriggerList = [].slice.call(document.getElementById('{{ this.id|e('js') }}').querySelectorAll('[data-bs-toggle="tooltip"]'));
         tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
+            return bootstrap.Tooltip.getOrCreateInstance(tooltipTriggerEl);
         });
     });
 </script>

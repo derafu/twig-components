@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare sizes, alignment, images, solid colors and content backgrounds on every screen width.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-hero
    class="my-4"
    align="left"
@@ -83,3 +86,14 @@ show_source: true
        ]"
    />
 {% endfor %}
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+{% for align in ['left', 'center', 'right'] %}
+<h3 class="h5 mt-4">Solid color, {{ align }} alignment</h3>
+<twig:block-hero class="my-4" size="mini" align="{{ align }}" background="#17365d" title="A longer introduction to the <a href='#'>service</a>" subtitle="A solid background and the requested alignment remain visible on small screens." :buttons="[{text: 'Review the configuration options for my company', url: '#'}, {text: 'Contact us', url: '#', type: 'secondary'}]" />
+{% endfor %}
+<twig:block-hero class="my-4" background="rgb(23, 54, 93)" contentBackground="rgba(0, 0, 0, 0.5)" title="A CSS color and a custom content background" subtitle="Both backgrounds use the supplied colors." />
+<twig:block-hero class="my-4" background="rebeccapurple" title="A named CSS color" subtitle="Named colors use the browser color support." />
+
+<twig:block-hero class="my-4" size="full" :fullWidth="true" style="--hero-height-full: 65vh;" background="var(--bs-primary)" title="Full width with a custom minimum height" subtitle="The full size honors its CSS height variable on both desktop and mobile." />

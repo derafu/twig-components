@@ -91,7 +91,9 @@
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.2s, transform 0.2s;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    max-width: 100%;
 }
 
 .derafu-block-text-video__button:hover {
@@ -288,5 +290,16 @@
 
     .derafu-block-text-video__media iframe {
         border-radius: calc(var(--text-video-border-radius) * 0.75);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-text-video,
+    .derafu-block-text-video *,
+    .derafu-block-text-video *::before,
+    .derafu-block-text-video *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
     }
 }

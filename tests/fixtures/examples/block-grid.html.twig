@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare automatic rows and explicit columns, including long content on a small screen.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 {% set grid_item_1 %}
     <h2>Item 1</h2>
     <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href="https://www.example.com/" target="_blank">tempus gravida.</a></p>
@@ -60,3 +63,10 @@ show_source: true
         grid_item_2,
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+{% for cols in [1, 2, 3, 4, 6] %}
+<h3 class="h5 mt-4">{{ cols }} explicit columns</h3>
+<twig:block-grid class="container my-4" :cols="cols" :items="['<h4>Configuration</h4><p>A longer explanation that should remain readable when the layout stacks.</p>', '<h4>Synchronization</h4><p>Short content.</p>', '<h4>Reference</h4><p>https://example.com/configuration/synchronization/documentation</p>']" />
+{% endfor %}

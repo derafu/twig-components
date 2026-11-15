@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare video positions, text proportions and wrapping actions.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-text-video
     class="my-4"
     video="https://www.youtube.com/watch?v=GOAEIMx39-w"
@@ -37,3 +40,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-text-video class="container my-4" :cols="6" videoPosition="left" video="https://www.youtube.com/watch?v=GOAEIMx39-w" title="An introduction with a longer heading and action" content="<p>The text and video share the available width and stack on mobile.</p>" :buttons="[{text: 'Read the complete introduction to configuration and synchronization', url: '#'}]" />

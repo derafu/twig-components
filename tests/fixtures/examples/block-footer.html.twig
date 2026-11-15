@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare full and compact footers with longer navigation labels.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 {# Example 1: Complete Footer with 4 columns #}
 <twig:block-footer
     class="my-4"
@@ -194,3 +197,7 @@ show_source: true
     leftText="Join our community"
     rightText='<a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>'
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-footer class="my-4" col1Title="Configuration and support resources" :col1Links="[{text: 'Read the complete guide to configuration and synchronization', url: '#'}]" col2Title="Contact" col2Html="<p>Speak to the team about your company and its document volume.</p>" />

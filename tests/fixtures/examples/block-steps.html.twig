@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Scroll from the first step to the last, including at tablet widths, and try keyboard navigation.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-steps
     class="my-4"
     :steps="[
@@ -102,3 +105,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-steps class="container my-4" :steps="[{icon: 'fa-solid fa-user', title: '1. Create an account', content: 'The first step must be fully visible at the beginning of the process.'}, {icon: 'fa-solid fa-building', title: '2. Configure the company', content: 'Add the company details and review the synchronization settings.'}, {icon: 'fa-solid fa-file', title: '3. Review the documents', content: 'Check a sample before continuing.'}, {icon: 'fa-solid fa-check', title: '4. Confirm the configuration', content: 'Review the results and share them with the team.'}, {icon: 'fa-solid fa-cloud', title: '5. Start synchronization', content: 'The final step must be reachable by horizontal scrolling.'}]" />

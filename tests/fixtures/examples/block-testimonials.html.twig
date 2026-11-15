@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare short and long quotations and navigate between the slides.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-testimonials
     class="my-4"
     :testimonials="[
@@ -42,7 +45,7 @@ show_source: true
     :testimonials="[
         {
             background: 'assets/derafu-dev-programmer.png',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href=\'https://www.example.com/\' target=\'_blank\'>tempus gravida.</a href>',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href=\'https://www.example.com/\' target=\'_blank\'>tempus gravida.</a>',
             author: 'John Doe',
             image: 'assets/derafu-dev-programmer.png',
             note: 'Lorem ipsum',
@@ -70,3 +73,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-testimonials class="my-4" :testimonials="[{background: 'assets/derafu-dev-programmer.png', content: 'A longer quotation explains how the team configures several companies, reviews documents and follows synchronization from one place. It should remain readable without overlapping the navigation controls when the screen is narrow.', author: 'A customer with a longer name', image: 'assets/derafu-dev-programmer.png'}, {background: 'assets/derafu-dev-programmer.png', content: 'A short quotation for comparison.', author: 'Another customer'}]" />

@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare a card with an image and a text-only card with longer content.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-card
     class="my-4"
     image="assets/derafu-dev-programmer.png"
@@ -15,3 +18,7 @@ show_source: true
     buttonText="More..."
     buttonUrl="https://www.example.com/"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-card class="container my-4" title="A text-only card with a longer heading" content="<p>This card contains paragraphs and a list.</p><ul><li>Read the guide.</li><li>Review the settings.</li></ul>" buttonText="Review all available configuration options for this company" buttonUrl="#" />

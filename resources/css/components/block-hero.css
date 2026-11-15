@@ -75,8 +75,8 @@
   .derafu-block-hero.container {
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--spacing-md, 1.5rem);
-    padding-right: var(--spacing-md, 1.5rem);
+    padding-left: var(--spacing-md, 1rem);
+    padding-right: var(--spacing-md, 1rem);
 }
 
   /*
@@ -180,18 +180,23 @@
   .derafu-block-hero__button--primary {
     background-color: var(--hero-button-primary-bg);
     color: var(--hero-button-primary-text);
-    white-space: nowrap; /* Prevent line breaks in button text */
+    white-space: normal;
+    overflow-wrap: anywhere;
+    max-width: 100%; /* Prevent line breaks in button text */
   }
 
   .derafu-block-hero__button--primary:hover {
     background-color: var(--hero-button-primary-hover);
+    color: var(--bs-white, #fff);
   }
 
   .derafu-block-hero__button--secondary {
     background-color: var(--hero-button-secondary-bg);
     color: var(--hero-button-secondary-text);
     border: 2px solid var(--hero-button-secondary-border);
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    max-width: 100%;
   }
 
   /*
@@ -223,7 +228,9 @@
   }
 
   .derafu-block-hero__title a {
-    text-decoration: none;
+    color: var(--hero-link-color);
+    font-weight: var(--hero-link-font-weight);
+    text-decoration: underline;
   }
 
   .derafu-block-hero__title a:hover {
@@ -234,7 +241,9 @@
    * Subtitle links
    */
   .derafu-block-hero__subtitle a {
-    text-decoration: none;
+    color: var(--hero-link-color);
+    font-weight: var(--hero-link-font-weight);
+    text-decoration: underline;
   }
 
   .derafu-block-hero__subtitle a:hover {
@@ -245,13 +254,7 @@
    * Responsive media queries
    */
 
-   @media (max-width: 1200px) {
-    .derafu-block-hero {
-      background-image: none !important; /* Elimina cualquier imagen de fondo */
-      background-color: var(--bs-primary) !important; /* Usa el color primario como fondo */
-    }
-  }
-  
+
   @media (max-width: 991.98px) {
     /* Height reduction */
     .derafu-block-hero--mini {
@@ -271,7 +274,7 @@
     }
 
     .derafu-block-hero--full {
-      min-height: 100vh; /* Maintain 100vh for full size */
+      min-height: var(--hero-height-full);
     }
 
     /* Spacing adjustments */
@@ -314,15 +317,23 @@
       text-align: center;
     }
 
-    /* Center content on mobile by default */
-    .derafu-block-hero__content--left,
-    .derafu-block-hero__content--right {
-      align-items: center;
-      text-align: center;
-    }
-
-    .derafu-block-hero__content--left .derafu-block-hero__buttons,
-    .derafu-block-hero__content--right .derafu-block-hero__buttons {
-      justify-content: center;
-    }
   }
+
+.derafu-block-hero--with-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--hero-image-overlay, rgba(0, 0, 0, 0.6));
+    pointer-events: none;
+}
+
+.derafu-block-hero__container {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.derafu-block-hero__title a:hover,
+.derafu-block-hero__subtitle a:hover {
+    color: var(--hero-link-hover-color);
+}

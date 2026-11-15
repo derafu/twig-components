@@ -59,7 +59,7 @@
            </div>
 
            {% if this.toggleable %}
-               <button type="button" class="btn btn-primary ms-2"
+               <button type="button" class="btn btn-primary" aria-label="{{ 'Show or hide table'|trans }}"
                        onclick="document.getElementById('table-{{ this.id }}').classList.toggle('d-none')">
                    <i class="fas fa-eye"></i>
                </button>

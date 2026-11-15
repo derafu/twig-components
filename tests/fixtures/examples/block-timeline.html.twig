@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare all line positions with long event headings and descriptions.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-timeline
     class="my-4"
     linePosition="center"
@@ -130,3 +133,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-timeline class="container my-4" linePosition="right" :events="[{date: '2026-04-15', title: 'An event with a longer heading about configuration and synchronization', content: 'A longer description that wraps within the event card without extending beyond the timeline.', icon: 'fa-solid fa-cloud', showFullDate: true}, {date: '2025-11-20', title: 'A short event', content: 'A shorter description.', showMonthYear: true}]" />

@@ -55,17 +55,17 @@
   /*
    * Base position variants
    */
-  .offcanvas-start,
-  .offcanvas-end {
-    width: var(--offcanvas-width) !important;
+  .derafu-block-offcanvas.offcanvas-start,
+  .derafu-block-offcanvas.offcanvas-end {
+    width: var(--offcanvas-width);
     max-width: 100vw; /* Ensure it's never wider than the screen */
     box-shadow: var(--offcanvas-box-shadow);
     transition: var(--offcanvas-transition);
   }
 
-  .offcanvas-top,
-  .offcanvas-bottom {
-    height: var(--offcanvas-height) !important;
+  .derafu-block-offcanvas.offcanvas-top,
+  .derafu-block-offcanvas.offcanvas-bottom {
+    height: var(--offcanvas-height);
     max-height: 100vh; /* Ensure it's never taller than the screen */
     box-shadow: var(--offcanvas-box-shadow);
     transition: var(--offcanvas-transition);
@@ -74,7 +74,7 @@
   /*
    * Content styles
    */
-  .offcanvas-body {
+  .derafu-block-offcanvas .offcanvas-body {
     display: flex;
     flex-direction: column;
     padding: var(--offcanvas-body-padding);
@@ -82,7 +82,7 @@
     -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
   }
 
-  .offcanvas-header {
+  .derafu-block-offcanvas .offcanvas-header {
     border-bottom: var(--offcanvas-border);
     padding: var(--offcanvas-header-padding);
     display: flex;
@@ -90,32 +90,34 @@
     justify-content: space-between;
   }
 
-  .offcanvas-title {
+  .derafu-block-offcanvas .offcanvas-title {
     margin: 0;
     font-size: var(--offcanvas-title-font-size);
     line-height: 1.5;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   /* Improvement for responsive buttons */
-  .offcanvas-body .btn {
-    white-space: nowrap;
+  .derafu-block-offcanvas .offcanvas-body .btn {
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   /*
    * Responsive styles - Large and medium screens
    */
   @media (max-width: 992px) {
-    .offcanvas-start,
-    .offcanvas-end {
-      width: var(--offcanvas-tablet-width) !important;
+    .derafu-block-offcanvas.offcanvas-start,
+    .derafu-block-offcanvas.offcanvas-end {
+      width: var(--offcanvas-tablet-width);
     }
 
-    .offcanvas-top,
-    .offcanvas-bottom {
-      height: var(--offcanvas-height-tablet) !important;
+    .derafu-block-offcanvas.offcanvas-top,
+    .derafu-block-offcanvas.offcanvas-bottom {
+      height: var(--offcanvas-height-tablet);
     }
   }
 
@@ -123,25 +125,25 @@
    * Responsive styles - Tablets
    */
   @media (max-width: 768px) {
-    .offcanvas-start,
-    .offcanvas-end {
-      width: var(--offcanvas-mobile-width) !important;
+    .derafu-block-offcanvas.offcanvas-start,
+    .derafu-block-offcanvas.offcanvas-end {
+      width: var(--offcanvas-mobile-width);
     }
 
-    .offcanvas-top,
-    .offcanvas-bottom {
-      height: var(--offcanvas-height-mobile) !important;
+    .derafu-block-offcanvas.offcanvas-top,
+    .derafu-block-offcanvas.offcanvas-bottom {
+      height: var(--offcanvas-height-mobile);
     }
 
-    .offcanvas-header {
+    .derafu-block-offcanvas .offcanvas-header {
       padding: var(--offcanvas-header-mobile-padding);
     }
 
-    .offcanvas-body {
+    .derafu-block-offcanvas .offcanvas-body {
       padding: var(--offcanvas-body-mobile-padding);
     }
 
-    .offcanvas-title {
+    .derafu-block-offcanvas .offcanvas-title {
       font-size: var(--offcanvas-title-mobile-font-size);
     }
 
@@ -155,14 +157,14 @@
    * Responsive styles - Mobile phones
    */
   @media (max-width: 576px) {
-    .offcanvas-start,
-    .offcanvas-end {
-      width: var(--offcanvas-mobile-width) !important;
+    .derafu-block-offcanvas.offcanvas-start,
+    .derafu-block-offcanvas.offcanvas-end {
+      width: var(--offcanvas-mobile-width);
     }
 
-    .offcanvas-top,
-    .offcanvas-bottom {
-      height: var(--offcanvas-height-small) !important;
+    .derafu-block-offcanvas.offcanvas-top,
+    .derafu-block-offcanvas.offcanvas-bottom {
+      height: var(--offcanvas-height-small);
     }
 
     /* Mobile button adjustments */
@@ -185,18 +187,18 @@
    * Touch device improvements
    */
   @media (hover: none) and (pointer: coarse) {
-    .offcanvas-body {
+    .derafu-block-offcanvas .offcanvas-body {
       padding-bottom: 2rem; /* Additional space for scrolling on touch devices */
     }
 
     /* Larger buttons for easier touch targets */
-    .offcanvas-body .btn {
+    .derafu-block-offcanvas .offcanvas-body .btn {
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
     }
 
     /* Improved close button for touch */
-    .offcanvas-header .btn-close {
+    .derafu-block-offcanvas .offcanvas-header .btn-close {
       padding: 0.75rem; /* Larger touch area */
       margin: -0.75rem -0.75rem -0.75rem auto;
     }
@@ -206,14 +208,24 @@
    * Accessibility and orientation support
    */
   @media (orientation: landscape) and (max-width: 992px) {
-    .offcanvas-top,
-    .offcanvas-bottom {
-      height: 80vh !important; /* More space in landscape mode */
+    .derafu-block-offcanvas.offcanvas-top,
+    .derafu-block-offcanvas.offcanvas-bottom {
+      height: 80vh; /* More space in landscape mode */
     }
 
-    .offcanvas-start,
-    .offcanvas-end {
-      width: 50vw !important; /* Reduce width in landscape to avoid taking the entire screen */
+    .derafu-block-offcanvas.offcanvas-start,
+    .derafu-block-offcanvas.offcanvas-end {
+      width: 50vw; /* Reduce width in landscape to avoid taking the entire screen */
     }
   }
-  
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-offcanvas,
+    .derafu-block-offcanvas *,
+    .derafu-block-offcanvas *::before,
+    .derafu-block-offcanvas *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}

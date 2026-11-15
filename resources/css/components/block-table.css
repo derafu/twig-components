@@ -243,3 +243,14 @@
         padding: 0.4rem;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-table,
+    .derafu-block-table *,
+    .derafu-block-table *::before,
+    .derafu-block-table *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}

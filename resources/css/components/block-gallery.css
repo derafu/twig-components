@@ -282,3 +282,14 @@
         transform: none;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-gallery,
+    .derafu-block-gallery *,
+    .derafu-block-gallery *::before,
+    .derafu-block-gallery *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}

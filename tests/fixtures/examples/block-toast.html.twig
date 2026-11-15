@@ -7,13 +7,20 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare colors, close a notification and check the close control with the keyboard.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 {% set types = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] %}
 {% for type in types %}
     <twig:block-toast
         class="my-2"
         type="{{ type }}"
         title="Toast type: {{ type }}"
-        content="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a href>"
+        content="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a>"
         time="5 mins ago"
     />
 {% endfor %}
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-toast class="container my-4" type="warning" title="Review the synchronization settings for all companies" time="Just now" content="This longer notification should wrap without covering the close control. Use the visible close button or reach it with the keyboard." />

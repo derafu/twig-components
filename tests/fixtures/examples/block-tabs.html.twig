@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Switch each tab set independently; compare horizontal and vertical layouts on mobile.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 {% set tab_content_1 %}
     <twig:block-text-image
         title="Lorem ipsum dolor sit amet"
@@ -69,3 +72,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-tabs class="container my-4" position="vertical" :cols="4" :tabs="[{id: 'long-tab-overview', title: 'Configuration and synchronization overview', content: '<h3>Overview</h3><p>A long navigation label should not reduce the content to a narrow column on mobile.</p>'}, {id: 'long-tab-details', title: 'Detailed instructions for the whole team', content: '<h3>Instructions</h3><p>The second panel remains independently selectable.</p>'}]" />

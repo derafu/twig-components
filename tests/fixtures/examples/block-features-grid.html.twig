@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare balanced blocks and a block with a longer heading and description.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-features-grid
     class="my-4"
     :blocks="[
@@ -54,3 +57,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-features-grid class="container my-4" :blocks="[{title: 'A single block with a longer heading', subtitle: 'A description that introduces the information below.', features: [{icon: 'fa-solid fa-cloud', title: 'Cloud synchronization for several companies', content: 'A longer explanation that should wrap beside the icon without overlapping it.'}, {icon: 'fa-solid fa-check', title: 'Ready', content: 'A short description.'}]}]" />

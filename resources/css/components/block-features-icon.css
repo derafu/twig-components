@@ -3,7 +3,6 @@
    ====================================== */
    :root {
     /* Spacing */
-    --spacing-y: 2rem;
 
     /* Structure */
     --features-icon-row-gap: 2rem;
@@ -127,22 +126,30 @@
    Responsive Styles
    ====================================== */
 @media (max-width: 768px) {
-    .derafu-block-features-icon__row {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
+    .derafu-block-features-icon {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: var(--features-icon-mobile-row-gap);
     }
 
+    .derafu-block-features-icon__row {
+        display: contents;
+    }
+
     .derafu-block-features-icon__item {
-        width: 100%; /* Occupy full width of column */
+        width: calc((100% - var(--features-icon-mobile-row-gap)) / 2);
+        min-width: 0;
+        overflow-wrap: anywhere;
     }
+}
 
-    .derafu-block-features-icon__row--centered {
-        justify-content: center;
+@media (max-width: 575.98px) {
+    .derafu-block-features-icon__item {
+        width: 100%;
     }
+}
 
-    /* Force 2 columns even with odd number of elements */
-    .derafu-block-features-icon__row:not(.derafu-block-features-icon__row--centered) {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.derafu-block-features-icon__row:only-child .derafu-block-features-icon__item--1 {
+    width: 100%;
 }

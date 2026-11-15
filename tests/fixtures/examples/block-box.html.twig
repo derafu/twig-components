@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare title-only content, paragraphs and links on the colored surface.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-box
     class="rounded"
     title="Box with rounded corners"
@@ -21,3 +24,7 @@ show_source: true
 <twig:block-box
     title="Box without content"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-box class="my-4" title="A longer heading for a complete introduction to the service" content="<p>Content can contain more than one paragraph without losing its spacing.</p><p>Read the <a href='#'>configuration guide</a> before continuing.</p>" />

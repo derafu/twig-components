@@ -182,7 +182,9 @@
     font-weight: var(--boxes-button-font-weight);
     transition: var(--boxes-button-transition);
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    max-width: 100%;
     border: none;
     cursor: pointer;
     line-height: 1.5;
@@ -313,7 +315,6 @@
 @media (max-width: 576px) {
     .derafu-block-boxes__box {
         padding: var(--boxes-mobile-padding);
-        align-items: center !important; /* Force center alignment on mobile */
     }
 
     .derafu-block-boxes__icon {
@@ -326,21 +327,17 @@
     }
 
     .derafu-block-boxes__icon-container {
-        justify-content: center !important; /* Force icon centering on mobile */
     }
 
     .derafu-block-boxes__title {
         font-size: var(--boxes-title-mobile-font-size);
-        text-align: center; /* Center text on mobile */
     }
 
     .derafu-block-boxes__content {
         font-size: var(--boxes-content-mobile-font-size);
-        text-align: center; /* Center text on mobile */
     }
 
     .derafu-block-boxes__action {
-        justify-content: center !important; /* Force button centering on mobile */
     }
 
     .derafu-block-boxes__button {
@@ -348,12 +345,7 @@
         width: 100%; /* Full-width button on mobile */
     }
 
-    /* All alignments become centered on mobile */
-    .derafu-block-boxes--left,
-    .derafu-block-boxes--center,
-    .derafu-block-boxes--right {
-        text-align: center;
-    }
+
 }
 
 /* Small Mobile (≤ 375px) */
@@ -412,3 +404,14 @@
 .derafu-block-boxes.mt-3 { margin-top: 1rem; }
 .derafu-block-boxes.mt-4 { margin-top: 1.5rem; }
 .derafu-block-boxes.mt-5 { margin-top: 3rem; }
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-boxes,
+    .derafu-block-boxes *,
+    .derafu-block-boxes *::before,
+    .derafu-block-boxes *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}

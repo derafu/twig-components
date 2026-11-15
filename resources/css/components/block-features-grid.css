@@ -3,12 +3,11 @@
    ====================================== */
    :root {
     /* Spacing & Structure */
-    --spacing-y: 2rem;
     --features-grid-gap: 1.5rem;
     --features-grid-header-margin-bottom: 2rem;
     --features-grid-feature-gap: 1rem;
     --features-grid-blocks-padding: 1rem;
-    --features-grid-row-margin: -1rem;
+    --features-grid-row-margin: 0;
 
     /* Typography - Main Title & Subtitle */
     --features-grid-title-font-size: 1.5rem;

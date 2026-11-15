@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare heading levels, alignment, borders and long subtitles.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-title
     class="my-4"
     title="Title"
@@ -19,3 +22,9 @@ show_source: true
     subtitle="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a>"
     :border="true"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+{% for align in ['start', 'center', 'end'] %}
+<twig:block-title class="container mt-4" :level="2" align="{{ align }}" :border="true" title="A longer heading introducing the complete configuration and synchronization guide" subtitle="A subtitle with more context and a <a href='#'>link to the instructions</a>, so wrapping and alignment can be compared on a small screen." />
+{% endfor %}

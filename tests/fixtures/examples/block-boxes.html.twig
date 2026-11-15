@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare column counts and left, center and right alignment at each screen width.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-boxes
     class="my-4"
     cols="1"
@@ -65,3 +68,10 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+{% for align in ['left', 'center', 'right'] %}
+<h3 class="h5 mt-4">Alignment: {{ align }}</h3>
+<twig:block-boxes align="{{ align }}" :cols="3" :boxes="[{icon: 'fa-solid fa-cloud', title: 'A longer introduction to cloud synchronization', content: 'The requested alignment applies to the title, description, icon and action.', buttonText: 'Review all synchronization settings for this company', buttonUrl: '#'}, {icon: 'fa-solid fa-file', title: 'Documents', content: 'A shorter description.'}, {title: 'Without an icon', content: 'A box can also contain text and an action.', buttonText: 'Learn more', buttonUrl: '#'}]" />
+{% endfor %}

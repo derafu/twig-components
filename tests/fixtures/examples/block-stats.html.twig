@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare even and odd counts, large values and descriptions with different lengths.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-stats
     class="my-4"
     :stats="[
@@ -107,3 +110,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-stats class="container my-4" :stats="[{value: '1,234,567', text: 'Documents synchronized across all companies in the account'}, {value: '99.99%', text: 'Availability'}, {value: '24/7', text: 'Access to the complete document history'}]" />

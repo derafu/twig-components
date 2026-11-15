@@ -126,7 +126,7 @@
         {# Logo Section #}
         <a class="navbar-brand d-flex align-items-center" href="{{ this.logoUrl }}">
             {% if this.logoImage %}
-                <img src="{{ this.logoImage }}" alt="{{ 'Logo'|trans }}" style="max-width: {{ this.logoMaxWidth }}px;">
+                <img src="{{ this.logoImage }}" alt="{{ 'Logo'|trans }}" style="--header-logo-max-width: {{ this.logoMaxWidth }}px;">
             {% endif %}
             {% if this.logoText %}
                 <span class="ms-2">{{ this.logoText|raw }}</span>
@@ -134,12 +134,12 @@
         </a>
 
         {# Mobile Toggle Button #}
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#{{ this.id }}-navbarContent" aria-controls="{{ this.id }}-navbarContent" aria-expanded="false" aria-label="{{ 'Toggle navigation'|trans }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         {# Navigation Content #}
-        <div class="collapse navbar-collapse" id="navbarContent">
+        <div class="collapse navbar-collapse" id="{{ this.id }}-navbarContent">
             {# Left Navigation #}
             <ul class="navbar-nav me-auto">
                 {{ menu.render_menu_items(this.leftNav) }}

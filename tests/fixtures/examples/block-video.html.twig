@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare sizes, alignment and a longer description with a wrapping action.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-video
     class="my-4"
     size="normal"
@@ -36,3 +39,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-video class="container my-4" align="left" size="small" title="An introduction to configuration and synchronization" video="https://www.youtube.com/watch?v=GOAEIMx39-w" content="A longer description that explains the video and wraps within the available width on small screens." :buttons="[{text: 'Read all the configuration and synchronization instructions', url: '#'}]" />

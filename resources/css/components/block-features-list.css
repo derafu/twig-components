@@ -3,14 +3,13 @@
    ====================================== */
    :root {
     /* Spacing */
-    --spacing-y: 2rem;
 
     /* Structure */
     --features-list-column-padding: 1rem;
     --features-list-item-margin-bottom: 2rem;
     --features-list-icon-padding: 0 1rem;
     --features-list-divider-width: 1px;
-    --features-list-row-margin: -1rem;
+    --features-list-row-margin: 0;
 
     /* Colors */
     --features-list-divider-color: var(--bs-border-color, #dee2e6);
@@ -144,8 +143,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--spacing-md, 1.5rem);
-    padding-right: var(--spacing-md, 1.5rem);
+    padding-left: var(--spacing-md, 1rem);
+    padding-right: var(--spacing-md, 1rem);
 }
 
 /* ======================================
@@ -213,4 +212,9 @@
     .derafu-block-features-list__icon {
         font-size: 1.85rem;
     }
+}
+
+.derafu-block-features-list__content {
+    min-width: 0;
+    overflow-wrap: anywhere;
 }

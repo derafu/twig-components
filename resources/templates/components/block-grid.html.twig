@@ -2,7 +2,7 @@
 
 <div class="derafu-block-grid {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
     {% if this.cols is not empty %}
-        <div style="display: grid; grid-template-columns: repeat({{ this.cols }}, 1fr); gap: 10px;">
+        <div class="derafu-block-grid__columns" style="--grid-columns: {{ this.cols }};">
             {% for item in this.items %}
                 <div class="derafu-block-grid__item">
                     {{ item|raw }}

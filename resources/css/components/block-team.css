@@ -1,6 +1,5 @@
 :root {
     /* Team - Structure */
-    --spacing-y: 2rem;
     --team-border-radius: 1rem;
     --team-padding: 2rem;
     --team-hover-transform: translateY(-5px);
@@ -55,7 +54,7 @@
 
 /* Component Styles */
 .derafu-block-team {
-    margin: var(--spacing-y) auto;
+    margin: var(--spacing-y, 2rem) auto;
     background-color: var(--team-bg);
 }
 
@@ -285,5 +284,16 @@
 
     .derafu-block-team__info {
         padding: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-team,
+    .derafu-block-team *,
+    .derafu-block-team *::before,
+    .derafu-block-team *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
     }
 }

@@ -14,8 +14,8 @@
     --cta-tablet-padding-y: 1.75rem;
     --cta-mobile-padding-y: 1.5rem;
     --cta-small-padding-y: 1.25rem;
-    --cta-action-margin-top-mobile: 2rem;
-    --cta-action-margin-top-small: 1.5rem;
+    --cta-action-margin-top-mobile: 1rem;
+    --cta-action-margin-top-small: 1rem;
 
     /* Colors */
     --cta-bg: var(--bs-secondary, #6c757d);
@@ -93,8 +93,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--spacing-md, 1.5rem);
-    padding-right: var(--spacing-md, 1.5rem);
+    padding-left: var(--spacing-md, 1rem);
+    padding-right: var(--spacing-md, 1rem);
 }
 
 /* ======================================
@@ -143,7 +143,9 @@
 .derafu-block-cta__action {
     text-align: var(--cta-action-text-align);
     padding: 0 0.5rem;
-    flex: 0 0 auto;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .derafu-block-cta__button {
@@ -154,11 +156,13 @@
     border-radius: var(--cta-button-border-radius);
     font-weight: var(--cta-button-font-weight);
     text-decoration: none;
-    transition: all var(--cta-button-transition) ease-in-out;
+    transition: background-color var(--cta-button-transition), color var(--cta-button-transition), transform var(--cta-button-transition), box-shadow var(--cta-button-transition);
     font-size: var(--cta-button-font-size);
     border: none;
     cursor: pointer;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    max-width: 100%;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -194,7 +198,7 @@
         flex: 0 0 100%;
         max-width: 100%;
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
     }
 
     .derafu-block-cta__title {
@@ -211,7 +215,7 @@
     .derafu-block-cta__button {
         display: inline-block;
         width: auto;
-        min-width: 200px;
+        min-width: min(200px, 100%);
     }
 }
 
@@ -298,5 +302,16 @@
     .derafu-block-cta__button {
         width: auto;
         min-width: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-cta,
+    .derafu-block-cta *,
+    .derafu-block-cta *::before,
+    .derafu-block-cta *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
     }
 }

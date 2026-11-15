@@ -124,3 +124,14 @@
         margin-bottom: var(--text-image-spacing);
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-text-image,
+    .derafu-block-text-image *,
+    .derafu-block-text-image *::before,
+    .derafu-block-text-image *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}

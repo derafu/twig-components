@@ -4,8 +4,6 @@
    :root {
     /* Breakpoints */
     --small-mobile-breakpoint: 375px;
-    --mobile-breakpoint: 576px;
-    --tablet-breakpoint: 768px;
 
     /* Alert - Default Margin */
     --alert-margin-bottom: 1rem;
@@ -248,5 +246,16 @@
 @media (max-width: 576px) and (orientation: landscape) {
     .derafu-block-alert .alert {
         padding-right: 2rem; /* More space on the right */
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-alert,
+    .derafu-block-alert *,
+    .derafu-block-alert *::before,
+    .derafu-block-alert *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
     }
 }

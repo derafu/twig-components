@@ -2,40 +2,22 @@
    Base Variables
    ====================================== */
    :root {
+    --card-mobile-hover-transform: translateY(-3px);
+
     /* Breakpoints */
-    --breakpoint-xs: 375px;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
 
     /* Base Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-y: var(--spacing-lg, 2rem);
-    --spacing-tablet-y: 1.75rem;
-    --spacing-mobile-y: 1.5rem;
-    --spacing-small-y: 1.25rem;
 
     /* Base Typography */
-    --font-size-sm: 0.875rem;
-    --font-size-md: 1rem;
-    --font-size-lg: 1.25rem;
-    --font-weight-medium: 500;
-    --font-weight-bold: 700;
 
     /* Base Borders & Effects */
-    --border-radius-sm: 0.25rem;
-    --border-radius-md: 0.75rem;
 
     /* ======================================
        Card Component Variables
        ====================================== */
 
     /* Card Structure */
-    --card-border-radius: var(--border-radius-md, 0.75rem);
+    --card-border-radius: var(--border-radius-md, 0.5rem);
     --card-mobile-border-radius: 0.5rem;
     --card-small-border-radius: 0.375rem;
     --card-border-width: var(--border-width, 1px);
@@ -63,7 +45,7 @@
     --card-icon-bg: var(--bs-light, #f8f9fa);
 
     /* Card Content Spacing */
-    --card-content-padding: var(--spacing-md, 1.5rem);
+    --card-content-padding: var(--spacing-md, 1rem);
     --card-tablet-content-padding: 1.25rem;
     --card-mobile-content-padding: 1rem;
     --card-small-content-padding: 0.75rem;
@@ -83,12 +65,12 @@
     --card-content-font-size: var(--font-size-sm, 0.875rem);
     --card-content-line-height: 1.6;
     --card-tablet-content-font-size: 0.8125rem;
-    --card-mobile-content-font-size: 0.75rem;
+    --card-mobile-content-font-size: 0.875rem;
     --card-tablet-content-line-height: 1.5;
     --card-mobile-content-line-height: 1.4;
 
     /* Card Footer */
-    --card-footer-padding: var(--spacing-md, 1.5rem);
+    --card-footer-padding: var(--spacing-md, 1rem);
     --card-footer-padding-top: 0;
     --card-tablet-footer-padding: 1.25rem;
     --card-mobile-footer-padding: 1rem;
@@ -96,7 +78,7 @@
 
     /* Card Button */
     --card-button-padding-y: var(--spacing-sm, 1rem);
-    --card-button-padding-x: var(--spacing-md, 1.5rem);
+    --card-button-padding-x: var(--spacing-md, 1rem);
     --card-button-border-radius: var(--border-radius-sm, 0.25rem);
     --card-button-bg: var(--bs-primary, #0d6efd);
     --card-button-text: var(--bs-btn-color, #fff);
@@ -247,13 +229,6 @@
     flex: 1;
 }
 
-.derafu-block-card .card-text a {
-    text-decoration: none;
-}
-
-.derafu-block-card .card-text a:hover {
-    text-decoration: underline;
-}
 
 /* ======================================
    Card Footer & Button
@@ -274,7 +249,7 @@
     border-radius: var(--card-button-border-radius);
     transition: all var(--card-button-transition-duration) ease;
     cursor: pointer;
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium, 500);
     border: none;
 }
 
@@ -304,8 +279,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--spacing-md, 1.5rem);
-    padding-right: var(--spacing-md, 1.5rem);
+    padding-left: var(--spacing-md, 1rem);
+    padding-right: var(--spacing-md, 1rem);
 }
 
 /* ======================================
@@ -330,7 +305,7 @@
 /* Tablets (768px - 991px) */
 @media (max-width: 991px) {
     .derafu-block-card-grid {
-        margin: var(--spacing-tablet-y) auto;
+        margin: var(--spacing-tablet-y, 1.75rem) auto;
     }
 
     .derafu-block-card-grid__col {
@@ -373,7 +348,7 @@
 /* Mobile (≤ 767px) */
 @media (max-width: 767px) {
     .derafu-block-card-grid {
-        margin: var(--spacing-mobile-y) auto;
+        margin: var(--spacing-mobile-y, 1.5rem) auto;
     }
 
     .derafu-block-card-grid__row {
@@ -429,7 +404,7 @@
 /* Small Mobile (≤ 575px) */
 @media (max-width: 575px) {
     .derafu-block-card-grid {
-        margin: var(--spacing-small-y) auto;
+        margin: var(--spacing-small-y, 1.25rem) auto;
     }
 
     .derafu-block-card-grid__card {
@@ -472,4 +447,80 @@
     .derafu-block-card-grid__button:active {
         background-color: var(--card-button-hover);
     }
+}
+
+/* CSS-grid hooks for custom card layouts. */
+.derafu-block-card-grid__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+.derafu-block-card-grid--cols-1 .derafu-block-card-grid__container {
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+}
+.derafu-block-card-grid--cols-2 .derafu-block-card-grid__container {
+  grid-template-columns: repeat(2, 1fr);
+}
+.derafu-block-card-grid--cols-3 .derafu-block-card-grid__container {
+  grid-template-columns: repeat(3, 1fr);
+}
+.derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1199px) {
+.derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 991px) {
+.derafu-block-card-grid__container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+.derafu-block-card-grid--cols-3 .derafu-block-card-grid__container,
+  .derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+.derafu-block-card-grid__container {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+}
+@media (max-width: 575px) {
+.derafu-block-card-grid__container {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+.derafu-block-card-grid--cols-2 .derafu-block-card-grid__container,
+  .derafu-block-card-grid--cols-3 .derafu-block-card-grid__container,
+  .derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-card-grid,
+    .derafu-block-card-grid *,
+    .derafu-block-card-grid *::before,
+    .derafu-block-card-grid *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}
+
+.derafu-block-card-grid__content a,
+.derafu-block-card-grid__footer {
+    position: relative;
+    z-index: 2;
+}
+
+.derafu-block-card-grid__card:focus-within {
+    outline: 2px solid var(--bs-primary, #0d6efd);
+    outline-offset: 2px;
 }

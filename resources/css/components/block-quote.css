@@ -263,3 +263,9 @@
       font-size: 0.7rem;
     }
   }
+
+@media (max-width: 768px) {
+    .derafu-block-quote__content {
+        padding-inline: 1rem;
+    }
+}

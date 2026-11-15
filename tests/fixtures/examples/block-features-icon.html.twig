@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare even and odd item counts. Each numbered section can be checked independently.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 {# Case 4 elements (one row of 4) #}
 <twig:block-features-icon
     class="my-4"
@@ -112,3 +115,17 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<nav class="d-flex flex-wrap gap-3 my-4" aria-label="Item counts">
+{% for count in [1, 2, 3, 5, 6, 7, 9, 12] %}<a href="#features-count-{{ count }}">{{ count }} items</a>{% endfor %}
+</nav>
+{% for count in [1, 2, 3, 5, 6, 7, 9, 12] %}
+<h3 id="features-count-{{ count }}" class="h5 mt-5">{{ count }} items</h3>
+{% set features = [] %}
+{% for number in 1..count %}
+{% set features = features|merge([{icon: 'fa-solid fa-star', title: 'Feature ' ~ number ~ ': configuration and synchronization', content: 'A longer description to compare wrapping and spacing between consecutive items.'}]) %}
+{% endfor %}
+<twig:block-features-icon class="container my-4" :features="features" />
+{% endfor %}

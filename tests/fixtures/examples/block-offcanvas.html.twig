@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Open each panel and compare its position, scrolling, close control and long actions.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 {# Left Offcanvas (start) #}
 <div class="mb-4">
     <button class="btn btn-light d-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-left">
@@ -147,3 +150,8 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<button class="btn btn-primary my-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-long-copy">Open panel with a long title and action</button>
+<twig:block-offcanvas id="offcanvas-long-copy" title="Configuration and synchronization for all companies in this account" content="<p>Check that the title and action remain fully readable.</p>" :buttons="[{text: 'Close this panel and return to the configuration overview', dismiss: true}]" />

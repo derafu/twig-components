@@ -81,68 +81,34 @@
   .derafu-block-grid.container {
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--spacing-md, 1.5rem);
-    padding-right: var(--spacing-md, 1.5rem);
+    padding-left: var(--spacing-md, 1rem);
+    padding-right: var(--spacing-md, 1rem);
 }
 
-  /*
-   * Responsive para ambas versiones: Grid y Flexbox
-   */
+  .derafu-block-grid__columns {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    gap: var(--grid-column-gap);
+  }
+
+  .derafu-block-grid__item {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
   @media (max-width: 768px) {
-    /* 1. Para la versión con CSS Grid */
-    .derafu-block-grid > div[style*="grid"] {
+    .derafu-block-grid__columns {
       grid-template-columns: var(--grid-mobile-template);
     }
 
-    /* 2. Para la versión con Flexbox */
     .derafu-block-grid__row {
       flex-direction: var(--grid-mobile-direction);
       gap: var(--grid-mobile-gap);
     }
 
-    /* Selector específico para aumentar especificidad sin !important */
-    .derafu-block-grid .derafu-block-grid__item--1,
-    .derafu-block-grid .derafu-block-grid__item--2,
-    .derafu-block-grid .derafu-block-grid__item--3,
-    .derafu-block-grid .derafu-block-grid__item--4,
-    .derafu-block-grid .derafu-block-grid__item--6 {
+    .derafu-block-grid .derafu-block-grid__item {
       flex: var(--grid-mobile-flex);
       max-width: var(--grid-mobile-width);
-    }
-
-    /* 3. Reducir padding en ambos casos */
-    .derafu-block-grid__item {
       padding: var(--grid-mobile-padding);
-    }
-  }
-
-  /*
-   * Media query para casos extremos en dispositivos muy pequeños
-   */
-  @media (max-width: 576px) {
-    /* Forzar que cualquier grid dentro de derafu-block-grid sea vertical */
-    /* Aumentamos la especificidad sin !important */
-    body .derafu-block-grid > div {
-      display: var(--grid-mobile-display);
-    }
-
-    body .derafu-block-grid > div > div {
-      width: var(--grid-mobile-width);
-      margin-bottom: var(--grid-mobile-gap);
-    }
-
-    /* Reiniciar cualquier propiedad grid con mayor especificidad */
-    body .derafu-block-grid [style*="grid"] {
-      grid-template-columns: none;
-      display: var(--grid-mobile-display);
-    }
-
-    /* Forzar que cada item sea de ancho completo */
-    body .derafu-block-grid__item,
-    body .derafu-block-grid > div > div {
-      display: var(--grid-mobile-display);
-      width: var(--grid-mobile-width);
-      margin-left: var(--grid-mobile-margin);
-      margin-right: var(--grid-mobile-margin);
     }
   }

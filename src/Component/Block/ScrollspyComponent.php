@@ -191,7 +191,7 @@ class ScrollspyComponent extends AbstractComponent
         if (empty($this->sections)) {
             $this->sections = [
                 [
-                    'id' => 'default-section',
+                    'id' => 'default-section-' . $this->getId(),
                     'title' => 'Default Section',
                     'content' => 'Default content for scrollspy section.',
                     'icon' => null,

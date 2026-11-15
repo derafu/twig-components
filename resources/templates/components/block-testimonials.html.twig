@@ -44,9 +44,9 @@
                                 {{ (testimonial.author ?? null) }}
                                 {% if (testimonial.note ?? null) %}
                                     {% if (testimonial.url ?? null) %}
-                                        • <a href="{{ (testimonial.url ?? null) }}" target="_blank">{{ (testimonial.organization ?? null) }}</a>
+                                        • <a href="{{ (testimonial.url ?? null) }}" target="_blank">{{ (testimonial.note ?? null) }}</a>
                                     {% else %}
-                                        • {{ (testimonial.organization ?? null) }}
+                                        • {{ (testimonial.note ?? null) }}
                                     {% endif %}
                                 {% else %}
                                     {% if (testimonial.url ?? null) %}

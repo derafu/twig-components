@@ -55,6 +55,11 @@ class TextImageComponent extends AbstractComponent
     private string $image;
 
     /**
+     * Alternative image text. Null uses the title; an empty string marks a decorative image.
+     */
+    private ?string $imageAlt = null;
+
+    /**
      * Position of the image (right, left).
      *
      * @var string
@@ -179,6 +184,24 @@ class TextImageComponent extends AbstractComponent
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets the alternative image text, or null to use the title.
+     */
+    public function getImageAlt(): ?string
+    {
+        return $this->imageAlt;
+    }
+
+    /**
+     * Sets the alternative image text, or null to use the title.
+     */
+    public function setImageAlt(?string $imageAlt): static
+    {
+        $this->imageAlt = $imageAlt;
 
         return $this;
     }

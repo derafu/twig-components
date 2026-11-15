@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Open several sections and use the keyboard to check focus and long headings.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-accordion
     :items="[
         {
@@ -33,3 +36,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-accordion :items="[{title: 'How do I configure synchronization for several companies and review the documents that need attention?', content: '<p>The full question and its answer remain readable at narrow widths.</p><p>Use Tab to reach the next question.</p>', active: true}, {title: 'A short question', content: 'A short answer.'}]" />

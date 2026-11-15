@@ -117,7 +117,9 @@
     background-color: var(--video-button-bg);
     color: var(--video-button-text);
     transition: background-color 0.2s, color 0.2s;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    max-width: 100%;
 }
 
 .derafu-block-video__button:hover {
@@ -265,5 +267,16 @@
     .derafu-block-video__button {
         width: 100%;
         text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-video,
+    .derafu-block-video *,
+    .derafu-block-video *::before,
+    .derafu-block-video *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
     }
 }

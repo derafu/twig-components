@@ -3,16 +3,11 @@
    ====================================== */
    :root {
     /* Global Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-y: var(--spacing-lg, 2rem);
 
     /* Internal Spacing */
-    --accordion-button-padding-x: var(--spacing-md, 1.5rem);
+    --accordion-button-padding-x: var(--spacing-md, 1rem);
     --accordion-button-padding-y: var(--spacing-sm, 1rem);
-    --accordion-body-padding: var(--spacing-md, 1.5rem);
+    --accordion-body-padding: var(--spacing-md, 1rem);
 
     /* Responsive Spacing */
     --accordion-mobile-button-padding-x: var(--spacing-sm, 1rem);
@@ -29,8 +24,6 @@
     --accordion-mobile-paragraph-margin-bottom: var(--spacing-xs, 0.5rem);
 
     /* Breakpoints */
-    --mobile-breakpoint: 576px;
-    --tablet-breakpoint: 768px;
 }
 
 /* ======================================
@@ -118,7 +111,7 @@
 /* Tablets (≤ 768px) */
 @media (max-width: 768px) {
     .derafu-block-accordion {
-        margin: calc(var(--spacing-y) * 0.8) auto;
+        margin: calc(var(--spacing-y, 2rem) * 0.8) auto;
     }
 
     .derafu-block-accordion .accordion-button {
@@ -134,7 +127,7 @@
 /* Mobile (≤ 576px) */
 @media (max-width: 576px) {
     .derafu-block-accordion {
-        margin: calc(var(--spacing-y) * 0.6) auto;
+        margin: calc(var(--spacing-y, 2rem) * 0.6) auto;
     }
 
     .derafu-block-accordion .accordion-item {
@@ -190,5 +183,16 @@
 
     .derafu-block-accordion .accordion-body p {
         font-size: 0.875rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-accordion,
+    .derafu-block-accordion *,
+    .derafu-block-accordion *::before,
+    .derafu-block-accordion *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
     }
 }

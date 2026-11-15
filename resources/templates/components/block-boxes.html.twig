@@ -6,11 +6,14 @@
             <div class="col-12 col-md-{{ 12 / this.cols }}">
                 <div class="derafu-block-boxes__box derafu-block-boxes__box--{{ loop.index }}">
                     {# Icon #}
+                    {% if (box.icon ?? null) %}
                     <div class="derafu-block-boxes__icon-container">
                         <div class="derafu-block-boxes__icon">
                             <i class="{{ (box.icon ?? null) }}"></i>
                         </div>
                     </div>
+
+                    {% endif %}
 
                     {# Content #}
                     <div class="derafu-block-boxes__content">

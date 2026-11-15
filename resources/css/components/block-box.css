@@ -4,42 +4,26 @@
 
 :root {
     /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
 
     /* Borders */
-    --border-radius-sm: 0.25rem;
-    --border-radius-md: 0.75rem;
-    --border-radius-lg: 1rem;
 
     /* Typography - Font Sizes */
-    --font-size-sm: 0.875rem;
-    --font-size-md: 1rem;
-    --font-size-lg: 1.25rem;
-    --font-size-xl: 1.5rem;
 
     /* Typography - Font Weights */
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-bold: 700;
 
     /* Breakpoints */
     --small-breakpoint: 375px;
-    --mobile-breakpoint: 576px;
-    --tablet-breakpoint: 768px;
 
     /* ======================================
        Component Variables
        ====================================== */
 
     /* Box - Spacing */
-    --box-padding: var(--spacing-lg);
-    --box-margin-bottom: var(--spacing-lg);
-    --box-tablet-padding: var(--spacing-md);
-    --box-mobile-padding: var(--spacing-sm);
-    --box-small-padding: var(--spacing-xs);
+    --box-padding: var(--spacing-lg, 2rem);
+    --box-margin-bottom: var(--spacing-lg, 2rem);
+    --box-tablet-padding: var(--spacing-md, 1rem);
+    --box-mobile-padding: var(--spacing-sm, 1rem);
+    --box-small-padding: var(--spacing-xs, 0.5rem);
 
     /* Box - Style */
     --box-text-align: center;
@@ -48,7 +32,7 @@
     --box-border: var(--bs-primary, #0d6efd);
 
     /* Box - Title */
-    --box-title-font-size: var(--font-size-xl);
+    --box-title-font-size: var(--font-size-xl, 2rem);
     --box-title-tablet-font-size: 1.35rem;
     --box-title-mobile-font-size: 1.25rem;
     --box-title-small-font-size: 1.125rem;
@@ -56,11 +40,11 @@
     --box-title-font-weight: var(--font-weight-bold, 700);
 
     /* Box - Content */
-    --box-content-margin-top: var(--spacing-xs);
+    --box-content-margin-top: var(--spacing-xs, 0.5rem);
     --box-content-line-height: 1.6;
     --box-content-mobile-line-height: 1.5;
     --box-content-color: var(--bs-white, #fff);
-    --box-content-font-size: var(--font-size-md);
+    --box-content-font-size: var(--font-size-md, 1rem);
     --box-content-mobile-font-size: 0.9375rem;
     --box-content-small-font-size: 0.875rem;
 
@@ -121,10 +105,10 @@
 
 /* Links */
 .derafu-block-box a {
-    color: var(--bs-secondary);
+    color: var(--box-link-color, #fff);
     text-decoration: none;
     transition: color 0.2s ease;
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium, 500);
     word-break: break-word;
 }
 
@@ -252,3 +236,14 @@
 .derafu-block-box.mt-3 { margin-top: 1rem !important; }
 .derafu-block-box.mt-4 { margin-top: 1.5rem !important; }
 .derafu-block-box.mt-5 { margin-top: 3rem !important; }
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-box,
+    .derafu-block-box *,
+    .derafu-block-box *::before,
+    .derafu-block-box *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}

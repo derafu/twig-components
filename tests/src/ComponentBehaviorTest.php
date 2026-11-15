@@ -153,7 +153,7 @@ final class ComponentBehaviorTest extends RendersComponents
     {
         $html = $this->render('<twig:block-scrollspy />');
 
-        $this->assertStringContainsString('id="default-section"', $html);
+        $this->assertStringContainsString('id="default-section-block-scrollspy--', $html);
     }
 
     #[Test]
@@ -179,5 +179,88 @@ final class ComponentBehaviorTest extends RendersComponents
 
         $this->assertStringContainsString('2023', $html);
         $this->assertStringContainsString('Something happened', $html);
+    }
+
+    #[Test]
+    public function headersHaveIndependentNavigationTargets(): void
+    {
+        $html = $this->render('<twig:block-header id="first" /><twig:block-header id="second" />');
+
+        foreach (['first', 'second'] as $id) {
+            $this->assertStringContainsString('data-bs-target="#' . $id . '-navbarContent"', $html);
+            $this->assertSame(1, substr_count($html, 'id="' . $id . '-navbarContent"'));
+        }
+        $this->assertStringContainsString('aria-label="Mostrar u ocultar navegación"', $html);
+    }
+
+    #[Test]
+    public function scrollspiesHaveIndependentTargetsAndDefaultSections(): void
+    {
+        $html = $this->render('<twig:block-scrollspy id="first" /><twig:block-scrollspy id="second" />');
+
+        foreach (['first', 'second'] as $id) {
+            $this->assertStringContainsString('data-bs-target="#' . $id . '-list-scrollspy-vertical"', $html);
+            $this->assertSame(1, substr_count($html, 'id="default-section-' . $id . '"'));
+            $this->assertStringContainsString('href="#default-section-' . $id . '"', $html);
+        }
+    }
+
+    #[Test]
+    public function imageAlternativeTextCanBeIndependentEmptyOrDefaulted(): void
+    {
+        $template = '<twig:block-text-image title="A <em>title</em>" content="Text" image="/image.png"';
+        $default = $this->render($template . ' />');
+        $custom = $this->render($template . ' imageAlt="An independent description" />');
+        $decorative = $this->render($template . ' imageAlt="" />');
+
+        $this->assertStringContainsString('alt="A title"', $default);
+        $this->assertStringContainsString('alt="An independent description"', $custom);
+        $this->assertStringContainsString('alt=""', $decorative);
+    }
+
+    #[Test]
+    public function linkedCardsKeepTheirContentAndActionLinksIndependent(): void
+    {
+        $html = $this->render('<twig:block-card-grid :cards="cards" />', [
+            'cards' => [[
+                'url' => '/card',
+                'title' => 'Card',
+                'content' => '<a href="/details">Details</a>',
+                'buttonText' => 'Contact',
+                'buttonUrl' => '/contact',
+            ]],
+        ]);
+
+        $this->assertStringContainsString('href="/details"', $html);
+        $this->assertStringContainsString('href="/contact"', $html);
+        $this->assertStringContainsString('href="/card" class="derafu-block-card-grid__link stretched-link"', $html);
+        $this->assertDoesNotMatchRegularExpression('/<a[^>]*>[^<]*<a/s', $html);
+        $this->assertStringNotContainsString('<a href="/card" class="derafu-block-card-grid__card', $html);
+    }
+
+    #[Test]
+    public function boxesWithoutIconsDoNotHaveAnEmptyIconContainer(): void
+    {
+        $html = $this->render('<twig:block-boxes :boxes="boxes" />', [
+            'boxes' => [['title' => 'Text only'], ['title' => 'Cloud', 'icon' => 'fa-solid fa-cloud']],
+        ]);
+
+        $this->assertSame(1, substr_count($html, 'class="derafu-block-boxes__icon-container"'));
+        $this->assertStringContainsString('Text only', $html);
+        $this->assertStringContainsString('fa-solid fa-cloud', $html);
+    }
+
+    #[Test]
+    public function testimonialsDisplayTheirNoteWithAndWithoutALink(): void
+    {
+        $html = $this->render('<twig:block-testimonials :testimonials="testimonials" />', [
+            'testimonials' => [
+                ['content' => 'First quote', 'author' => 'First author', 'note' => 'First organization', 'url' => '/first'],
+                ['content' => 'Second quote', 'author' => 'Second author', 'note' => 'Second organization'],
+            ],
+        ]);
+
+        $this->assertStringContainsString('First organization</a>', $html);
+        $this->assertStringContainsString('• Second organization', $html);
     }
 }

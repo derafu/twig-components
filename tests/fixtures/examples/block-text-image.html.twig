@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare image positions, text proportions, wrapping actions and independent image descriptions.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-text-image
     class="my-4"
     image="assets/derafu-dev-programmer.png"
@@ -37,3 +40,8 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-text-image class="container my-4" :cols="6" imagePosition="left" image="assets/derafu-dev-programmer.png" imageAlt="Developer connecting applications and cloud services" title="An image description independent of the heading" content="<p>The image has its own description. The text appears first on mobile, and the image position applies from medium screens.</p>" :buttons="[{text: 'Read the complete configuration and synchronization guide', url: '#'}]" />
+<twig:block-text-image class="container my-4" image="assets/derafu-dev-programmer.png" imageAlt="" title="A decorative image" content="<p>An empty alternative text marks the illustration as decorative.</p>" />

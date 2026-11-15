@@ -142,8 +142,8 @@
   .derafu-block-footer.container {
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--spacing-md, 1.5rem);
-    padding-right: var(--spacing-md, 1.5rem);
+    padding-left: var(--spacing-md, 1rem);
+    padding-right: var(--spacing-md, 1rem);
 }
 
   /*
@@ -211,3 +211,14 @@
       margin-bottom: 0;
     }
   }
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-footer,
+    .derafu-block-footer *,
+    .derafu-block-footer *::before,
+    .derafu-block-footer *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}

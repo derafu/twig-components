@@ -227,3 +227,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-image-grid,
+    .derafu-block-image-grid *,
+    .derafu-block-image-grid *::before,
+    .derafu-block-image-grid *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}

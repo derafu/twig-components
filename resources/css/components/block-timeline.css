@@ -1,13 +1,5 @@
 :root {
     /* Spacing */
-    --spacing-y: var(--spacing-lg);
-    --spacing-lg: 2rem;
-    --spacing-md: 1rem;
-    --font-size-xl: 2rem;
-    --font-size-lg: 1.25rem;
-    --font-size-sm: 0.875rem;
-    --font-weight-semibold: 600;
-    --border-radius-md: 0.5rem;
 
     /* Timeline Colors */
     --timeline-line-color: var(--bs-gray-300, #dee2e6);
@@ -31,8 +23,8 @@
     --timeline-line-width: 2px;
     --timeline-event-width: 45%;
     --timeline-mobile-event-margin: 2rem;
-    --timeline-content-padding: var(--spacing-md);
-    --timeline-content-border-radius: var(--border-radius-md);
+    --timeline-content-padding: var(--spacing-md, 1rem);
+    --timeline-content-border-radius: var(--border-radius-md, 0.5rem);
 
     /* Responsive */
     --timeline-mobile-breakpoint: 768px;
@@ -348,5 +340,21 @@
 
     .derafu-block-timeline__line {
         top: 3rem;
+    }
+}
+
+.derafu-block-timeline__event,
+.derafu-block-timeline__content {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+    .derafu-block-timeline__container .derafu-block-timeline__year {
+        left: auto;
+        right: auto;
+        transform: none;
+        width: auto;
+        margin-inline: 1.5rem 0;
     }
 }

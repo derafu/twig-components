@@ -41,7 +41,7 @@ final class TestKernel extends Kernel
 
     public function getCacheDir(): string
     {
-        return $this->getProjectDir() . '/var/cache/kernel/' . $this->environment;
+        return $this->getProjectDir() . '/var/cache/components/' . $this->environment;
     }
 
     public function getLogDir(): string
@@ -64,6 +64,7 @@ final class TestKernel extends Kernel
 
         $container->extension('twig', [
             'strict_variables' => true,
+            'cache' => false,
             'paths' => ['%kernel.project_dir%/resources/templates' => null],
         ]);
 

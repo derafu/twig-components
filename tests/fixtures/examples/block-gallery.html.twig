@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Open images, move between slides and close the viewer with the keyboard.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 {#
     Basic gallery with images only. The "caption" field is optional per item
     (the first photo below has none).
@@ -135,3 +138,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-gallery class="container my-4" :cols="3" :items="[{image: 'assets/derafu-dev-programmer.png', alt: 'Developer working with connected services', caption: 'A longer caption explaining the relationship between the developer and the connected services'}, {image: 'assets/derafu-dev-programmer.png', alt: 'Connected services', caption: 'A short caption'}, {image: 'assets/derafu-dev-programmer.png', alt: 'A workstation'}]" />

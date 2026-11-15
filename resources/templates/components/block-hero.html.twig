@@ -1,14 +1,32 @@
 {# templates/components/block-hero.html.twig #}
+{% if this.background %}
+    <style>
+        #{{ this.id|e('css') }} {
+            background-image: url('{{ this.background|e('css') }}');
+        }
+        @supports (background-color: {{ this.background|e('html') }}) {
+            #{{ this.id|e('css') }} {
+                background-color: {{ this.background|e('html') }};
+                background-image: none;
+            }
+            #{{ this.id|e('css') }}::before {
+                display: none;
+            }
+        }
+    </style>
+{% endif %}
 
 <div
-    class="derafu-block-hero derafu-block-hero--{{ this.size }} {{ attributes.render('class') }}"
+    class="derafu-block-hero derafu-block-hero--{{ this.size }}{{ this.background ? ' derafu-block-hero--with-background' : '' }} {{ attributes.render('class') }}"
     {{ attributes }}
     id="{{ this.id }}"
-    {% if this.background %}style="background-image: url('{{ this.background }}')"{% endif %}
 >
    <div class="derafu-block-hero__container {{ this.fullWidth ? '' : 'container' }}">
        <div class="derafu-block-hero__content derafu-block-hero__content--{{ this.align }}
-           {% if this.contentBackground %}derafu-block-hero__content--with-background{% endif %}">
+           {% if this.contentBackground %}derafu-block-hero__content--with-background{% endif %}"
+           {% if this.contentBackground and this.contentBackground not in ['true', '1'] %}
+               style="--hero-content-background-color: {{ this.contentBackground }};"
+           {% endif %}>
            <h1 class="derafu-block-hero__title">{{ this.title|raw }}</h1>
            <div class="derafu-block-hero__subtitle">{{ this.subtitle|raw }}</div>
            {% if this.buttons|length > 0 %}

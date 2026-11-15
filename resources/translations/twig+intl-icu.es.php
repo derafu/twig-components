@@ -12,14 +12,20 @@ declare(strict_types=1);
 
 return [
     // Components.
+    'Open card' =>
+        'Abrir tarjeta',
     'Close' =>
         'Cerrar',
+    'Toggle navigation' =>
+        'Mostrar u ocultar navegación',
     'Logo' =>
         'Logo',
     'Previous' =>
         'Anterior',
     'Next' =>
         'Siguiente',
+    'Show or hide table' =>
+        'Mostrar u ocultar tabla',
     'Actions' =>
         'Acciones',
     'Slide {number}' =>

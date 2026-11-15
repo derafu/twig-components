@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare column counts and cards with different amounts of text.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-video-grid
     class="my-4"
     :cols="3"
@@ -57,3 +60,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-video-grid class="container my-4" :cols="2" :videos="[{video: 'https://www.youtube.com/watch?v=GOAEIMx39-w', title: 'A video with a longer heading and explanation', content: 'A longer explanation to compare text spacing and the alignment of actions.', buttonText: 'Read the complete instructions before starting configuration', buttonUrl: '#'}, {video: 'https://www.youtube.com/watch?v=GOAEIMx39-w', title: 'A short introduction', content: 'Short content.'}]" />

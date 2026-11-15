@@ -7,6 +7,9 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Compare image sizes, long captions and wrapping actions.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 <twig:block-image
     class="my-4"
     title="What is Twig?"
@@ -33,3 +36,7 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<twig:block-image class="container my-4" align="left" title="A longer heading introducing the image and its subject" image="assets/derafu-dev-programmer.png" content="A longer caption that explains the image and wraps over several lines at a narrow width." :buttons="[{text: 'Read the complete introduction to the connected services', url: '#'}]" />

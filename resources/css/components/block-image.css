@@ -239,3 +239,14 @@
       box-sizing: border-box;
     }
   }
+
+@media (prefers-reduced-motion: reduce) {
+    .derafu-block-image,
+    .derafu-block-image *,
+    .derafu-block-image *::before,
+    .derafu-block-image *::after {
+        animation: none;
+        transition: none;
+        scroll-behavior: auto;
+    }
+}

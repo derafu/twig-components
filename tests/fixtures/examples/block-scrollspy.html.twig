@@ -7,8 +7,11 @@ hide_table_of_contents: true
 show_source: true
 ---
 
+<p class="lead mx-3 my-4">Use each navigation independently and compare vertical and horizontal layouts.</p>
+<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+
 {# Define the contents for the sections #}
-{% set section_content_introduccion %}
+{% set section_content_introduction %}
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="https://www.example.com/" target="_blank">Quisquam, quos.</a></p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 {% endset %}
@@ -117,3 +120,8 @@ show_source: true
         }
     ]"
 />
+
+
+<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<h3 class="h5 mt-4">A second vertical navigation with a different width</h3>
+<twig:block-scrollspy class="my-4" :cols="5" height="240px" :sections="[{id: 'independent-overview', title: 'Overview and configuration', content: '<p>The third navigation has its own sections and scroll position.</p><p>Read the guide and review the settings.</p>'}, {id: 'independent-details', title: 'Detailed instructions', content: '<p>Longer content provides enough height to verify the active section.</p><p>Review every item before continuing.</p><p>Continue with the remaining settings.</p>'}, {id: 'independent-summary', title: 'Summary', content: '<p>The final section is independently reachable.</p>'}]" />
