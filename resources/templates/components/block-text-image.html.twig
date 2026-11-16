@@ -9,10 +9,37 @@
         {# Text Column #}
         <div class="col-md-{{ this.cols }} {% if this.imagePosition == 'left' %}order-md-2{% endif %}">
             <div class="derafu-block-text-image__content">
+                {% if this.eyebrow is not null and this.eyebrow != '' %}
+                    <div class="derafu-block-text-image__eyebrow">{{ this.eyebrow|raw }}</div>
+                {% endif %}
                 <h2 class="derafu-block-text-image__title">{{ this.title|raw }}</h2>
+                {% if this.lead is not null and this.lead != '' %}
+                    <div class="derafu-block-text-image__lead lead">{{ this.lead|raw }}</div>
+                {% endif %}
                 <div class="derafu-block-text-image__text">
                     {{ this.content|raw }}
                 </div>
+                {% if this.items|length > 0 %}
+                    <ul class="derafu-block-text-image__items list-unstyled d-grid">
+                        {% for item in this.items %}
+                            {% set has_link = item.url is defined and item.url is not null and item.url != '' %}
+                            <li class="d-flex align-items-baseline">
+                                {% if has_link %}<a class="d-flex align-items-baseline" href="{{ item.url }}">{% endif %}
+                                {% if item.icon ?? null %}
+                                    <i class="{{ item.icon }}" aria-hidden="true"></i>
+                                {% endif %}
+                                <div>{{ item.text|raw }}</div>
+                                {% if has_link %}</a>{% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if this.badge is not null and this.badge != '' %}
+                    <div class="derafu-block-text-image__badge"><div class="badge">{{ this.badge|raw }}</div></div>
+                {% endif %}
+                {% if this.note is not null and this.note != '' %}
+                    <div class="derafu-block-text-image__note small">{{ this.note|raw }}</div>
+                {% endif %}
                 {% if this.buttons|length > 0 %}
                     <div class="derafu-block-text-image__buttons">
                         {% for button in this.buttons %}

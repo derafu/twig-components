@@ -18,8 +18,8 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 /**
  * Title Component for displaying customizable headings.
  *
- * This component creates headings with optional subtitle and styling options
- * like alignment and bottom border.
+ * This component creates headings with an optional introduction, subtitle,
+ * heading identifier, alignment and bottom border.
  */
 #[AsTwigComponent('block-title')]
 class TitleComponent extends AbstractComponent
@@ -46,7 +46,7 @@ class TitleComponent extends AbstractComponent
     private int $level = 2;
 
     /**
-     * Text alignment (left, center, right).
+     * Text alignment (start, center, end), also accepting left and right.
      *
      * @var string
      */
@@ -58,6 +58,41 @@ class TitleComponent extends AbstractComponent
      * @var bool
      */
     private bool $border = false;
+
+    /**
+     * Optional plain-text introduction above the heading.
+     */
+    private ?string $eyebrow = null;
+
+    /**
+     * Optional identifier for the heading element, independent of the root id.
+     * Null or an empty string leaves the heading without an identifier.
+     */
+    private ?string $headingId = null;
+
+    public function getEyebrow(): ?string
+    {
+        return $this->eyebrow;
+    }
+
+    public function setEyebrow(?string $eyebrow): static
+    {
+        $this->eyebrow = $eyebrow;
+
+        return $this;
+    }
+
+    public function getHeadingId(): ?string
+    {
+        return $this->headingId;
+    }
+
+    public function setHeadingId(?string $headingId): static
+    {
+        $this->headingId = $headingId;
+
+        return $this;
+    }
 
     /**
      * Gets the title text.

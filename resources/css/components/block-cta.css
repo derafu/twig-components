@@ -1,13 +1,12 @@
 /* ======================================
-   Base Variables
-   ====================================== */
-   :root {
+Base Variables
+====================================== */
+:root {
     /* Breakpoints */
     --cta-small-breakpoint: 375px;
     --cta-mobile-breakpoint: 576px;
     --cta-tablet-breakpoint: 768px;
     --cta-large-breakpoint: 992px;
-
     /* Spacing */
     --cta-padding-x: 0;
     --cta-padding-y: 2rem;
@@ -16,11 +15,9 @@
     --cta-small-padding-y: 1.25rem;
     --cta-action-margin-top-mobile: 1rem;
     --cta-action-margin-top-small: 1rem;
-
     /* Colors */
     --cta-bg: var(--bs-secondary, #6c757d);
     --cta-bg-text: var(--bs-white, #fff);
-
     /* Title Typography */
     --cta-title-margin-bottom: 1rem;
     --cta-title-font-weight: bold;
@@ -29,7 +26,6 @@
     --cta-title-mobile-font-size: 1.25rem;
     --cta-title-small-font-size: 1.125rem;
     --cta-title-line-height: 1.3;
-
     /* Content Typography */
     --cta-content-margin-bottom: 0;
     --cta-content-font-size: 1rem;
@@ -37,10 +33,8 @@
     --cta-content-small-font-size: 0.875rem;
     --cta-content-line-height: 1.6;
     --cta-content-mobile-line-height: 1.5;
-
     /* Action Alignment */
     --cta-action-text-align: right;
-
     /* Button Styles */
     --cta-button: var(--bs-primary, #0d6efd);
     --cta-button-text: var(--bs-white, #fff);
@@ -56,7 +50,6 @@
     --cta-button-transition: 0.2s;
     --cta-button-font-size: 1rem;
     --cta-button-mobile-font-size: 0.9375rem;
-
     /* Links in Content */
     --cta-link-color: var(--bs-warning, #ffc107);
     --cta-link-hover-color: var(--bs-light, #f8f9fa);
@@ -64,8 +57,8 @@
 }
 
 /* ======================================
-   CTA Container
-   ====================================== */
+CTA Container
+====================================== */
 .derafu-block-cta {
     background-color: var(--cta-bg);
     color: var(--cta-bg-text);
@@ -98,13 +91,13 @@
 }
 
 /* ======================================
-   Content Area
-   ====================================== */
+Content Area
+====================================== */
 .derafu-block-cta__content {
     flex: 1 0 0%;
     padding: 0 0.5rem;
-    min-width: 0; /* Prevent text overflow */
-    word-wrap: break-word;
+    min-width: 0;
+    /* Prevent text overflow */
     overflow-wrap: break-word;
 }
 
@@ -138,8 +131,8 @@
 }
 
 /* ======================================
-   Action Area
-   ====================================== */
+Action Area
+====================================== */
 .derafu-block-cta__action {
     text-align: var(--cta-action-text-align);
     padding: 0 0.5rem;
@@ -181,9 +174,8 @@
 }
 
 /* ======================================
-   Responsive Styles
-   ====================================== */
-
+Responsive Styles
+====================================== */
 /* Tablets (≤ 768px) */
 @media (max-width: 768px) {
     .derafu-block-cta {
@@ -209,11 +201,9 @@
         text-align: center;
         margin-top: var(--cta-action-margin-top-mobile);
         flex: 0 0 100%;
-        max-width: 100%;
     }
 
     .derafu-block-cta__button {
-        display: inline-block;
         width: auto;
         min-width: min(200px, 100%);
     }
@@ -241,7 +231,8 @@
     }
 
     .derafu-block-cta__button {
-        width: 100%; /* Full-width button on mobile */
+        width: 100%;
+        /* Full-width button on mobile */
         padding: var(--cta-button-mobile-padding-y) var(--cta-button-mobile-padding-x);
         font-size: var(--cta-button-mobile-font-size);
     }
@@ -274,7 +265,6 @@
 
     .derafu-block-cta__button {
         padding: var(--cta-button-small-padding-y) var(--cta-button-small-padding-x);
-        font-size: var(--cta-button-mobile-font-size);
     }
 }
 
@@ -282,14 +272,12 @@
 @media (max-width: 768px) and (orientation: landscape) {
     .derafu-block-cta__row {
         flex-direction: row;
-        align-items: center;
     }
 
     .derafu-block-cta__content {
         flex: 1 0 60%;
         max-width: 60%;
         text-align: left;
-        margin-bottom: 0;
     }
 
     .derafu-block-cta__action {

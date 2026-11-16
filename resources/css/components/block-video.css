@@ -8,7 +8,6 @@
     --video-button-gap: 1rem;
     --video-small-padding: 2rem;
     --video-small-max-width: 600px;
-
     /* Video - Colors */
     --video-title: var(--bs-dark, #343a40);
     --video-button-bg: var(--bs-primary, #0d6efd);
@@ -19,31 +18,24 @@
     --video-button-padding-y: 0.75rem;
     --video-button-padding-x: 1.5rem;
     --video-button-font-weight: 500;
-
     /* Video - Typography */
     --video-title-font-size: 2.5rem;
     --video-small-title-font-size: 2rem;
-
     /* Video - Aspect Ratio */
     --video-aspect-ratio: 16/9;
-
     /* Video - Responsive Variables */
     --video-padding-tablet: 3rem;
     --video-padding-mobile: 2rem;
     --video-padding-small-mobile: 1.5rem;
-
     --video-spacing-tablet: 1.5rem;
     --video-spacing-mobile: 1.25rem;
     --video-spacing-small-mobile: 1rem;
-
     --video-title-font-size-tablet: 2rem;
     --video-title-font-size-mobile: 1.75rem;
     --video-title-font-size-small-mobile: 1.5rem;
-
     --video-small-title-font-size-tablet: 1.75rem;
     --video-small-title-font-size-mobile: 1.5rem;
     --video-small-title-font-size-small-mobile: 1.25rem;
-
     --video-button-padding-y-mobile: 0.625rem;
     --video-button-padding-x-mobile: 1.25rem;
     --video-button-font-size-mobile: 0.9rem;
@@ -62,7 +54,6 @@
     margin-bottom: var(--video-spacing);
     font-size: var(--video-title-font-size);
     line-height: 1.2;
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
@@ -89,7 +80,6 @@
     max-width: var(--video-content-max-width);
     margin: 0 auto var(--video-spacing);
     line-height: 1.5;
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 

@@ -1,12 +1,16 @@
 {# templates/components/block-title.html.twig #}
+{% set text_align = {left: 'start', right: 'end'}[this.align] ?? this.align %}
 
 <div
     class="derafu-block-title {{ attributes.render('class') }}"
     {{ attributes }}
     id="{{ this.id }}"
 >
-    <div class="derafu-block-title__wrapper text-{{ this.align }}{% if this.border %} derafu-block-title__wrapper--bordered{% endif %}">
-        <h{{ this.level }} class="derafu-block-title__title">
+    <div class="derafu-block-title__wrapper text-{{ text_align }}{% if this.border %} derafu-block-title__wrapper--bordered{% endif %}">
+        {% if this.eyebrow is not null and this.eyebrow != '' %}
+            <p class="derafu-block-title__eyebrow">{{ this.eyebrow }}</p>
+        {% endif %}
+        <h{{ this.level }} class="derafu-block-title__title"{% if this.headingId is not null and this.headingId != '' %} id="{{ this.headingId }}"{% endif %}>
             {{ this.title|raw }}
         </h{{ this.level }}>
         {% if this.subtitle %}

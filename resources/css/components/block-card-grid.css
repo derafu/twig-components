@@ -1,21 +1,8 @@
 /* ======================================
-   Base Variables
-   ====================================== */
-   :root {
+Base Variables
+====================================== */
+:root {
     --card-mobile-hover-transform: translateY(-3px);
-
-    /* Breakpoints */
-
-    /* Base Spacing */
-
-    /* Base Typography */
-
-    /* Base Borders & Effects */
-
-    /* ======================================
-       Card Component Variables
-       ====================================== */
-
     /* Card Structure */
     --card-border-radius: var(--border-radius-md, 0.5rem);
     --card-mobile-border-radius: 0.5rem;
@@ -23,33 +10,27 @@
     --card-border-width: var(--border-width, 1px);
     --card-box-shadow: transparent;
     --card-transition-duration: 0.3s;
-
     /* Card Hover Effects */
     --card-hover-transform: translateY(-5px);
     --card-hover-mobile-transform: translateY(-3px);
-
     /* Card Colors */
     --card-bg: var(--bs-card-bg, #fff);
     --card-border: var(--bs-border-color, #dee2e6);
     --card-shadow: var(--bs-border-color-translucent, rgba(0,0,0,0.175));
     --card-title: var(--bs-body-color, #212529);
     --card-text: var(--bs-body-color, #212529);
-
     /* Card Image */
     --card-image-aspect-ratio: 16/9;
-
     /* Card Icon */
     --card-icon-padding: 2rem;
     --card-icon-size: 2.5rem;
     --card-icon-color: var(--bs-primary, #0d6efd);
     --card-icon-bg: var(--bs-light, #f8f9fa);
-
     /* Card Content Spacing */
     --card-content-padding: var(--spacing-md, 1rem);
     --card-tablet-content-padding: 1.25rem;
     --card-mobile-content-padding: 1rem;
     --card-small-content-padding: 0.75rem;
-
     /* Card Title */
     --card-title-font-size: var(--font-size-lg, 1.25rem);
     --card-title-font-weight: var(--font-weight-bold, 700);
@@ -60,7 +41,6 @@
     --card-tablet-title-margin-bottom: 0.875rem;
     --card-mobile-title-margin-bottom: 0.75rem;
     --card-small-title-margin-bottom: 0.5rem;
-
     /* Card Content */
     --card-content-font-size: var(--font-size-sm, 0.875rem);
     --card-content-line-height: 1.6;
@@ -68,14 +48,12 @@
     --card-mobile-content-font-size: 0.875rem;
     --card-tablet-content-line-height: 1.5;
     --card-mobile-content-line-height: 1.4;
-
     /* Card Footer */
     --card-footer-padding: var(--spacing-md, 1rem);
     --card-footer-padding-top: 0;
     --card-tablet-footer-padding: 1.25rem;
     --card-mobile-footer-padding: 1rem;
     --card-small-footer-padding: 0.75rem;
-
     /* Card Button */
     --card-button-padding-y: var(--spacing-sm, 1rem);
     --card-button-padding-x: var(--spacing-md, 1rem);
@@ -84,7 +62,6 @@
     --card-button-text: var(--bs-btn-color, #fff);
     --card-button-hover: var(--bs-btn-primary-hover-bg, #0b5ed7);
     --card-button-transition-duration: 0.3s;
-
     /* Button Responsive */
     --card-tablet-button-padding-y: 0.875rem;
     --card-tablet-button-padding-x: 1.25rem;
@@ -95,8 +72,8 @@
 }
 
 /* ======================================
-   Card Grid Container
-   ====================================== */
+Card Grid Container
+====================================== */
 .derafu-block-card-grid {
     margin: var(--spacing-y, 2rem) auto;
     width: 100%;
@@ -117,8 +94,8 @@
 }
 
 /* ======================================
-   Card Component
-   ====================================== */
+Card Component
+====================================== */
 .derafu-block-card-grid__card {
     height: 100%;
     display: flex;
@@ -131,7 +108,6 @@
     transition: all var(--card-transition-duration) ease;
     position: relative;
     width: 100%;
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
@@ -152,8 +128,8 @@
 }
 
 /* ======================================
-   Card Image
-   ====================================== */
+Card Image
+====================================== */
 .derafu-block-card-grid__image {
     width: 100%;
     aspect-ratio: var(--card-image-aspect-ratio);
@@ -180,8 +156,8 @@
 }
 
 /* ======================================
-   Card Icon
-   ====================================== */
+Card Icon
+====================================== */
 .derafu-block-card-grid__icon {
     display: flex;
     align-items: center;
@@ -197,8 +173,8 @@
 }
 
 /* ======================================
-   Card Body & Content
-   ====================================== */
+Card Body & Content
+====================================== */
 .derafu-block-card-grid__body {
     padding: var(--card-content-padding);
     flex: 1;
@@ -229,10 +205,9 @@
     flex: 1;
 }
 
-
 /* ======================================
-   Card Footer & Button
-   ====================================== */
+Card Footer & Button
+====================================== */
 .derafu-block-card-grid__footer {
     padding: 0 var(--card-footer-padding) var(--card-footer-padding);
     padding-top: var(--card-footer-padding-top);
@@ -267,8 +242,8 @@
 }
 
 /* ======================================
-   Special Cases
-   ====================================== */
+Special Cases
+====================================== */
 /* Media content support */
 .derafu-block-card-grid video,
 .derafu-block-card-grid iframe {
@@ -284,8 +259,8 @@
 }
 
 /* ======================================
-   Responsive Styles
-   ====================================== */
+Responsive Styles
+====================================== */
 /* Large Screens (≥ 1200px) */
 @media (min-width: 1200px) {
     .derafu-block-card-grid__col {
@@ -451,56 +426,66 @@
 
 /* CSS-grid hooks for custom card layouts. */
 .derafu-block-card-grid__container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
 }
+
 .derafu-block-card-grid--cols-1 .derafu-block-card-grid__container {
-  grid-template-columns: 1fr;
-  margin: 0 auto;
-}
-.derafu-block-card-grid--cols-2 .derafu-block-card-grid__container {
-  grid-template-columns: repeat(2, 1fr);
-}
-.derafu-block-card-grid--cols-3 .derafu-block-card-grid__container {
-  grid-template-columns: repeat(3, 1fr);
-}
-.derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
-  grid-template-columns: repeat(4, 1fr);
-}
-@media (max-width: 1199px) {
-.derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (max-width: 991px) {
-.derafu-block-card-grid__container {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.25rem;
-  }
-.derafu-block-card-grid--cols-3 .derafu-block-card-grid__container,
-  .derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 767px) {
-.derafu-block-card-grid__container {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-}
-@media (max-width: 575px) {
-.derafu-block-card-grid__container {
     grid-template-columns: 1fr;
-    max-width: 450px;
     margin: 0 auto;
-  }
-.derafu-block-card-grid--cols-2 .derafu-block-card-grid__container,
-  .derafu-block-card-grid--cols-3 .derafu-block-card-grid__container,
-  .derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
-    grid-template-columns: 1fr;
-  }
+}
+
+.derafu-block-card-grid--cols-2 .derafu-block-card-grid__container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.derafu-block-card-grid--cols-3 .derafu-block-card-grid__container {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1199px) {
+    .derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .derafu-block-card-grid__container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .derafu-block-card-grid--cols-3 .derafu-block-card-grid__container,
+    .derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .derafu-block-card-grid__container {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .derafu-block-card-grid__container {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .derafu-block-card-grid--cols-2 .derafu-block-card-grid__container,
+    .derafu-block-card-grid--cols-3 .derafu-block-card-grid__container,
+    .derafu-block-card-grid--cols-4 .derafu-block-card-grid__container {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

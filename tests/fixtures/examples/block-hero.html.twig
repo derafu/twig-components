@@ -7,50 +7,119 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare sizes, alignment, images, solid colors and content backgrounds on every screen width.</p>
+<h2 class="h4 mx-3 mt-4">Complete composition with default styles</h2>
+<p class="mx-3">The introduction, navigation, title, actions and supporting messages use the component defaults. Resize the page to check wrapping and left alignment.</p>
+<twig:block-hero
+    id="hero-complete"
+    class="my-4"
+    align="left"
+    size="small"
+    eyebrow="More possibilities for your business"
+    :navigation="[
+        {text: 'Overview', icon: 'fa-solid fa-compass', url: '#hero-eyebrow'},
+        {text: 'Features', icon: 'fa-solid fa-bolt', url: '#hero-navigation'},
+        {text: 'Integrations', icon: 'fa-solid fa-puzzle-piece', url: '#hero-image-gradient'},
+        {text: 'Plans', url: '#hero-optional'}
+    ]"
+    title="Connect your ideas and grow together"
+    subtitle="Bring your team, tools and information together in one workspace. Turn ideas into action, discover useful insights and connect the services your business depends on."
+    :buttons="[
+        {text: 'Get started', url: '#hero-optional'},
+        {text: 'Explore features', url: '#hero-eyebrow', type: 'secondary'}
+    ]"
+    :highlights="[
+        {text: 'One connected workspace', icon: 'fa-solid fa-layer-group', url: '#hero-navigation'},
+        {text: 'Actionable insights', icon: 'fa-solid fa-chart-line', url: '#hero-eyebrow'},
+        {text: 'Integrations that grow with you', icon: 'fa-solid fa-puzzle-piece'}
+    ]"
+/>
+
+<h2 class="h4 mx-3 mt-5" id="hero-optional">Independent optional regions</h2>
+<p class="mx-3">Both lists require text and accept an optional icon and URL. Compare plain text, icons, links and icons with links. Empty regions do not reserve space.</p>
+<twig:block-hero
+    id="hero-eyebrow"
+    class="my-4"
+    size="mini"
+    align="center"
+    eyebrow="An introduction without navigation"
+    title="Your next project starts here"
+    subtitle="The introduction follows the requested content alignment."
+/>
+<twig:block-hero
+    id="hero-navigation"
+    class="my-4"
+    size="mini"
+    align="left"
+    title="Navigation without an introduction"
+    :navigation="[
+        {text: 'Read the complete configuration and integration documentation', url: '#hero-complete'},
+        {text: 'Documentation', icon: 'fa-solid fa-book-open'},
+        {text: 'Availability'},
+        {text: 'Examples', icon: 'fa-solid fa-code', url: '#hero-optional'}
+    ]"
+    :highlights="[
+        {text: 'A supporting message without an icon'},
+        {text: 'A longer message that wraps naturally on narrow screens', icon: 'fa-solid fa-check'},
+        {text: 'Read the integration guide', icon: '', url: '#hero-image-gradient'},
+        {text: 'Explore all features', icon: 'fa-solid fa-arrow-right', url: '#hero-complete'}
+    ]"
+/>
+
+<h2 class="h4 mx-3 mt-5">A gradient over an image supplied through background</h2>
+<twig:block-hero
+    id="hero-image-gradient"
+    class="my-4"
+    background="assets/derafu-dev-programmer.png"
+    style="--hero-background-image: linear-gradient(90deg, #102940f2, #10294044); --hero-image-overlay: transparent;"
+    title="An image and a configurable gradient"
+    subtitle="The CSS gradient is painted above the image. Both layers stay visible on mobile."
+    :highlights="[{text: 'A single background for every region', icon: 'fa-solid fa-layer-group'}]"
+/>
+
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare sizes, alignment, images, solid colors and content backgrounds on every screen width.</p>
 
 <twig:block-hero
-   class="my-4"
-   align="left"
-   background="assets/derafu-dev-programmer.png"
-   title="Lorem <a href='https://www.example.com/' target='_blank'>ipsum</a>"
-   subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-   :buttons="[
-       {
-           text: 'Example.com',
-           url: 'https://www.example.com'
-       }
-   ]"
+    class="my-4"
+    align="left"
+    background="assets/derafu-dev-programmer.png"
+    title="Lorem <a href='https://www.example.com/' target='_blank'>ipsum</a>"
+    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    :buttons="[
+        {
+            text: 'Example.com',
+            url: 'https://www.example.com'
+        }
+    ]"
 />
 
 <twig:block-hero
-   class="my-4"
-   align="left"
-   background="assets/derafu-dev-programmer.png"
-   contentBackground="true"
-   title="Lorem ipsum"
-   subtitle="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a>"
-   :buttons="[
-       {
-           text: 'Example.com',
-           url: 'https://www.example.com'
-       }
-   ]"
+    class="my-4"
+    align="left"
+    background="assets/derafu-dev-programmer.png"
+    contentBackground="true"
+    title="Lorem ipsum"
+    subtitle="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a>"
+    :buttons="[
+        {
+            text: 'Example.com',
+            url: 'https://www.example.com'
+        }
+    ]"
 />
 
 <twig:block-hero
-   class="my-4"
-   align="right"
-   background="assets/derafu-dev-programmer.png"
-   title="Lorem ipsum"
-   subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-   :buttons="[
-       {
-           text: 'Example.com',
-           url: 'https://www.example.com'
-       }
-   ]"
+    class="my-4"
+    align="right"
+    background="assets/derafu-dev-programmer.png"
+    title="Lorem ipsum"
+    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    :buttons="[
+        {
+            text: 'Example.com',
+            url: 'https://www.example.com'
+        }
+    ]"
 />
 
 <twig:block-hero
@@ -71,29 +140,68 @@ show_source: true
 
 {% set sizes = ['mini', 'small', 'medium', 'large', 'full'] %}
 {% for size in sizes %}
-   <twig:block-hero
-       class="my-4"
-       align="right"
-       size="{{ size }}"
-       background="assets/derafu-dev-programmer.png"
-       title="Size: {{ size }}"
-       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-       :buttons="[
-           {
-               text: 'Example.com',
-               url: 'https://www.example.com'
-           }
-       ]"
-   />
+    <twig:block-hero
+        class="my-4"
+        align="right"
+        size="{{ size }}"
+        background="assets/derafu-dev-programmer.png"
+        title="Size: {{ size }}"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        :buttons="[
+            {
+                text: 'Example.com',
+                url: 'https://www.example.com'
+            }
+        ]"
+    />
 {% endfor %}
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
 {% for align in ['left', 'center', 'right'] %}
-<h3 class="h5 mt-4">Solid color, {{ align }} alignment</h3>
-<twig:block-hero class="my-4" size="mini" align="{{ align }}" background="#17365d" title="A longer introduction to the <a href='#'>service</a>" subtitle="A solid background and the requested alignment remain visible on small screens." :buttons="[{text: 'Review the configuration options for my company', url: '#'}, {text: 'Contact us', url: '#', type: 'secondary'}]" />
+    <h3 class="h5 mt-4">Solid color, {{ align }} alignment</h3>
+    <twig:block-hero
+        class="my-4"
+        size="mini"
+        align="{{ align }}"
+        background="#17365d"
+        title="A longer introduction to the <a href='#'>service</a>"
+        subtitle="A solid background and the requested alignment remain visible on small screens."
+        :buttons="[
+            {
+                text: 'Review the configuration options for my company',
+                url: '#'
+            },
+            {
+                text: 'Contact us',
+                url: '#',
+                type: 'secondary'
+            }
+        ]"
+    />
 {% endfor %}
-<twig:block-hero class="my-4" background="rgb(23, 54, 93)" contentBackground="rgba(0, 0, 0, 0.5)" title="A CSS color and a custom content background" subtitle="Both backgrounds use the supplied colors." />
-<twig:block-hero class="my-4" background="rebeccapurple" title="A named CSS color" subtitle="Named colors use the browser color support." />
 
-<twig:block-hero class="my-4" size="full" :fullWidth="true" style="--hero-height-full: 65vh;" background="var(--bs-primary)" title="Full width with a custom minimum height" subtitle="The full size honors its CSS height variable on both desktop and mobile." />
+<twig:block-hero
+    class="my-4"
+    background="rgb(23, 54, 93)"
+    contentBackground="rgba(0, 0, 0, 0.5)"
+    title="A CSS color and a custom content background"
+    subtitle="Both backgrounds use the supplied colors."
+/>
+
+<twig:block-hero
+    class="my-4"
+    background="rebeccapurple"
+    title="A named CSS color"
+    subtitle="Named colors use the browser color support."
+/>
+
+<twig:block-hero
+    class="my-4"
+    size="full"
+    :fullWidth="true"
+    style="--hero-height-full: 65vh;"
+    background="var(--bs-primary)"
+    title="Full width with a custom minimum height"
+    subtitle="The full size honors its CSS height variable on both desktop and mobile."
+/>

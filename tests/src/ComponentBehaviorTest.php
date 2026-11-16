@@ -15,6 +15,7 @@ namespace Derafu\TestsTwigComponents;
 use DateTimeImmutable;
 use Derafu\TestsTwigComponents\Fixture\RendersComponents;
 use PHPUnit\Framework\Attributes\CoversNamespace;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 
 /**
@@ -23,6 +24,264 @@ use PHPUnit\Framework\Attributes\Test;
 #[CoversNamespace('Derafu\TwigComponents')]
 final class ComponentBehaviorTest extends RendersComponents
 {
+    /**
+     * @return array<string, array{string, string}>
+     */
+    public static function provideTextMediaComponents(): array
+    {
+        return [
+            'image' => ['block-text-image', 'image="/image.png"'],
+            'video' => ['block-text-video', 'video="https://youtu.be/dQw4w9WgXcQ"'],
+        ];
+    }
+
+    #[Test]
+    #[DataProvider('provideTextMediaComponents')]
+    public function textMediaOmitTheNewRegionsByDefault(string $component, string $media): void
+    {
+        $html = $this->render('<twig:' . $component . ' title="A <em>heading</em>" content="<p>Body content</p>" ' . $media . ' />');
+
+        foreach (['eyebrow', 'lead', 'items', 'badge', 'note'] as $region) {
+            $this->assertStringNotContainsString('derafu-' . $component . '__' . $region, $html);
+        }
+        $this->assertStringContainsString('A <em>heading</em>', $html);
+        $this->assertStringContainsString('<p>Body content</p>', $html);
+    }
+
+    #[Test]
+    #[DataProvider('provideTextMediaComponents')]
+    public function textMediaRenderMarkupInTheTextRegions(string $component, string $media): void
+    {
+        $html = $this->render(
+            '<twig:' . $component . ' title="Heading" content="<p>Body content</p>" :eyebrow="eyebrow" :lead="lead" :badge="badge" :note="note" :items="items" :buttons="buttons" ' . $media . ' />',
+            [
+                'eyebrow' => '<em>Overview</em>',
+                'lead' => '<p>Explore <strong>shared ideas</strong>.</p>',
+                'badge' => '<strong>Available</strong>',
+                'note' => '<p>Read the <a href="/guide">guide</a>.</p><p>Review the details.</p>',
+                'items' => [['text' => '<strong>A list item</strong>']],
+                'buttons' => [['text' => 'Continue', 'url' => '#continue']],
+            ]
+        );
+
+        foreach (['<em>Overview</em>', '<strong>shared ideas</strong>', '<strong>Available</strong>', '<strong>A list item</strong>'] as $markup) {
+            $this->assertStringContainsString($markup, $html);
+        }
+        $this->assertMatchesRegularExpression('/__eyebrow.*__title.*__lead.*__text.*__items.*__badge.*__note.*__buttons/s', $html);
+        $document = new \DOMDocument();
+        $this->assertTrue($document->loadHTML($html, LIBXML_NOERROR | LIBXML_NOWARNING));
+        $xpath = new \DOMXPath($document);
+        foreach (['lead' => 1, 'note' => 2] as $region => $paragraphs) {
+            $nodes = $xpath->query('//*[contains(@class, "derafu-' . $component . '__' . $region . '")]');
+            $this->assertNotFalse($nodes);
+            $node = $nodes->item(0);
+            $this->assertInstanceOf(\DOMElement::class, $node);
+            $this->assertSame('div', $node->tagName);
+            $this->assertSame($paragraphs, $node->getElementsByTagName('p')->length);
+        }
+    }
+
+    #[Test]
+    #[DataProvider('provideTextMediaComponents')]
+    public function textMediaItemsAcceptOptionalIconsAndOuterOrInternalLinks(string $component, string $media): void
+    {
+        $html = $this->render(
+            '<twig:' . $component . ' title="Heading" content="Body" :items="items" ' . $media . ' />',
+            ['items' => [
+                ['text' => 'Plain text'],
+                ['text' => 'Icon only', 'icon' => 'fa-solid fa-check'],
+                ['text' => 'Link only', 'url' => '#guide?a=1&b=2'],
+                ['text' => '<strong>Icon and link</strong>', 'icon' => 'fa-solid fa-star', 'url' => '#features'],
+                ['text' => 'Empty options', 'icon' => '', 'url' => ''],
+                ['text' => 'Null options', 'icon' => null, 'url' => null],
+                ['text' => 'Zero path', 'url' => '0'],
+                ['text' => '<p>Read the <a href="/internal">guide</a>.</p>'],
+            ]]
+        );
+
+        $this->assertStringContainsString('href="#guide?a=1&amp;b=2"', $html);
+        $this->assertStringContainsString('aria-hidden="true"', $html);
+        $this->assertStringNotContainsString('href=""', $html);
+        $document = new \DOMDocument();
+        $this->assertTrue($document->loadHTML($html, LIBXML_NOERROR | LIBXML_NOWARNING));
+        $this->assertSame(8, $document->getElementsByTagName('li')->length);
+        $this->assertSame(2, $document->getElementsByTagName('i')->length);
+        $links = $document->getElementsByTagName('a');
+        $this->assertSame(4, $links->length);
+        foreach (['#guide?a=1&b=2', '#features', '0', '/internal'] as $index => $url) {
+            $link = $links->item($index);
+            $this->assertInstanceOf(\DOMElement::class, $link);
+            $this->assertSame($url, $link->getAttribute('href'));
+            $this->assertSame($index === 1 ? 1 : 0, $link->getElementsByTagName('i')->length);
+        }
+    }
+
+    #[Test]
+    #[DataProvider('provideTextMediaComponents')]
+    public function textMediaOmitEmptyTextRegionsAndKeepZeroText(string $component, string $media): void
+    {
+        $template = '<twig:' . $component . ' title="Heading" content="Body" :eyebrow="value" :lead="value" :badge="value" :note="value" ' . $media . ' />';
+        foreach ([null, ''] as $value) {
+            $html = $this->render($template, ['value' => $value]);
+            foreach (['eyebrow', 'lead', 'items', 'badge', 'note'] as $region) {
+                $this->assertStringNotContainsString('derafu-' . $component . '__' . $region, $html);
+            }
+        }
+        $html = $this->render($template, ['value' => '0']);
+        $this->assertStringContainsString('__eyebrow">0</div>', $html);
+        $this->assertStringContainsString('__lead lead">0</div>', $html);
+        $this->assertStringContainsString('class="badge">0</div>', $html);
+        $this->assertStringContainsString('__note small">0</div>', $html);
+    }
+
+    #[Test]
+    public function aTitleKeepsItsOptionalIntroductionAndHeadingIdAbsentByDefault(): void
+    {
+        $html = $this->render('<twig:block-title id="title-root" title="A heading" />');
+
+        $this->assertStringNotContainsString('derafu-block-title__eyebrow', $html);
+        $this->assertStringNotContainsString('derafu-block-title__subtitle', $html);
+        $this->assertStringContainsString('id="title-root"', $html);
+        $this->assertMatchesRegularExpression('/<h2 class="derafu-block-title__title">\s*A heading\s*<\/h2>/', $html);
+    }
+
+    #[Test]
+    public function aTitleHasAnEscapedIntroductionAndAnIndependentHeadingId(): void
+    {
+        $html = $this->render(
+            '<twig:block-title id="title-root" headingId="heading-reference" role="region" aria-labelledby="heading-reference" :level="3" :eyebrow="eyebrow" title="A heading with <em>emphasis</em>" />',
+            ['eyebrow' => '<strong>Research & development</strong>']
+        );
+
+        $this->assertStringContainsString('&lt;strong&gt;Research &amp; development&lt;/strong&gt;', $html);
+        $this->assertStringContainsString('<em>emphasis</em>', $html);
+        $document = new \DOMDocument();
+        $this->assertTrue($document->loadHTML($html, LIBXML_NOERROR | LIBXML_NOWARNING));
+        $root = $document->getElementById('title-root');
+        $heading = $document->getElementById('heading-reference');
+        $this->assertInstanceOf(\DOMElement::class, $root);
+        $this->assertInstanceOf(\DOMElement::class, $heading);
+        $this->assertSame('div', $root->tagName);
+        $this->assertSame('h3', $heading->tagName);
+        $this->assertSame($heading->getAttribute('id'), $root->getAttribute('aria-labelledby'));
+    }
+
+    #[Test]
+    public function aTitleOmitsEmptyOptionsAndAcceptsZeroAsTextOrAnIdentifier(): void
+    {
+        foreach ([null, ''] as $value) {
+            $html = $this->render(
+                '<twig:block-title title="A heading" :eyebrow="value" :headingId="value" />',
+                ['value' => $value]
+            );
+            $this->assertStringNotContainsString('derafu-block-title__eyebrow', $html);
+            $this->assertStringContainsString('<h2 class="derafu-block-title__title">', $html);
+        }
+
+        $html = $this->render('<twig:block-title title="A heading" eyebrow="0" headingId="0" />');
+        $this->assertStringContainsString('class="derafu-block-title__eyebrow">0</p>', $html);
+        $this->assertStringContainsString('<h2 class="derafu-block-title__title" id="0">', $html);
+    }
+
+    #[Test]
+    public function aTitleAcceptsBothAlignmentFormats(): void
+    {
+        foreach (['start' => 'start', 'left' => 'start', 'center' => 'center', 'end' => 'end', 'right' => 'end'] as $align => $expected) {
+            $html = $this->render('<twig:block-title title="A heading" :align="align" />', ['align' => $align]);
+
+            $this->assertStringContainsString('class="derafu-block-title__wrapper text-' . $expected . '"', $html);
+        }
+    }
+
+    #[Test]
+    public function aHeroOmitsItsOptionalRegionsByDefault(): void
+    {
+        $html = $this->render('<twig:block-hero title="Welcome" />');
+
+        $this->assertStringNotContainsString('derafu-block-hero__header', $html);
+        $this->assertStringNotContainsString('derafu-block-hero__eyebrow', $html);
+        $this->assertStringNotContainsString('derafu-block-hero__highlights', $html);
+    }
+
+    #[Test]
+    public function aHeroRendersPlainTextRegionsAndDecorativeIcons(): void
+    {
+        $html = $this->render(
+            '<twig:block-hero title="Welcome" :eyebrow="eyebrow" :navigation="navigation" :highlights="highlights" />',
+            [
+                'eyebrow' => 'Business & growth',
+                'navigation' => [['text' => '<em>Documentation</em>', 'url' => '#docs']],
+                'highlights' => [
+                    ['text' => '<strong>Plain text</strong>'],
+                    ['text' => 'With icon', 'icon' => 'fa-solid fa-check'],
+                    ['text' => 'Empty icon', 'icon' => ''],
+                    ['text' => 'Null icon', 'icon' => null],
+                ],
+            ]
+        );
+
+        $this->assertSame(1, substr_count($html, 'Business &amp; growth</p>'));
+        $this->assertMatchesRegularExpression('/href="#docs">\s*<span>&lt;em&gt;Documentation&lt;\/em&gt;<\/span>\s*<\/a>/', $html);
+        $this->assertStringContainsString('&lt;strong&gt;Plain text&lt;/strong&gt;', $html);
+        $this->assertSame(1, substr_count($html, '<i '));
+        $this->assertStringContainsString('class="fa-solid fa-check" aria-hidden="true"', $html);
+    }
+
+    #[Test]
+    public function bothHeroListsAcceptOptionalIconsAndLinks(): void
+    {
+        foreach (['navigation', 'highlights'] as $region) {
+            $html = $this->render(
+                '<twig:block-hero title="Welcome" :' . $region . '="items" />',
+                ['items' => [
+                    ['text' => 'Plain text'],
+                    ['text' => 'Icon only', 'icon' => 'fa-solid fa-check'],
+                    ['text' => 'Link only', 'url' => '#link'],
+                    ['text' => 'Icon and link', 'icon' => 'fa-solid fa-star', 'url' => '#both'],
+                    ['text' => 'Empty options', 'icon' => '', 'url' => ''],
+                    ['text' => 'Null options', 'icon' => null, 'url' => null],
+                    ['text' => 'Zero path', 'url' => '0'],
+                ]]
+            );
+
+            $document = new \DOMDocument();
+            $this->assertTrue($document->loadHTML($html, LIBXML_NOERROR | LIBXML_NOWARNING));
+            $this->assertSame(7, $document->getElementsByTagName('li')->length);
+            $this->assertSame(2, $document->getElementsByTagName('i')->length);
+            $links = $document->getElementsByTagName('a');
+            $this->assertSame(3, $links->length);
+            foreach (['#link', '#both', '0'] as $index => $url) {
+                $link = $links->item($index);
+                $this->assertInstanceOf(\DOMElement::class, $link);
+                $this->assertSame($url, $link->getAttribute('href'));
+                $this->assertSame($index === 1 ? 1 : 0, $link->getElementsByTagName('i')->length);
+            }
+            $this->assertStringNotContainsString('href=""', $html);
+        }
+    }
+
+    #[Test]
+    public function aHeroPlacesAnIntroductionWithoutNavigationAboveItsTitle(): void
+    {
+        $html = $this->render('<twig:block-hero title="Welcome" eyebrow="Introduction" align="center" />');
+
+        $this->assertStringNotContainsString('<nav', $html);
+        $this->assertMatchesRegularExpression('/derafu-block-hero__content--center.*derafu-block-hero__eyebrow.*Introduction.*<h1/s', $html);
+    }
+
+    #[Test]
+    public function aHeroAllowsReplacingItsInternalRegions(): void
+    {
+        $html = $this->render(<<<'TWIG'
+            {% component 'block-hero' with {title: 'Welcome'} %}
+                {% block hero_header %}<p>Custom top content</p>{% endblock %}
+                {% block hero_footer %}<p>Custom bottom content</p>{% endblock %}
+            {% endcomponent %}
+            TWIG);
+
+        $this->assertMatchesRegularExpression('/derafu-block-hero__container.*Custom top content.*<h1.*Welcome.*Custom bottom content/s', $html);
+    }
+
     #[Test]
     public function anOffcanvasHasItsBackdropUnlessItIsTurnedOff(): void
     {

@@ -1,14 +1,7 @@
 /* ======================================
-   Base Variables
-   ====================================== */
-   :root {
-    /* Breakpoints */
-
-    /* Base Spacing */
-
-    /* ======================================
-       Plan Structure Variables
-       ====================================== */
+Base Variables
+====================================== */
+:root {
     /* Plan Container */
     --comparison-plan-bg: var(--bs-white, #fff);
     --comparison-plan-border: var(--bs-border-color, #dee2e6);
@@ -19,10 +12,9 @@
     --comparison-tablet-plan-border-radius: 0.875rem;
     --comparison-mobile-plan-border-radius: 0.75rem;
     --comparison-small-plan-border-radius: 0.5rem;
-
     /* ======================================
-       Title Section Variables
-       ====================================== */
+    Title Section Variables
+    ====================================== */
     --comparison-title-font-size: 1.5rem;
     --comparison-title-font-weight: bold;
     --comparison-title-bg: var(--bs-primary, #0d6efd);
@@ -34,14 +26,12 @@
     --comparison-tablet-title-padding: 1.25rem;
     --comparison-mobile-title-padding: 1rem;
     --comparison-small-title-padding: 0.875rem;
-
     /* Highlighted Title */
     --comparison-highlighted-title-bg: var(--bs-secondary, #6c757d);
     --comparison-highlighted-title-color: var(--bs-white, #fff);
-
     /* ======================================
-       Price Section Variables
-       ====================================== */
+    Price Section Variables
+    ====================================== */
     --comparison-price-font-size: 2.5rem;
     --comparison-price-font-weight: bold;
     --comparison-price: var(--bs-body-color, #212529);
@@ -55,15 +45,13 @@
     --comparison-tablet-price-padding: 1.75rem;
     --comparison-mobile-price-padding: 1.5rem;
     --comparison-small-price-padding: 1.25rem;
-
     /* Period */
     --comparison-period: var(--bs-secondary, #6c757d);
     --comparison-tablet-period-font-size: 0.9375rem;
     --comparison-mobile-period-font-size: 0.875rem;
-
     /* ======================================
-       Features Section Variables
-       ====================================== */
+    Features Section Variables
+    ====================================== */
     --comparison-text: var(--bs-body-color, #212529);
     --comparison-features-padding: 2rem;
     --comparison-feature-gap: 1rem;
@@ -75,22 +63,19 @@
     --comparison-mobile-feature-padding-y: 0.5rem;
     --comparison-tablet-feature-gap: 0.875rem;
     --comparison-mobile-feature-gap: 0.75rem;
-
     /* ======================================
-       Footer Section Variables
-       ====================================== */
+    Footer Section Variables
+    ====================================== */
     --comparison-footer-padding: 2rem;
     --comparison-tablet-footer-padding: 1.75rem;
     --comparison-mobile-footer-padding: 1.5rem;
     --comparison-small-footer-padding: 1.25rem;
-
     /* Note */
     --comparison-note: var(--bs-dark, #212529);
     --comparison-note-font-size: 0.9rem;
     --comparison-note-margin-bottom: 1.5rem;
     --comparison-mobile-note-font-size: 0.8125rem;
     --comparison-mobile-note-margin-bottom: 1.25rem;
-
     /* Button */
     --comparison-button-bg: var(--bs-primary, #0d6efd);
     --comparison-button-text: var(--bs-white, #fff);
@@ -107,8 +92,8 @@
 }
 
 /* ======================================
-   Component Base
-   ====================================== */
+Component Base
+====================================== */
 .derafu-block-comparison {
     margin: var(--spacing-lg, 2rem) auto;
     width: 100%;
@@ -131,8 +116,8 @@
 }
 
 /* ======================================
-   Plan Card
-   ====================================== */
+Plan Card
+====================================== */
 .derafu-block-comparison__plan {
     height: 100%;
     display: flex;
@@ -152,8 +137,8 @@
 }
 
 /* ======================================
-   Title Section
-   ====================================== */
+Title Section
+====================================== */
 .derafu-block-comparison__title-section {
     padding: var(--comparison-title-padding);
     background-color: var(--comparison-title-bg);
@@ -178,8 +163,8 @@
 }
 
 /* ======================================
-   Price Section
-   ====================================== */
+Price Section
+====================================== */
 .derafu-block-comparison__price-section {
     padding: var(--comparison-price-padding);
     text-align: center;
@@ -210,8 +195,8 @@
 }
 
 /* ======================================
-   Features Section
-   ====================================== */
+Features Section
+====================================== */
 .derafu-block-comparison__features {
     flex: 1;
     padding: var(--comparison-features-padding);
@@ -249,8 +234,8 @@
 }
 
 /* ======================================
-   Footer Section
-   ====================================== */
+Footer Section
+====================================== */
 .derafu-block-comparison__footer {
     padding: var(--comparison-footer-padding);
 }
@@ -292,8 +277,8 @@
 }
 
 /* ======================================
-   Popular Plan Ribbon
-   ====================================== */
+Popular Plan Ribbon
+====================================== */
 .derafu-block-comparison__plan--popular {
     position: relative;
 }
@@ -314,13 +299,12 @@
 }
 
 /* ======================================
-   Content Overflow Prevention
-   ====================================== */
+Content Overflow Prevention
+====================================== */
 .derafu-block-comparison__title,
 .derafu-block-comparison__period,
 .derafu-block-comparison__feature,
 .derafu-block-comparison__note {
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
@@ -333,8 +317,8 @@
 }
 
 /* ======================================
-   Responsive Styles
-   ====================================== */
+Responsive Styles
+====================================== */
 /* Large Screens (≥ 992px) */
 @media (min-width: 992px) {
     .derafu-block-comparison__col {

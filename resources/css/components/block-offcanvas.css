@@ -1,29 +1,24 @@
 /*
- * Offcanvas - Base Variables
- */
- :root {
+* Offcanvas - Base Variables
+*/
+:root {
     /* Buttons */
     --offcanvas-button-gap: var(--spacing-xs, 0.5rem);
-
     /* Dimensions */
     --offcanvas-width: 400px;
     --offcanvas-height: 30vh;
-
     /* Height for top/bottom offcanvas on different devices */
     --offcanvas-height-tablet: 40vh;
     --offcanvas-height-mobile: 50vh;
     --offcanvas-height-small: 70vh;
-
     /* Responsive */
     --offcanvas-mobile-width: 100vw;
     --offcanvas-tablet-width: 80vw;
     --offcanvas-desktop-breakpoint: 992px;
     --offcanvas-tablet-breakpoint: 768px;
     --offcanvas-mobile-breakpoint: 576px;
-
     /* Borders and separators */
     --offcanvas-border: var(--border-width, 1px) solid var(--gray-300, #dee2e6);
-
     /* Spacing */
     --offcanvas-padding: 1.5rem;
     --offcanvas-mobile-padding: 1rem;
@@ -32,65 +27,68 @@
     --offcanvas-header-mobile-padding: 0.75rem 1rem;
     --offcanvas-body-padding: 1.5rem;
     --offcanvas-body-mobile-padding: 1rem;
-
     /* Typography */
     --offcanvas-title-font-size: 1.25rem;
     --offcanvas-title-mobile-font-size: 1.125rem;
-
     /* Shadows and effects */
     --offcanvas-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     --offcanvas-transition: transform 0.3s ease-in-out;
-  }
+}
 
-  /*
-   * Custom button container
-   */
-  .derafu-block-offcanvas__buttons {
+/*
+* Custom button container
+*/
+.derafu-block-offcanvas__buttons {
     display: flex;
     gap: var(--offcanvas-button-gap);
     margin-top: var(--offcanvas-buttons-margin-top);
-    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
-  }
+    flex-wrap: wrap;
+    /* Allow buttons to wrap on small screens */
+}
 
-  /*
-   * Base position variants
-   */
-  .derafu-block-offcanvas.offcanvas-start,
-  .derafu-block-offcanvas.offcanvas-end {
+/*
+* Base position variants
+*/
+.derafu-block-offcanvas.offcanvas-start,
+.derafu-block-offcanvas.offcanvas-end {
     width: var(--offcanvas-width);
-    max-width: 100vw; /* Ensure it's never wider than the screen */
+    max-width: 100vw;
+    /* Ensure it's never wider than the screen */
     box-shadow: var(--offcanvas-box-shadow);
     transition: var(--offcanvas-transition);
-  }
+}
 
-  .derafu-block-offcanvas.offcanvas-top,
-  .derafu-block-offcanvas.offcanvas-bottom {
+.derafu-block-offcanvas.offcanvas-top,
+.derafu-block-offcanvas.offcanvas-bottom {
     height: var(--offcanvas-height);
-    max-height: 100vh; /* Ensure it's never taller than the screen */
+    max-height: 100vh;
+    /* Ensure it's never taller than the screen */
     box-shadow: var(--offcanvas-box-shadow);
     transition: var(--offcanvas-transition);
-  }
+}
 
-  /*
-   * Content styles
-   */
-  .derafu-block-offcanvas .offcanvas-body {
+/*
+* Content styles
+*/
+.derafu-block-offcanvas .offcanvas-body {
     display: flex;
     flex-direction: column;
     padding: var(--offcanvas-body-padding);
-    overflow-y: auto; /* Allow scrolling for long content */
-    -webkit-overflow-scrolling: touch; /* Improve scrolling on iOS */
-  }
+    overflow-y: auto;
+    /* Allow scrolling for long content */
+    -webkit-overflow-scrolling: touch;
+    /* Improve scrolling on iOS */
+}
 
-  .derafu-block-offcanvas .offcanvas-header {
+.derafu-block-offcanvas .offcanvas-header {
     border-bottom: var(--offcanvas-border);
     padding: var(--offcanvas-header-padding);
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
+}
 
-  .derafu-block-offcanvas .offcanvas-title {
+.derafu-block-offcanvas .offcanvas-title {
     margin: 0;
     font-size: var(--offcanvas-title-font-size);
     line-height: 1.5;
@@ -98,126 +96,125 @@
     text-overflow: ellipsis;
     white-space: normal;
     overflow-wrap: anywhere;
-  }
+}
 
-  /* Improvement for responsive buttons */
-  .derafu-block-offcanvas .offcanvas-body .btn {
+/* Improvement for responsive buttons */
+.derafu-block-offcanvas .offcanvas-body .btn {
     white-space: normal;
     overflow-wrap: anywhere;
-  }
+}
 
-  /*
-   * Responsive styles - Large and medium screens
-   */
-  @media (max-width: 992px) {
+/*
+* Responsive styles - Large and medium screens
+*/
+@media (max-width: 992px) {
     .derafu-block-offcanvas.offcanvas-start,
     .derafu-block-offcanvas.offcanvas-end {
-      width: var(--offcanvas-tablet-width);
+        width: var(--offcanvas-tablet-width);
     }
 
     .derafu-block-offcanvas.offcanvas-top,
     .derafu-block-offcanvas.offcanvas-bottom {
-      height: var(--offcanvas-height-tablet);
+        height: var(--offcanvas-height-tablet);
     }
-  }
+}
 
-  /*
-   * Responsive styles - Tablets
-   */
-  @media (max-width: 768px) {
+/*
+* Responsive styles - Tablets
+*/
+@media (max-width: 768px) {
     .derafu-block-offcanvas.offcanvas-start,
     .derafu-block-offcanvas.offcanvas-end {
-      width: var(--offcanvas-mobile-width);
+        width: var(--offcanvas-mobile-width);
     }
 
     .derafu-block-offcanvas.offcanvas-top,
     .derafu-block-offcanvas.offcanvas-bottom {
-      height: var(--offcanvas-height-mobile);
+        height: var(--offcanvas-height-mobile);
     }
 
     .derafu-block-offcanvas .offcanvas-header {
-      padding: var(--offcanvas-header-mobile-padding);
+        padding: var(--offcanvas-header-mobile-padding);
     }
 
     .derafu-block-offcanvas .offcanvas-body {
-      padding: var(--offcanvas-body-mobile-padding);
+        padding: var(--offcanvas-body-mobile-padding);
     }
 
     .derafu-block-offcanvas .offcanvas-title {
-      font-size: var(--offcanvas-title-mobile-font-size);
+        font-size: var(--offcanvas-title-mobile-font-size);
     }
 
     /* Button improvements for tablets */
     .derafu-block-offcanvas__buttons {
-      gap: calc(var(--offcanvas-button-gap) * 0.75);
+        gap: calc(var(--offcanvas-button-gap) * 0.75);
     }
-  }
+}
 
-  /*
-   * Responsive styles - Mobile phones
-   */
-  @media (max-width: 576px) {
-    .derafu-block-offcanvas.offcanvas-start,
-    .derafu-block-offcanvas.offcanvas-end {
-      width: var(--offcanvas-mobile-width);
-    }
-
+/*
+* Responsive styles - Mobile phones
+*/
+@media (max-width: 576px) {
     .derafu-block-offcanvas.offcanvas-top,
     .derafu-block-offcanvas.offcanvas-bottom {
-      height: var(--offcanvas-height-small);
+        height: var(--offcanvas-height-small);
     }
 
     /* Mobile button adjustments */
     .derafu-block-offcanvas__buttons {
-      flex-direction: column;
-      width: 100%;
+        flex-direction: column;
+        width: 100%;
     }
 
     .derafu-block-offcanvas__buttons .btn {
-      width: 100%;
-      margin-bottom: 0.5rem;
+        width: 100%;
+        margin-bottom: 0.5rem;
     }
 
     .derafu-block-offcanvas__buttons .btn:last-child {
-      margin-bottom: 0;
+        margin-bottom: 0;
     }
-  }
+}
 
-  /*
-   * Touch device improvements
-   */
-  @media (hover: none) and (pointer: coarse) {
+/*
+* Touch device improvements
+*/
+@media (hover: none) and (pointer: coarse) {
     .derafu-block-offcanvas .offcanvas-body {
-      padding-bottom: 2rem; /* Additional space for scrolling on touch devices */
+        padding-bottom: 2rem;
+        /* Additional space for scrolling on touch devices */
     }
 
     /* Larger buttons for easier touch targets */
     .derafu-block-offcanvas .offcanvas-body .btn {
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
     }
 
     /* Improved close button for touch */
     .derafu-block-offcanvas .offcanvas-header .btn-close {
-      padding: 0.75rem; /* Larger touch area */
-      margin: -0.75rem -0.75rem -0.75rem auto;
+        padding: 0.75rem;
+        /* Larger touch area */
+        margin: -0.75rem -0.75rem -0.75rem auto;
     }
-  }
+}
 
-  /*
-   * Accessibility and orientation support
-   */
-  @media (orientation: landscape) and (max-width: 992px) {
+/*
+* Accessibility and orientation support
+*/
+@media (orientation: landscape) and (max-width: 992px) {
     .derafu-block-offcanvas.offcanvas-top,
     .derafu-block-offcanvas.offcanvas-bottom {
-      height: 80vh; /* More space in landscape mode */
+        height: 80vh;
+        /* More space in landscape mode */
     }
 
     .derafu-block-offcanvas.offcanvas-start,
     .derafu-block-offcanvas.offcanvas-end {
-      width: 50vw; /* Reduce width in landscape to avoid taking the entire screen */
+        width: 50vw;
+        /* Reduce width in landscape to avoid taking the entire screen */
     }
-  }
+}
 
 @media (prefers-reduced-motion: reduce) {
     .derafu-block-offcanvas,

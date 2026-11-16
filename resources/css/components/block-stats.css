@@ -1,25 +1,22 @@
 /*
- * Stats Block Responsive CSS
- *
- * Features:
- * - Flexible and responsive statistics block design
- * - Custom CSS variables for easy theming
- * - Multiple breakpoint support
- * - Adaptive typography and layout
- */
-
+* Stats Block Responsive CSS
+*
+* Features:
+* - Flexible and responsive statistics block design
+* - Custom CSS variables for easy theming
+* - Multiple breakpoint support
+* - Adaptive typography and layout
+*/
 /* Base Variables */
 :root {
     /* Spacing Variables */
     --stats-spacing: 2rem;
     --stats-horizontal-margin: 3rem;
     --stats-item-margin: 1rem;
-
     /* Color Variables */
     --stats-bg: var(--bs-light, #f8f9fa);
     --stats-number-color: var(--bs-primary, #0d6efd);
     --stats-text-color: var(--bs-dark, #343a40);
-
     /* Typography Variables */
     --stats-number-font-size: 3rem;
     --stats-number-font-weight: bold;
@@ -28,7 +25,6 @@
     --stats-text-font-size: 1rem;
     --stats-text-line-height: 1.4;
     --stats-text-opacity: 0.9;
-
     /* Responsive Variables */
     --stats-mobile-breakpoint: 768px;
     --stats-mobile-number-font-size: 2.5rem;
@@ -103,7 +99,6 @@
 /* Specific Media Query for 769px - 1200px */
 @media (min-width: 769px) and (max-width: 1200px) {
     .derafu-block-stats {
-        display: flex;
         flex-direction: column;
         align-items: center;
     }
@@ -112,7 +107,6 @@
         width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        justify-content: center;
         gap: 3rem;
         max-width: 1000px;
         margin: 0 auto;

@@ -6,7 +6,6 @@
     --table-margin-bottom: 0rem;
     --table-transition-duration: 0.2s;
     --table-sm-padding: 0.3rem;
-
     /* Table - Colors */
     --table-bg: var(--bs-table-bg, #ffffff);
     --table-text: var(--bs-table-color, #212529);
@@ -17,7 +16,6 @@
     --table-hover-bg: var(--bs-table-hover-bg, rgba(0, 0, 0, 0.075));
     --table-hover-text: var(--bs-table-hover-color, #212529);
     --table-active-bg: var(--bs-table-active-bg, rgba(0, 0, 0, 0.1));
-
     /* Table - Responsive */
     --table-actions-gap: 0.5rem;
     --table-mobile-breakpoint: 768px;
@@ -25,7 +23,6 @@
     --table-mobile-font-size: 0.9rem;
     --table-mobile-header-font-size: 1rem;
     --table-mobile-row-spacing: 1rem;
-
     /* Primary Button Styles */
     --bs-btn-primary-color: var(--bs-white, #fff);
     --bs-btn-primary-bg: var(--bs-primary, #0d6efd);
@@ -37,7 +34,6 @@
     --bs-btn-primary-active-color: var(--bs-white, #fff);
     --bs-btn-primary-active-bg: #0a58ca;
     --bs-btn-primary-active-border-color: #0a53be;
-
     /* Dropdown Specific Styles */
     --bs-dropdown-link-hover-bg: var(--bs-gray-100, #f8f9fa);
     --bs-dropdown-link-active-bg: var(--bs-primary, #0d6efd);
@@ -197,7 +193,6 @@
     .derafu-block-table__actions {
         flex-direction: column;
         align-items: stretch;
-        gap: var(--table-actions-gap);
         margin-bottom: 0.75rem;
     }
 
@@ -220,7 +215,7 @@
 
     /* Scroll Indicator */
     .derafu-block-table .table-responsive::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         right: 0;

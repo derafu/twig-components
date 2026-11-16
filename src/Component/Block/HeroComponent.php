@@ -76,6 +76,74 @@ class HeroComponent extends AbstractComponent
     private bool $fullWidth = false;
 
     /**
+     * Plain-text introduction, above the title or beside the navigation.
+     */
+    private ?string $eyebrow = null;
+
+    /**
+     * Plain-text items in the optional top region, with optional icons and links.
+     *
+     * @var array<int, array{text: string, icon?: string|null, url?: string|null}>
+     */
+    private array $navigation = [];
+
+    /**
+     * Plain-text items in the optional bottom region, with optional icons and links.
+     * Icons are decorative Font Awesome classes.
+     *
+     * @var array<int, array{text: string, icon?: string|null, url?: string|null}>
+     */
+    private array $highlights = [];
+
+    public function getEyebrow(): ?string
+    {
+        return $this->eyebrow;
+    }
+
+    public function setEyebrow(?string $eyebrow): static
+    {
+        $this->eyebrow = $eyebrow;
+
+        return $this;
+    }
+
+    /**
+     * @return array<int, array{text: string, icon?: string|null, url?: string|null}>
+     */
+    public function getNavigation(): array
+    {
+        return $this->navigation;
+    }
+
+    /**
+     * @param array<int, array{text: string, icon?: string|null, url?: string|null}> $navigation
+     */
+    public function setNavigation(array $navigation): static
+    {
+        $this->navigation = $navigation;
+
+        return $this;
+    }
+
+    /**
+     * @return array<int, array{text: string, icon?: string|null, url?: string|null}>
+     */
+    public function getHighlights(): array
+    {
+        return $this->highlights;
+    }
+
+    /**
+     * @param array<int, array{text: string, icon?: string|null, url?: string|null}> $highlights
+     */
+    public function setHighlights(array $highlights): static
+    {
+        $this->highlights = $highlights;
+
+        return $this;
+    }
+
+    /**
      * Gets the main title of the hero section.
      *
      * @return string The main title

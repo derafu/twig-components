@@ -84,6 +84,100 @@ class TextVideoComponent extends AbstractComponent
     private bool $enablePrivacy = true;
 
     /**
+     * Optional introduction text above the title, rendered with raw in Twig.
+     */
+    private ?string $eyebrow = null;
+
+    /**
+     * Optional lead text between the title and content, rendered with raw in Twig.
+     */
+    private ?string $lead = null;
+
+    /**
+     * List items with text, optional decorative icons and links.
+     * Item text is rendered with raw in Twig.
+     *
+     * @var array<int, array{text: string, icon?: string|null, url?: string|null}>
+     */
+    private array $items = [];
+
+    /**
+     * Optional status label text after the list, rendered with raw in Twig.
+     */
+    private ?string $badge = null;
+
+    /**
+     * Optional supporting note text before the actions, rendered with raw in Twig.
+     */
+    private ?string $note = null;
+
+    public function getEyebrow(): ?string
+    {
+        return $this->eyebrow;
+    }
+
+    public function setEyebrow(?string $eyebrow): static
+    {
+        $this->eyebrow = $eyebrow;
+
+        return $this;
+    }
+
+    public function getLead(): ?string
+    {
+        return $this->lead;
+    }
+
+    public function setLead(?string $lead): static
+    {
+        $this->lead = $lead;
+
+        return $this;
+    }
+
+    /**
+     * @return array<int, array{text: string, icon?: string|null, url?: string|null}>
+     */
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param array<int, array{text: string, icon?: string|null, url?: string|null}> $items
+     */
+    public function setItems(array $items): static
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    public function getBadge(): ?string
+    {
+        return $this->badge;
+    }
+
+    public function setBadge(?string $badge): static
+    {
+        $this->badge = $badge;
+
+        return $this;
+    }
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): static
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
      * Gets the position of the video.
      *
      * @return string The video position.

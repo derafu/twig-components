@@ -1,30 +1,93 @@
 ---
 title: Title
-description: Customizable title component.
+description: Headings with optional introductions, subtitles and borders.
 show_title: true
 show_description: true
 hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare heading levels, alignment, borders and long subtitles.</p>
-<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<h2 class="h4 mx-3 mt-4">Default styles</h2>
+<p class="mx-3">These examples use the component defaults, with and without a bottom border.</p>
 
 <twig:block-title
-    class="my-4"
-    title="Title"
-    subtitle="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a>"
+    class="container my-4"
+    title="Make room for your next idea"
+    subtitle="Bring your team and your tools together. Explore the <a href='#title-options'>available options</a> to find what works for you."
 />
 
 <twig:block-title
-    class="my-4"
-    title="Title"
-    subtitle="Lorem ipsum dolor sit amet, consectetur <a href='https://www.example.com/' target='_blank'>adipiscing elit.</a>"
+    class="container my-4"
+    title="A clear starting point"
+    subtitle="Use a border when the heading needs a visible separation from the following content."
     :border="true"
 />
 
+<h2 class="h4 mx-3 mt-5" id="title-options">Optional introduction</h2>
+<p class="mx-3">The introduction appears above the heading. It uses plain text and follows the requested alignment.</p>
 
-<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-{% for align in ['start', 'center', 'end'] %}
-<twig:block-title class="container mt-4" :level="2" align="{{ align }}" :border="true" title="A longer heading introducing the complete configuration and synchronization guide" subtitle="A subtitle with more context and a <a href='#'>link to the instructions</a>, so wrapping and alignment can be compared on a small screen." />
+<twig:block-title
+    class="container my-4"
+    eyebrow="Project overview"
+    title="Turn your ideas into a shared plan"
+    subtitle="An introduction, a heading and a subtitle form one component."
+/>
+
+<twig:block-title
+    class="container my-4"
+    align="left"
+    eyebrow="Getting started"
+    title="Keep the next step in focus"
+/>
+
+<h2 class="h4 mx-3 mt-5">An addressable heading</h2>
+<p class="mx-3"><code>id</code> identifies the component root. <code>headingId</code> identifies the heading itself, so a section can refer to it through <code>aria-labelledby</code>.</p>
+
+<twig:block-title
+    id="title-accessible"
+    headingId="title-accessible-heading"
+    class="container my-4"
+    role="region"
+    aria-labelledby="title-accessible-heading"
+    :level="3"
+    align="start"
+    eyebrow="Explore the details"
+    title="A heading with its own identifier"
+    subtitle="This named region refers to the heading while the component keeps its independent root identifier."
+/>
+
+<h2 class="h4 mx-3 mt-5">Heading levels</h2>
+<p class="mx-3">Choose the heading level for the document structure. The component styling stays consistent.</p>
+{% for level in [1, 2, 3, 4, 5, 6] %}
+    <twig:block-title
+        class="container my-4"
+        :level="level"
+        align="start"
+        title="Heading level {{ level }}"
+    />
 {% endfor %}
+
+<h2 class="h4 mx-3 mt-5">Long content and alignment</h2>
+<p class="mx-3">Compare start, center and end alignment with long content on narrow screens. The aliases left and right are also supported.</p>
+{% for align in ['start', 'center', 'end'] %}
+    <twig:block-title
+        class="container my-4"
+        align="{{ align }}"
+        :border="true"
+        eyebrow="Resources for planning, collaboration and everyday work"
+        title="A longer heading introducing the complete configuration and synchronization guide"
+        subtitle="A subtitle with more context and a <a href='#title-options'>link to the instructions</a>, so wrapping and alignment can be compared on a small screen."
+    />
+{% endfor %}
+
+<h2 class="h4 mx-3 mt-5">Optional CSS variable overrides</h2>
+<p class="mx-3">Only this example changes two variables: a fluid heading size and a narrower reading width. The examples above use the default styles.</p>
+
+<twig:block-title
+    class="container my-4"
+    style="--title-font-size: clamp(1.5rem, 4vw, 2.5rem); --title-max-width: 22ch;"
+    align="right"
+    eyebrow="A focused introduction"
+    title="Adjust the size and reading width for your content"
+    subtitle="The component accepts a fluid size while its other styles keep their default values."
+/>

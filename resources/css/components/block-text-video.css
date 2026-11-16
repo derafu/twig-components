@@ -39,7 +39,10 @@
 }
 
 .derafu-block-text-video__content {
-    padding-right: var(--text-video-spacing);
+    max-width: var(--text-video-content-max-width, none);
+    color: var(--text-video-content-color, inherit);
+    font-size: var(--text-video-text-font-size, inherit);
+    padding: var(--text-video-content-padding, 0 var(--text-video-spacing) 0 0);
 }
 
 .derafu-block-text-video__content a {
@@ -59,19 +62,20 @@
 }
 
 .derafu-block-text-video__title {
+    letter-spacing: var(--text-video-title-letter-spacing, normal);
     color: var(--text-video-title-color);
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    font-size: calc(1.3rem + 0.6vw);
+    font-weight: var(--text-video-title-font-weight);
+    margin-bottom: var(--text-video-title-spacing, 1.5rem);
+    font-size: var(--text-video-title-font-size, calc(1.3rem + 0.6vw));
 }
 
 .derafu-block-text-video__text {
-    margin-bottom: 2rem;
-    color: var(--text-video-text-color);
+    margin-bottom: var(--text-video-text-spacing, 2rem);
+    color: var(--text-video-content-color, var(--text-video-text-color));
 }
 
 .derafu-block-text-video__text p {
-    margin-bottom: 1rem;
+    margin-bottom: var(--text-video-paragraph-spacing, 1rem);
     line-height: var(--text-video-text-line-height);
 }
 
@@ -89,7 +93,7 @@
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: var(--text-video-button-font-weight);
     transition: background-color 0.2s, transform 0.2s;
     white-space: normal;
     overflow-wrap: anywhere;
@@ -204,17 +208,16 @@
     }
 
     .derafu-block-text-video__title {
-        font-size: calc(1.25rem + 0.3vw);
-        margin-bottom: 1.25rem;
+        font-size: var(--text-video-title-font-size, calc(1.25rem + 0.3vw));
+        margin-bottom: var(--text-video-title-spacing, 1.25rem);
     }
 
     .derafu-block-text-video__content {
-        padding-right: 0;
-        padding-bottom: var(--text-video-tablet-spacing);
+        padding: var(--text-video-content-padding, 0 0 var(--text-video-tablet-spacing));
     }
 
     .derafu-block-text-video__text {
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--text-video-text-spacing, 1.5rem);
     }
 
     /* Order Variants for Tablets and Mobile */
@@ -236,16 +239,16 @@
     }
 
     .derafu-block-text-video__title {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+        font-size: var(--text-video-title-font-size, 1.5rem);
+        margin-bottom: var(--text-video-title-spacing, 1rem);
     }
 
     .derafu-block-text-video__content {
-        padding-bottom: var(--text-video-mobile-spacing);
+        padding: var(--text-video-content-padding, 0 0 var(--text-video-mobile-spacing));
     }
 
     .derafu-block-text-video__text {
-        margin-bottom: 1.25rem;
+        margin-bottom: var(--text-video-text-spacing, 1.25rem);
     }
 
     .derafu-block-text-video__buttons {
@@ -269,19 +272,19 @@
     }
 
     .derafu-block-text-video__title {
-        font-size: 1.3rem;
+        font-size: var(--text-video-title-font-size, 1.3rem);
     }
 
     .derafu-block-text-video__content {
-        padding-bottom: var(--text-video-small-spacing);
+        padding: var(--text-video-content-padding, 0 0 var(--text-video-small-spacing));
     }
 
     .derafu-block-text-video__text {
-        font-size: 0.95rem;
+        font-size: var(--text-video-text-font-size, .95rem);
     }
 
     .derafu-block-text-video__text p {
-        margin-bottom: 0.75rem;
+        margin-bottom: var(--text-video-paragraph-spacing, .75rem);
     }
 
     .derafu-block-text-video__media {
@@ -302,4 +305,118 @@
         transition: none;
         scroll-behavior: auto;
     }
+}
+
+/* Optional text regions. */
+.derafu-block-text-video__title:has(+ .derafu-block-text-video__lead) {
+    margin-bottom: var(--text-video-title-spacing, .75rem);
+}
+
+.derafu-block-text-video__text:has(+ :is(.derafu-block-text-video__items, .derafu-block-text-video__badge, .derafu-block-text-video__note)) {
+    margin-bottom: var(--text-video-text-spacing, 1.5rem);
+}
+
+.derafu-block-text-video__eyebrow {
+    margin: 0 0 var(--text-video-eyebrow-spacing, .75rem);
+    color: var(--text-video-eyebrow-color, var(--bs-primary, #0d6efd));
+    font-size: var(--text-video-eyebrow-font-size, .75rem);
+    font-weight: var(--text-video-eyebrow-font-weight, 700);
+    letter-spacing: var(--text-video-eyebrow-letter-spacing, .12em);
+    text-transform: var(--text-video-eyebrow-text-transform, uppercase);
+}
+
+.derafu-block-text-video__lead {
+    margin-bottom: var(--text-video-lead-spacing, 1rem);
+    color: var(--text-video-lead-color, var(--bs-emphasis-color, inherit));
+    font-size: var(--text-video-lead-font-size, clamp(1.125rem, 1rem + .3vw, 1.25rem));
+    line-height: var(--text-video-text-line-height);
+}
+
+.derafu-block-text-video__items {
+    margin: 0 0 var(--text-video-items-spacing, 1.5rem);
+    gap: var(--text-video-items-gap, .75rem);
+    line-height: var(--text-video-text-line-height);
+}
+
+.derafu-block-text-video__items > li {
+    padding: var(--text-video-item-padding, .375rem 0 .375rem 1rem);
+    border-inline-start: var(--text-video-item-border-width, 2px) solid var(--text-video-item-border-color, var(--bs-primary-border-subtle, #9ec5fe));
+}
+
+.derafu-block-text-video__items li,
+.derafu-block-text-video__items a {
+    gap: var(--text-video-item-icon-gap, .625rem);
+    min-width: 0;
+}
+
+.derafu-block-text-video__items li > div,
+.derafu-block-text-video__items li > a > div {
+    min-width: 0;
+}
+
+.derafu-block-text-video__items a {
+    color: var(--text-video-item-link-color, var(--bs-link-color, #0d6efd));
+    text-decoration: underline;
+    text-underline-offset: .2em;
+    text-decoration-color: var(--text-video-item-link-decoration-color, currentColor);
+}
+
+.derafu-block-text-video__items a:hover {
+    color: var(--text-video-item-link-hover-color, var(--bs-link-hover-color, #0a58ca));
+}
+
+.derafu-block-text-video__items i {
+    color: var(--text-video-item-icon-color, var(--bs-primary, #0d6efd));
+    flex-shrink: 0;
+}
+
+.derafu-block-text-video__items a:focus-visible {
+    outline: 2px solid var(--bs-primary, #0d6efd);
+    outline-offset: 3px;
+}
+
+.derafu-block-text-video__badge {
+    margin: 0 0 var(--text-video-badge-spacing, 1rem);
+}
+
+.derafu-block-text-video__badge .badge {
+    padding: var(--text-video-badge-padding, .5em .875em);
+    border-radius: var(--text-video-badge-border-radius, var(--bs-border-radius-pill, 50rem));
+    line-height: 1.4;
+    text-align: start;
+    background-color: var(--text-video-badge-bg, var(--bs-primary-bg-subtle, #cfe2ff));
+    color: var(--text-video-badge-color, var(--bs-primary-text-emphasis, #052c65));
+    white-space: normal;
+    max-width: 100%;
+}
+
+.derafu-block-text-video__note {
+    margin: 0 0 var(--text-video-note-spacing, 1.5rem);
+    padding-top: var(--text-video-note-padding-top, 1rem);
+    border-top: var(--text-video-note-border-width, 1px) solid var(--text-video-note-border-color, var(--bs-border-color, #dee2e6));
+    line-height: var(--text-video-text-line-height);
+    color: var(--text-video-note-color, var(--bs-secondary-color, #6c757d));
+}
+
+.derafu-block-text-video__eyebrow,
+.derafu-block-text-video__lead,
+.derafu-block-text-video__items,
+.derafu-block-text-video__badge,
+.derafu-block-text-video__note {
+    overflow-wrap: anywhere;
+}
+
+/* The region owns its outer spacing; nested markup keeps its internal rhythm. */
+.derafu-block-text-video__content > :is(.derafu-block-text-video__eyebrow, .derafu-block-text-video__lead, .derafu-block-text-video__note) > :first-child,
+.derafu-block-text-video__items li > div > :first-child,
+.derafu-block-text-video__items li > a > div > :first-child,
+.derafu-block-text-video__badge .badge > :first-child {
+    margin-top: 0;
+}
+
+.derafu-block-text-video__content > :is(.derafu-block-text-video__eyebrow, .derafu-block-text-video__lead, .derafu-block-text-video__note) > :last-child,
+.derafu-block-text-video__items li > div > :last-child,
+.derafu-block-text-video__items li > a > div > :last-child,
+.derafu-block-text-video__badge .badge > :last-child {
+    margin-bottom: 0;
 }

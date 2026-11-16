@@ -1,6 +1,4 @@
 :root {
-    /* Spacing */
-
     /* Timeline Colors */
     --timeline-line-color: var(--bs-gray-300, #dee2e6);
     --timeline-year-color: var(--bs-primary, #0d6efd);
@@ -8,24 +6,20 @@
     --timeline-title-color: var(--bs-gray-900, #212529);
     --timeline-date-color: var(--bs-gray-600, #6c757d);
     --timeline-text-color: var(--bs-gray-700, #495057);
-
     /* Background and Shadow */
     --timeline-content-bg: var(--bs-white, #fff);
     --timeline-content-shadow: var(--bs-border-color, #dee2e6);
-
     /* Typography */
     --timeline-year-font-size: var(--font-size-xl, 2rem);
     --timeline-title-font-size: var(--font-size-lg, 1.25rem);
     --timeline-title-font-weight: var(--font-weight-semibold, 600);
     --timeline-date-font-size: var(--font-size-sm, 0.875rem);
-
     /* Dimensions and Spacing */
     --timeline-line-width: 2px;
     --timeline-event-width: 45%;
     --timeline-mobile-event-margin: 2rem;
     --timeline-content-padding: var(--spacing-md, 1rem);
     --timeline-content-border-radius: var(--border-radius-md, 0.5rem);
-
     /* Responsive */
     --timeline-mobile-breakpoint: 768px;
 }
@@ -42,7 +36,7 @@
 
 /* Vertical Line */
 .derafu-block-timeline__line {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     bottom: 0;
@@ -214,8 +208,6 @@
     /* New Mobile Structure */
     .derafu-block-timeline__row {
         display: block;
-        margin-bottom: 3rem;
-        position: relative;
     }
 
     /* Vertical Line Positioning */
@@ -229,10 +221,6 @@
     }
 
     /* Hide Empty Events */
-    .derafu-block-timeline__event--empty {
-        display: none;
-    }
-
     /* Year Styling */
     .derafu-block-timeline__year {
         position: relative;
@@ -241,14 +229,11 @@
         margin-left: 2rem;
         margin-bottom: 1.5rem;
         transform: none;
-        color: var(--timeline-year-color);
         font-size: 1.75rem;
-        font-weight: bold;
         background-color: #fff;
         padding: 0.25rem 0.5rem;
         text-align: left;
         line-height: 1.2;
-        z-index: 2;
     }
 
     /* Event Styling */
@@ -274,7 +259,6 @@
     /* Mobile Typography */
     .derafu-block-timeline__title-row {
         flex-direction: column;
-        align-items: flex-start;
     }
 
     .derafu-block-timeline__title {

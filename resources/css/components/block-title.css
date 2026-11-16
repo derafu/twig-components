@@ -19,7 +19,7 @@
     --title-font-size-sm: 1.4rem;    /* Mobile */
     --title-font-size-xs: 1.5rem;   /* Small mobile */
 
-    /* Ajustes proporcionales para el subtítulo */
+    /* Subtitle - Responsive Font Sizes */
     --subtitle-font-size-xl: 1.1rem;
     --subtitle-font-size-lg: 1rem;
     --subtitle-font-size-md: 0.95rem;
@@ -42,8 +42,20 @@
     margin-bottom: var(--title-margin-bottom);
 }
 
+.derafu-block-title__eyebrow {
+    margin: 0 0 var(--title-eyebrow-spacing, .75rem);
+    color: var(--title-eyebrow-color, var(--title-text-color));
+    font-size: var(--title-eyebrow-font-size, .75rem);
+    font-weight: var(--title-eyebrow-font-weight, 700);
+    letter-spacing: var(--title-eyebrow-letter-spacing, .12em);
+    text-transform: var(--title-eyebrow-text-transform, uppercase);
+}
+
 .derafu-block-title__title {
     margin: 0;
+    font-weight: var(--title-font-weight, 500);
+    letter-spacing: var(--title-letter-spacing, normal);
+    max-width: var(--title-max-width, 40ch);
     line-height: var(--title-line-height);
     color: var(--title-text-color);
 }
@@ -52,6 +64,7 @@
     margin: var(--title-subtitle-margin-top) 0 0;
     opacity: var(--title-subtitle-opacity);
     color: var(--title-subtitle-color);
+    max-width: var(--title-subtitle-max-width, 70ch);
 }
 
 .derafu-block-title__subtitle a {
@@ -70,22 +83,22 @@
 /* Extra Large Screens (≥1400px) */
 @media (min-width: 1400px) {
     .derafu-block-title__title {
-        font-size: var(--title-font-size-xl);
+        font-size: var(--title-font-size, var(--title-font-size-xl));
     }
 
     .derafu-block-title__subtitle {
-        font-size: var(--subtitle-font-size-xl);
+        font-size: var(--title-subtitle-font-size, var(--subtitle-font-size-xl));
     }
 }
 
 /* Large Screens (Desktops, ≥992px) */
 @media (max-width: 1399px) and (min-width: 992px) {
     .derafu-block-title__title {
-        font-size: var(--title-font-size-lg);
+        font-size: var(--title-font-size, var(--title-font-size-lg));
     }
 
     .derafu-block-title__subtitle {
-        font-size: var(--subtitle-font-size-lg);
+        font-size: var(--title-subtitle-font-size, var(--subtitle-font-size-lg));
     }
 }
 
@@ -96,11 +109,11 @@
     }
 
     .derafu-block-title__title {
-        font-size: var(--title-font-size-md);
+        font-size: var(--title-font-size, var(--title-font-size-md));
     }
 
     .derafu-block-title__subtitle {
-        font-size: var(--subtitle-font-size-md);
+        font-size: var(--title-subtitle-font-size, var(--subtitle-font-size-md));
     }
 
     .derafu-block-title__wrapper--bordered {
@@ -115,12 +128,12 @@
     }
 
     .derafu-block-title__title {
-        font-size: var(--title-font-size-sm);
+        font-size: var(--title-font-size, var(--title-font-size-sm));
         line-height: 1.25;
     }
 
     .derafu-block-title__subtitle {
-        font-size: var(--subtitle-font-size-sm);
+        font-size: var(--title-subtitle-font-size, var(--subtitle-font-size-sm));
         margin-top: 0.4rem;
     }
 
@@ -136,12 +149,12 @@
     }
 
     .derafu-block-title__title {
-        font-size: var(--title-font-size-xs);
+        font-size: var(--title-font-size, var(--title-font-size-xs));
         line-height: 1.3;
     }
 
     .derafu-block-title__subtitle {
-        font-size: var(--subtitle-font-size-xs);
+        font-size: var(--title-subtitle-font-size, var(--subtitle-font-size-xs));
         margin-top: 0.3rem;
         line-height: 1.4;
     }
@@ -151,13 +164,9 @@
     }
 }
 
-.derafu-block-title__title {
-    max-width: 40ch;
-    overflow-wrap: anywhere;
-}
-
+.derafu-block-title__eyebrow,
+.derafu-block-title__title,
 .derafu-block-title__subtitle {
-    max-width: 70ch;
     overflow-wrap: anywhere;
 }
 

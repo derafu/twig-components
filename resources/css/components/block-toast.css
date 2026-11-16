@@ -6,7 +6,6 @@
     --toast-close-right: 1rem;
     --toast-close-size: 0.75rem;
     --toast-close-width: 2px;
-
     /* Toast - Responsive Variables */
     --toast-padding-mobile: 0.625rem;
     --toast-close-right-mobile: 0.75rem;
@@ -14,7 +13,6 @@
     --toast-font-size-mobile: 0.875rem;
     --toast-icon-size-mobile: 1rem;
     --toast-margin-bottom-mobile: 0.75rem;
-
     /* Toast - Colors */
     --toast-bg: var(--bs-white, #fff);
     --toast-border-color: var(--bs-border-color, rgba(0, 0, 0, 0.1));
@@ -89,7 +87,6 @@
     padding: var(--toast-padding);
     background-color: var(--toast-bg);
     border-top: 1px solid rgba(0,0,0,0.05);
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 

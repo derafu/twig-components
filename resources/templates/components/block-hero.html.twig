@@ -1,13 +1,14 @@
-{# templates/components/block-hero.html.twig #}
+{# Optional regions can be replaced inside the component through hero_header,
+   hero_content and hero_footer. All regions share the root background. #}
 {% if this.background %}
     <style>
         #{{ this.id|e('css') }} {
-            background-image: url('{{ this.background|e('css') }}');
+            background-image: var(--hero-background-image, none), url('{{ this.background|e('css') }}');
         }
         @supports (background-color: {{ this.background|e('html') }}) {
             #{{ this.id|e('css') }} {
                 background-color: {{ this.background|e('html') }};
-                background-image: none;
+                background-image: var(--hero-background-image, none);
             }
             #{{ this.id|e('css') }}::before {
                 display: none;
@@ -22,11 +23,39 @@
     id="{{ this.id }}"
 >
    <div class="derafu-block-hero__container {{ this.fullWidth ? '' : 'container' }}">
+       {% block hero_header %}
+           {% if this.navigation|length > 0 %}
+               <div class="derafu-block-hero__header">
+                   {% if this.eyebrow %}
+                       <p class="derafu-block-hero__eyebrow">{{ this.eyebrow }}</p>
+                   {% endif %}
+                   <nav class="derafu-block-hero__navigation" aria-label="{{ this.eyebrow ?? (this.title|striptags) }}">
+                       <ul class="list-unstyled d-flex flex-wrap mb-0">
+                           {% for link in this.navigation %}
+                               {% set has_link = link.url is defined and link.url is not null and link.url != '' %}
+                               <li>
+                                   {% if has_link %}<a href="{{ link.url }}">{% endif %}
+                                   {% if link.icon ?? null %}
+                                       <i class="{{ link.icon }}" aria-hidden="true"></i>
+                                   {% endif %}
+                                   <span>{{ link.text }}</span>
+                                   {% if has_link %}</a>{% endif %}
+                               </li>
+                           {% endfor %}
+                       </ul>
+                   </nav>
+               </div>
+           {% endif %}
+       {% endblock %}
+       {% block hero_content %}
        <div class="derafu-block-hero__content derafu-block-hero__content--{{ this.align }}
            {% if this.contentBackground %}derafu-block-hero__content--with-background{% endif %}"
            {% if this.contentBackground and this.contentBackground not in ['true', '1'] %}
                style="--hero-content-background-color: {{ this.contentBackground }};"
            {% endif %}>
+           {% if this.eyebrow and this.navigation|length == 0 %}
+               <p class="derafu-block-hero__eyebrow">{{ this.eyebrow }}</p>
+           {% endif %}
            <h1 class="derafu-block-hero__title">{{ this.title|raw }}</h1>
            <div class="derafu-block-hero__subtitle">{{ this.subtitle|raw }}</div>
            {% if this.buttons|length > 0 %}
@@ -39,5 +68,23 @@
                </div>
            {% endif %}
        </div>
+       {% endblock %}
+       {% block hero_footer %}
+           {% if this.highlights|length > 0 %}
+               <ul class="derafu-block-hero__highlights list-unstyled d-flex flex-wrap mb-0">
+                   {% for highlight in this.highlights %}
+                       {% set has_link = highlight.url is defined and highlight.url is not null and highlight.url != '' %}
+                       <li>
+                           {% if has_link %}<a href="{{ highlight.url }}">{% endif %}
+                           {% if highlight.icon ?? null %}
+                               <i class="{{ highlight.icon }}" aria-hidden="true"></i>
+                           {% endif %}
+                           <span>{{ highlight.text }}</span>
+                           {% if has_link %}</a>{% endif %}
+                       </li>
+                   {% endfor %}
+               </ul>
+           {% endif %}
+       {% endblock %}
    </div>
 </div>

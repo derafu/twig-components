@@ -1,36 +1,20 @@
 /* ======================================
-   Base Variables (Design Tokens)
-   ====================================== */
-
+Base Variables (Design Tokens)
+====================================== */
 :root {
-    /* Spacing */
-
-    /* Borders */
-
-    /* Typography - Font Sizes */
-
-    /* Typography - Font Weights */
-
     /* Breakpoints */
     --small-breakpoint: 375px;
-
-    /* ======================================
-       Component Variables
-       ====================================== */
-
     /* Box - Spacing */
     --box-padding: var(--spacing-lg, 2rem);
     --box-margin-bottom: var(--spacing-lg, 2rem);
     --box-tablet-padding: var(--spacing-md, 1rem);
     --box-mobile-padding: var(--spacing-sm, 1rem);
     --box-small-padding: var(--spacing-xs, 0.5rem);
-
     /* Box - Style */
     --box-text-align: center;
     --box-background: var(--bs-primary, #0d6efd);
     --box-color: var(--bs-white, #fff);
     --box-border: var(--bs-primary, #0d6efd);
-
     /* Box - Title */
     --box-title-font-size: var(--font-size-xl, 2rem);
     --box-title-tablet-font-size: 1.35rem;
@@ -38,7 +22,6 @@
     --box-title-small-font-size: 1.125rem;
     --box-title-color: var(--bs-white, #fff);
     --box-title-font-weight: var(--font-weight-bold, 700);
-
     /* Box - Content */
     --box-content-margin-top: var(--spacing-xs, 0.5rem);
     --box-content-line-height: 1.6;
@@ -47,28 +30,22 @@
     --box-content-font-size: var(--font-size-md, 1rem);
     --box-content-mobile-font-size: 0.9375rem;
     --box-content-small-font-size: 0.875rem;
-
     /* Box - Links */
     --box-link-color: var(--bs-white, #fff);
     --box-link-hover-color: var(--bs-light, #f8f9fa);
 }
 
 /* ======================================
-   Box Component Base Styles
-   ====================================== */
-
+Box Component Base Styles
+====================================== */
 .derafu-block-box {
     text-align: var(--box-text-align);
-    padding-left: var(--box-padding);
-    padding-right: var(--box-padding);
-    padding-top: var(--box-padding);
-    padding-bottom: var(--box-padding);
+    padding: var(--box-padding);
     margin-bottom: var(--box-margin-bottom);
     background-color: var(--box-background);
     color: var(--box-color);
     border-radius: 0;
     overflow-wrap: break-word;
-    word-wrap: break-word;
     box-sizing: border-box;
     transition: all 0.3s ease;
 }
@@ -100,9 +77,8 @@
 }
 
 /* ======================================
-   Box Content Elements
-   ====================================== */
-
+Box Content Elements
+====================================== */
 /* Links */
 .derafu-block-box a {
     color: var(--box-link-color, #fff);
@@ -146,16 +122,12 @@
 }
 
 /* ======================================
-   Responsive Styles
-   ====================================== */
-
+Responsive Styles
+====================================== */
 /* Tablets (≤ 768px) */
 @media (max-width: 768px) {
     .derafu-block-box {
-        padding-left: var(--box-tablet-padding);
-        padding-right: var(--box-tablet-padding);
-        padding-top: var(--box-tablet-padding);
-        padding-bottom: var(--box-tablet-padding);
+        padding: var(--box-tablet-padding);
         margin-bottom: calc(var(--box-margin-bottom) * 0.9);
     }
 
@@ -167,12 +139,8 @@
 /* Mobile (≤ 576px) */
 @media (max-width: 576px) {
     .derafu-block-box {
-        padding-left: var(--box-mobile-padding);
-        padding-right: var(--box-mobile-padding);
-        padding-top: var(--box-mobile-padding);
-        padding-bottom: var(--box-mobile-padding);
+        padding: var(--box-mobile-padding);
         margin-bottom: calc(var(--box-margin-bottom) * 0.8);
-        text-align: left; /* Left alignment on mobile for better readability */
     }
 
     .derafu-block-box__title {
@@ -194,10 +162,7 @@
 /* Small Mobile (≤ 375px) */
 @media (max-width: 375px) {
     .derafu-block-box {
-        padding-left: var(--box-small-padding);
-        padding-right: var(--box-small-padding);
-        padding-top: var(--box-small-padding);
-        padding-bottom: var(--box-small-padding);
+        padding: var(--box-small-padding);
         margin-bottom: calc(var(--box-margin-bottom) * 0.7);
     }
 
@@ -218,24 +183,55 @@
 }
 
 /* ======================================
-   Utility Classes
-   ====================================== */
+Utility Classes
+====================================== */
+.derafu-block-box.mb-0 {
+    margin-bottom: 0 !important;
+}
 
-/* Bottom Margins */
-.derafu-block-box.mb-0 { margin-bottom: 0 !important; }
-.derafu-block-box.mb-1 { margin-bottom: 0.25rem !important; }
-.derafu-block-box.mb-2 { margin-bottom: 0.5rem !important; }
-.derafu-block-box.mb-3 { margin-bottom: 1rem !important; }
-.derafu-block-box.mb-4 { margin-bottom: 1.5rem !important; }
-.derafu-block-box.mb-5 { margin-bottom: 3rem !important; }
+.derafu-block-box.mb-1 {
+    margin-bottom: 0.25rem !important;
+}
 
-/* Top Margins */
-.derafu-block-box.mt-0 { margin-top: 0 !important; }
-.derafu-block-box.mt-1 { margin-top: 0.25rem !important; }
-.derafu-block-box.mt-2 { margin-top: 0.5rem !important; }
-.derafu-block-box.mt-3 { margin-top: 1rem !important; }
-.derafu-block-box.mt-4 { margin-top: 1.5rem !important; }
-.derafu-block-box.mt-5 { margin-top: 3rem !important; }
+.derafu-block-box.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.derafu-block-box.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.derafu-block-box.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.derafu-block-box.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.derafu-block-box.mt-0 {
+    margin-top: 0 !important;
+}
+
+.derafu-block-box.mt-1 {
+    margin-top: 0.25rem !important;
+}
+
+.derafu-block-box.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+.derafu-block-box.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.derafu-block-box.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.derafu-block-box.mt-5 {
+    margin-top: 3rem !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
     .derafu-block-box,

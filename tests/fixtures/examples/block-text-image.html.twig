@@ -1,47 +1,143 @@
 ---
 title: Text Image
-description: Combined text and image layout.
+description: Text and image with optional introductions, lists, labels and notes.
 show_title: true
 show_description: true
 hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare image positions, text proportions, wrapping actions and independent image descriptions.</p>
-<h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<h2 class="h4 mx-3 mt-4">Default styles</h2>
+<p class="mx-3">These cases use the component defaults. Compare the media positions and the existing title, content and actions.</p>
 
 <twig:block-text-image
-    class="my-4"
+    id="text-image-default"
+    class="container my-4"
     image="assets/derafu-dev-programmer.png"
-    title="Lorem ipsum dolor sit amet"
-    content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.</p><p>Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare <a href='https://www.example.com/' target='_blank'>tellus</a> dignissim.</p>"
+    title="Put your next project in motion"
+    content="<p>Keep your team, tools and information connected.</p><p>Explore the <a href='#text-image-options'>available options</a> and choose the next step for your workspace.</p>"
     :buttons="[
-        {
-            text: 'Example.com 1',
-            url: 'https://www.example.com'
-        },
-        {
-            text: 'Example.com 2',
-            url: 'https://www.example.com'
-        }
+        {text: 'Get started', url: '#text-image-options'},
+        {text: 'Explore the guide', url: '#text-image-items'}
     ]"
 />
 
 <twig:block-text-image
-    class="my-4"
-    image="assets/derafu-dev-programmer.png"
+    class="container my-4"
     imagePosition="left"
-    title="Lorem ipsum dolor sit amet"
-    content="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend.</p><p>Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.</p>"
-    :buttons="[
-        {
-            text: 'Example.com',
-            url: 'https://www.example.com'
-        }
+    image="assets/derafu-dev-programmer.png"
+    title="Keep the information close to the action"
+    content="<p>The media can appear on either side of the text. The content remains first in the document and on small screens.</p>"
+    :buttons="[{text: 'Review the options', url: '#text-image-options'}]"
+/>
+
+<h2 class="h4 mx-3 mt-5" id="text-image-options">Complete text options</h2>
+<p class="mx-3">Both components accept the same text options. The templates render their contents with <code>raw</code>; ordinary text and markup use the same properties.</p>
+
+<twig:block-text-image
+    id="text-image-complete"
+    class="container my-4"
+    :cols="6"
+    image="assets/derafu-dev-programmer.png"
+    eyebrow="Workspace <strong>overview</strong>"
+    title="Everything you need to work together"
+    lead="<p>Turn shared information into a <em>clear next step</em>.</p>"
+    content="<p>Organize your projects, share useful context and keep everyday work moving.</p>"
+    :items="[
+        {text: 'Keep every task in one place'},
+        {text: '<strong>Share context</strong> with your team', icon: 'fa-solid fa-comments'},
+        {text: 'Read the setup guide', url: '#text-image-items'},
+        {text: 'Explore the available options', icon: 'fa-solid fa-arrow-right', url: '#text-image-options'}
+    ]"
+    badge="Available for <strong>teams</strong>"
+    note="<p>Read the <a href='#text-image-items'>workspace guide</a> before configuring access.</p>"
+    :buttons="[{text: 'Get started', url: '#text-image-default'}]"
+/>
+
+<h2 class="h4 mx-3 mt-5" id="text-image-items">Items with optional icons and links</h2>
+<p class="mx-3">Each item requires <code>text</code>. Icons and outer links are optional. An item containing its own link omits <code>url</code>.</p>
+
+<twig:block-text-image
+    class="container my-4"
+    image="assets/derafu-dev-programmer.png"
+    title="Choose the information your audience needs"
+    content="<p>Items can contain ordinary text, emphasis, paragraphs or links.</p>"
+    :items="[
+        {text: 'A short item without an icon or link'},
+        {text: '<strong>An item with an icon</strong>', icon: 'fa-solid fa-check'},
+        {text: 'An item with an outer link', url: '#text-image-options'},
+        {text: 'An icon and an outer link', icon: 'fa-solid fa-book-open', url: '#text-image-options'},
+        {text: '<p>Read the <a href=\'#text-image-options\'>complete guide</a> before continuing.</p>'}
     ]"
 />
 
+<h2 class="h4 mx-3 mt-5">Independent label and note</h2>
+<p class="mx-3">A label or a note can be used independently of the introduction and the list.</p>
+
+<twig:block-text-image
+    class="container my-4"
+    image="assets/derafu-dev-programmer.png"
+    title="A short availability label"
+    content="<p>Describe the feature and add a status when it is useful.</p>"
+    badge="Available <em>on request</em>"
+/>
+
+<twig:block-text-image
+    class="container my-4"
+    image="assets/derafu-dev-programmer.png"
+    title="A supporting note with a link"
+    content="<p>Keep the main description focused and place supporting details in a note.</p>"
+    note="<p>Check the <a href='#text-image-options'>configuration guide</a>.</p><p>Workspace settings determine which options are available.</p>"
+/>
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-text-image class="container my-4" :cols="6" imagePosition="left" image="assets/derafu-dev-programmer.png" imageAlt="Developer connecting applications and cloud services" title="An image description independent of the heading" content="<p>The image has its own description. The text appears first on mobile, and the image position applies from medium screens.</p>" :buttons="[{text: 'Read the complete configuration and synchronization guide', url: '#'}]" />
-<twig:block-text-image class="container my-4" image="assets/derafu-dev-programmer.png" imageAlt="" title="A decorative image" content="<p>An empty alternative text marks the illustration as decorative.</p>" />
+<p class="mx-3">Compare long labels, notes, item text and actions on narrow screens.</p>
+
+<twig:block-text-image
+    class="container my-4"
+    :cols="6"
+    imagePosition="left"
+    image="assets/derafu-dev-programmer.png"
+    title="A longer introduction to configuration and synchronization"
+    lead="An introduction that explains how the team can organize its information and coordinate the next steps."
+    content="<p>The text and media share the available width and stack on small screens.</p>"
+    :items="[
+        {text: 'IntegrationConfigurationSynchronizationReferenceWithoutWordSeparatorsForNarrowScreenChecks', icon: 'fa-solid fa-check'},
+        {text: 'A longer linked item that explains how to configure the workspace and connect the information used by your team', url: '#text-image-options'}
+    ]"
+    badge="A longer availability label that can wrap naturally on narrow screens"
+    note="<p>Review the documentation with your team before changing the configuration of a shared workspace.</p>"
+    :buttons="[{text: 'Read the complete configuration and synchronization guide', url: '#text-image-options'}]"
+/>
+
+<h2 class="h4 mx-3 mt-5">Image descriptions and compact spacing</h2>
+<p class="mx-3">The image description can differ from the heading. An empty description marks a decorative image.</p>
+
+<twig:block-text-image
+    class="container my-4"
+    image="assets/derafu-dev-programmer.png"
+    imageAlt="Developer connecting applications and cloud services"
+    title="An independent image description"
+    content="<p>The image has its own alternative text.</p>"
+/>
+
+<twig:block-text-image
+    class="container my-4"
+    image="assets/derafu-dev-programmer.png"
+    imageAlt=""
+    :insideTabs="true"
+    title="A decorative image with compact content spacing"
+    content="<p>The insideTabs option provides compact spacing for use within a tab.</p>"
+/>
+
+<h2 class="h4 mx-3 mt-5">Optional CSS variable overrides</h2>
+<p class="mx-3">Only this case changes two variables: the heading size and the maximum content width. The cases above use the default styles.</p>
+
+<twig:block-text-image
+    class="container my-4"
+    image="assets/derafu-dev-programmer.png"
+    style="--text-image-title-font-size: clamp(1.4rem, 3vw, 2.2rem); --text-image-content-max-width: 34rem;"
+    eyebrow="A focused introduction"
+    title="Adjust the reading width and heading size"
+    content="<p>Both components use matching variable suffixes while retaining their own defaults.</p>"
+/>

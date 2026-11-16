@@ -1,7 +1,5 @@
-/*
- * Hero - Base Variables
- */
- :root {
+/* Hero - Base Variables */
+:root {
     /* Height variants */
     --hero-height-mini: 20vh;
     --hero-height-small: 40vh;
@@ -48,276 +46,244 @@
     --hero-mobile-title-font-size: 2rem;
     --hero-mobile-subtitle-font-size: 1rem;
     --hero-mobile-content-padding: 1rem;
-    --hero-mobile-button-padding: 0.5rem 1rem;
-    --hero-mobile-height-reduction: 0.7; /* Height reduction factor for mobile */
-  }
+    --hero-mobile-height-reduction: 0.7;
+}
 
-  /*
-   * Base hero component styles
-   */
-  .derafu-block-hero {
-    background-position: center;
+/* Base hero component styles */
+.derafu-block-hero {
+    background-position: var(--hero-background-position, center);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: var(--hero-background-size, cover);
     position: relative;
     display: flex;
     align-items: center;
     background-color: var(--hero-bg);
+    /* The template adds the optional URL below these CSS layers. */
+    background-image: var(--hero-background-image, none);
     color: var(--hero-text);
-    overflow: hidden; /* Prevent content overflow */
-  }
+    overflow: hidden;
+}
 
-  .derafu-block-hero__container {
+.derafu-block-hero__container {
     padding-left: 1rem;
     padding-right: 1rem;
-  }
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
 
-  .derafu-block-hero.container {
+.derafu-block-hero.container {
     margin-left: auto;
     margin-right: auto;
     padding-left: var(--spacing-md, 1rem);
     padding-right: var(--spacing-md, 1rem);
 }
 
-  /*
-   * Size variants
-   */
-  .derafu-block-hero--mini {
+/* Size variants */
+.derafu-block-hero--mini {
     min-height: var(--hero-height-mini);
-  }
+}
 
-  .derafu-block-hero--small {
+.derafu-block-hero--small {
     min-height: var(--hero-height-small);
-  }
+}
 
-  .derafu-block-hero--medium {
+.derafu-block-hero--medium {
     min-height: var(--hero-height-medium);
-  }
+}
 
-  .derafu-block-hero--large {
+.derafu-block-hero--large {
     min-height: var(--hero-height-large);
-  }
+}
 
-  .derafu-block-hero--full {
+.derafu-block-hero--full {
     min-height: var(--hero-height-full);
-  }
+}
 
-  /*
-   * Content and alignment
-   */
-  .derafu-block-hero__content {
-    padding: var(--hero-spacing-y) 0;
+/* Content and alignment */
+.derafu-block-hero__content {
+    padding-block: var(--hero-content-padding-block, var(--hero-spacing-y));
+    padding-inline: 0;
     display: flex;
     flex-direction: column;
     width: 100%;
-  }
+}
 
-  .derafu-block-hero__content--left {
+.derafu-block-hero__content--left {
     align-items: flex-start;
     text-align: left;
-    padding-left: 4rem;
-  }
+    padding-left: var(--hero-content-indent, 0);
+}
 
-  .derafu-block-hero__content--center {
+.derafu-block-hero__content--center {
     align-items: center;
     text-align: center;
-  }
+}
 
-  .derafu-block-hero__content--right {
+.derafu-block-hero__content--right {
     align-items: flex-end;
     text-align: right;
-    padding-right: 4rem;
-  }
+    padding-right: var(--hero-content-indent, 0);
+}
 
-  /*
-   * Title and subtitle
-   */
-  .derafu-block-hero__title {
+/* Title and subtitle */
+.derafu-block-hero__title {
     margin-bottom: var(--hero-title-margin-bottom);
     font-weight: var(--hero-title-font-weight);
+    font-size: var(--hero-title-font-size, min(calc(1.375rem + 1.5vw), 2.5rem));
+    line-height: var(--hero-title-line-height, 1.2);
+    letter-spacing: var(--hero-title-letter-spacing, normal);
+    max-width: var(--hero-title-max-width, 100%);
     color: var(--hero-title-color);
-    display: inline-block; /* Key: makes the title only take up the necessary space */
-    width: auto; /* Overrides any width: 100% that might be applied */
-    word-wrap: break-word; /* Improves rendering of long words */
-    hyphens: auto; /* Allow hyphenation for long words */
-    position: relative;
-    padding-bottom: 10px; /* Space for the line */
-  }
+    word-wrap: break-word;
+    hyphens: var(--hero-title-hyphens, manual);
+    padding-bottom: var(--hero-title-padding-bottom, 0);
+}
 
-  .derafu-block-hero__subtitle {
+.derafu-block-hero__subtitle {
     margin-bottom: var(--hero-subtitle-margin-bottom);
     color: var(--hero-subtitle-color);
+    max-width: var(--hero-subtitle-max-width, 100%);
+    font-size: var(--hero-subtitle-font-size, inherit);
+    line-height: var(--hero-subtitle-line-height, inherit);
     width: 100%;
     word-wrap: break-word;
     hyphens: auto;
-  }
+}
 
-  /*
-   * Buttons
-   */
-  .derafu-block-hero__buttons {
+/* Buttons */
+.derafu-block-hero__buttons {
     display: flex;
     gap: var(--hero-button-spacing);
-    flex-wrap: wrap; /* Important for responsiveness */
+    flex-wrap: wrap;
     width: 100%;
-  }
+}
 
-  .derafu-block-hero__content--left .derafu-block-hero__buttons {
+.derafu-block-hero__content--left .derafu-block-hero__buttons {
     justify-content: flex-start;
-  }
+}
 
-  .derafu-block-hero__content--center .derafu-block-hero__buttons {
+.derafu-block-hero__content--center .derafu-block-hero__buttons {
     justify-content: center;
-  }
+}
 
-  .derafu-block-hero__content--right .derafu-block-hero__buttons {
+.derafu-block-hero__content--right .derafu-block-hero__buttons {
     justify-content: flex-end;
-  }
+}
 
-  /*
-   * Button styles
-   */
-  .derafu-block-hero__button--primary {
-    background-color: var(--hero-button-primary-bg);
-    color: var(--hero-button-primary-text);
-    white-space: normal;
-    overflow-wrap: anywhere;
-    max-width: 100%; /* Prevent line breaks in button text */
-  }
+/* Button styles */
+.derafu-block-hero__button {
+    --bs-btn-border-radius: var(--hero-button-radius, var(--bs-border-radius, .375rem));
+    --bs-btn-font-weight: var(--hero-button-font-weight, 400);
+    padding: var(--hero-button-padding, var(--bs-btn-padding-y) var(--bs-btn-padding-x));
+}
 
-  .derafu-block-hero__button--primary:hover {
-    background-color: var(--hero-button-primary-hover);
-    color: var(--bs-white, #fff);
-  }
-
-  .derafu-block-hero__button--secondary {
-    background-color: var(--hero-button-secondary-bg);
-    color: var(--hero-button-secondary-text);
-    border: 2px solid var(--hero-button-secondary-border);
+.derafu-block-hero__button--primary,
+.derafu-block-hero__button--secondary {
+    --bs-btn-active-bg: var(--bs-btn-hover-bg);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-border-color: var(--bs-btn-hover-border-color);
     white-space: normal;
     overflow-wrap: anywhere;
     max-width: 100%;
-  }
+}
 
-  /*
-   * Content with background
-   */
-  .derafu-block-hero__content--with-background {
+.derafu-block-hero__button--primary {
+    --bs-btn-bg: var(--hero-button-primary-bg);
+    --bs-btn-color: var(--hero-button-primary-text);
+    --bs-btn-border-color: var(--hero-button-primary-border, transparent);
+    --bs-btn-hover-bg: var(--hero-button-primary-hover);
+    --bs-btn-hover-color: var(--hero-button-primary-hover-text, var(--bs-white, #fff));
+    --bs-btn-hover-border-color: var(--bs-btn-border-color);
+}
+
+.derafu-block-hero__button--secondary {
+    --bs-btn-bg: var(--hero-button-secondary-bg);
+    --bs-btn-color: var(--hero-button-secondary-text);
+    --bs-btn-border-width: var(--hero-button-border-width, 2px);
+    --bs-btn-border-color: var(--hero-button-secondary-border);
+    --bs-btn-hover-bg: var(--hero-button-secondary-hover-bg, var(--hero-button-secondary-bg));
+    --bs-btn-hover-color: var(--hero-button-secondary-hover-text, var(--hero-button-secondary-text));
+    --bs-btn-hover-border-color: var(--hero-button-secondary-hover-border, var(--hero-button-secondary-border));
+}
+
+/* Content with background */
+.derafu-block-hero__content--with-background {
     position: relative;
     padding: var(--hero-content-with-bg-padding);
     border-radius: var(--hero-content-with-bg-radius);
     backdrop-filter: blur(var(--hero-content-with-bg-blur));
-  }
+}
 
-  .derafu-block-hero__content--with-background::before {
+.derafu-block-hero__content--with-background::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: var(--hero-content-background-color, #ffffff);
     opacity: var(--hero-content-background-opacity, 0.6);
     border-radius: inherit;
     z-index: -1;
-  }
+}
 
-  /* Ensure content appears above the background */
-  .derafu-block-hero__content--with-background > * {
-    position: relative;
-  }
-
-  .derafu-block-hero__title a {
+.derafu-block-hero__title a,
+.derafu-block-hero__subtitle a {
     color: var(--hero-link-color);
     font-weight: var(--hero-link-font-weight);
     text-decoration: underline;
-  }
+}
 
-  .derafu-block-hero__title a:hover {
-    text-decoration: underline;
-  }
+.derafu-block-hero__title a:hover,
+.derafu-block-hero__subtitle a:hover {
+    color: var(--hero-link-hover-color);
+}
 
-  /*
-   * Subtitle links
-   */
-  .derafu-block-hero__subtitle a {
-    color: var(--hero-link-color);
-    font-weight: var(--hero-link-font-weight);
-    text-decoration: underline;
-  }
-
-  .derafu-block-hero__subtitle a:hover {
-    text-decoration: underline;
-  }
-
-  /*
-   * Responsive media queries
-   */
-
-
-  @media (max-width: 991.98px) {
-    /* Height reduction */
+/* Responsive media queries */
+@media (max-width: 991.98px) {
     .derafu-block-hero--mini {
-      min-height: calc(var(--hero-height-mini) * var(--hero-mobile-height-reduction));
+        min-height: calc(var(--hero-height-mini) * var(--hero-mobile-height-reduction));
     }
 
     .derafu-block-hero--small {
-      min-height: calc(var(--hero-height-small) * var(--hero-mobile-height-reduction));
+        min-height: calc(var(--hero-height-small) * var(--hero-mobile-height-reduction));
     }
 
     .derafu-block-hero--medium {
-      min-height: calc(var(--hero-height-medium) * var(--hero-mobile-height-reduction));
+        min-height: calc(var(--hero-height-medium) * var(--hero-mobile-height-reduction));
     }
 
     .derafu-block-hero--large {
-      min-height: calc(var(--hero-height-large) * var(--hero-mobile-height-reduction));
+        min-height: calc(var(--hero-height-large) * var(--hero-mobile-height-reduction));
     }
 
-    .derafu-block-hero--full {
-      min-height: var(--hero-height-full);
-    }
-
-    /* Spacing adjustments */
     .derafu-block-hero__content {
-      padding: var(--hero-mobile-spacing-y) 0;
+        padding-block: var(--hero-mobile-content-padding-block, var(--hero-content-padding-block, var(--hero-mobile-spacing-y)));
+        padding-inline: 0;
     }
 
-    /* Font size adjustments */
     .derafu-block-hero__title {
-      font-size: var(--hero-mobile-title-font-size);
+        font-size: var(--hero-title-font-size, var(--hero-mobile-title-font-size));
     }
 
     .derafu-block-hero__subtitle {
-      font-size: var(--hero-mobile-subtitle-font-size);
+        font-size: var(--hero-subtitle-font-size, var(--hero-mobile-subtitle-font-size));
     }
 
-    /* Background content adjustments */
     .derafu-block-hero__content--with-background {
-      padding: var(--hero-mobile-content-padding);
+        padding: var(--hero-mobile-content-padding);
     }
+}
 
-    /* Button adjustments */
+/* Media query for very small screens */
+@media (max-width: 575.98px) {
     .derafu-block-hero__buttons {
-      width: 100%;
-    }
-  }
-
-  /*
-   * Media query for very small screens
-   */
-  @media (max-width: 575.98px) {
-    .derafu-block-hero__buttons {
-      flex-direction: column;
-      width: 100%;
+        flex-direction: column;
     }
 
     .derafu-block-hero__buttons > * {
-      width: 100%;
-      margin-bottom: 0.5rem;
-      text-align: center;
+        width: 100%;
     }
-
-  }
+}
 
 .derafu-block-hero--with-background::before {
     content: "";
@@ -327,13 +293,93 @@
     pointer-events: none;
 }
 
-.derafu-block-hero__container {
-    position: relative;
-    z-index: 1;
-    min-width: 0;
+/* Optional content regions share the Hero background and container. */
+.derafu-block-hero__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--hero-header-gap, 1rem 2rem);
+    padding-block: var(--hero-header-padding-block, 1.5rem);
+    border-bottom: var(--hero-navigation-divider, 1px solid currentColor);
 }
 
-.derafu-block-hero__title a:hover,
-.derafu-block-hero__subtitle a:hover {
-    color: var(--hero-link-hover-color);
+.derafu-block-hero__eyebrow {
+    margin: 0 0 var(--hero-eyebrow-spacing, 1rem);
+    color: var(--hero-eyebrow-color, var(--hero-text));
+    font-size: var(--hero-eyebrow-font-size, .75rem);
+    font-weight: var(--hero-eyebrow-font-weight, 700);
+    letter-spacing: var(--hero-eyebrow-letter-spacing, .12em);
+    text-transform: var(--hero-eyebrow-text-transform, uppercase);
+    overflow-wrap: anywhere;
+}
+
+.derafu-block-hero__header .derafu-block-hero__eyebrow {
+    margin: 0;
+}
+
+.derafu-block-hero__navigation,
+.derafu-block-hero__header > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.derafu-block-hero__navigation ul {
+    gap: var(--hero-navigation-gap, .5rem 1.5rem);
+}
+
+.derafu-block-hero__navigation li {
+    color: var(--hero-navigation-color, var(--hero-text));
+    font-size: var(--hero-navigation-font-size, .875rem);
+}
+
+.derafu-block-hero__navigation a,
+.derafu-block-hero__highlights a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.derafu-block-hero__navigation a:hover {
+    color: var(--hero-navigation-hover-color, var(--hero-navigation-color, var(--hero-text)));
+}
+
+.derafu-block-hero__navigation a:hover,
+.derafu-block-hero__highlights a:hover {
+    text-decoration: underline;
+}
+
+.derafu-block-hero__navigation a:focus-visible,
+.derafu-block-hero__highlights a:focus-visible,
+.derafu-block-hero__button:focus-visible {
+    outline: var(--hero-focus-outline, 3px solid var(--hero-text));
+    outline-offset: 4px;
+}
+
+.derafu-block-hero__accent {
+    color: var(--hero-accent-color, var(--hero-title-color));
+}
+
+.derafu-block-hero__highlights {
+    gap: var(--hero-highlights-gap, 1rem 2rem);
+    padding-block: var(--hero-highlights-padding-block, 0 2rem);
+    color: var(--hero-highlights-color, var(--hero-text));
+    font-size: var(--hero-highlights-font-size, .9rem);
+}
+
+.derafu-block-hero__navigation li,
+.derafu-block-hero__navigation a,
+.derafu-block-hero__highlights li,
+.derafu-block-hero__highlights a {
+    display: flex;
+    align-items: baseline;
+    gap: var(--hero-highlight-icon-spacing, .5rem);
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.derafu-block-hero__navigation i,
+.derafu-block-hero__highlights i {
+    color: var(--hero-highlight-icon-color, var(--hero-accent-color, var(--hero-text)));
+    flex-shrink: 0;
 }
