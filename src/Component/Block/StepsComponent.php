@@ -13,11 +13,14 @@ declare(strict_types=1);
 namespace Derafu\TwigComponents\Component\Block;
 
 use Derafu\TwigComponents\Abstract\AbstractComponent;
+use Derafu\TwigComponents\Trait\ContainedContentTrait;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent('block-steps')]
 class StepsComponent extends AbstractComponent
 {
+    use ContainedContentTrait;
+
     /**
      * Array of steps with their configurations.
      *

@@ -7,12 +7,12 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare automatic rows and explicit columns, including long content on a small screen.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare automatic rows and explicit columns, including long content on a small screen.</p>
 
 {% set grid_item_1 %}
     <h2>Item 1</h2>
-    <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href="https://www.example.com/" target="_blank">tempus gravida.</a></p>
+    <p>Keep the team informed and explore the workspace guide. Keep decisions, references and useful resources together. Follow the <a href="https://www.example.com/" target="_blank">workspace guide.</a></p>
 {% endset %}
 
 {% set grid_item_2 %}
@@ -31,12 +31,12 @@ show_source: true
 
 {% set grid_item_3 %}
     <twig:block-image
-        title="Lorem ipsum"
+        title="Shared workspace"
         image="assets/derafu-dev-programmer.png"
-        content="<p>Dolor sit amet</p>"
+        content="<p>Resources sit amet</p>"
         :buttons="[
             {
-                text: 'Consectetur',
+                text: 'Explore the guide',
                 url: 'https://twig.symfony.com/'
             }
         ]"
@@ -68,5 +68,9 @@ show_source: true
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
 {% for cols in [1, 2, 3, 4, 6] %}
 <h3 class="h5 mt-4">{{ cols }} explicit columns</h3>
-<twig:block-grid class="container my-4" :cols="cols" :items="['<h4>Configuration</h4><p>A longer explanation that should remain readable when the layout stacks.</p>', '<h4>Synchronization</h4><p>Short content.</p>', '<h4>Reference</h4><p>https://example.com/configuration/synchronization/documentation</p>']" />
+<twig:block-grid
+    class="container my-4"
+    :cols="cols"
+    :items="['<h4>Configuration</h4><p>A longer explanation that should remain readable when the layout stacks.</p>', '<h4>Synchronization</h4><p>Short content.</p>', '<h4>Reference</h4><p>https://example.com/configuration/synchronization/documentation</p>']"
+/>
 {% endfor %}

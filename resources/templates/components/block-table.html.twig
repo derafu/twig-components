@@ -31,8 +31,9 @@
     id="{{ this.id }}"
 >
    {# Actions Menu #}
-   {% if this.actions|length > 0 %}
+   {% if this.actions|length > 0 or this.toggleable %}
        <div class="derafu-block-table__actions mb-3 text-end">
+           {% if this.actions|length > 0 %}
            <div class="dropdown">
                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                    <i class="fas fa-ellipsis-v"></i>
@@ -57,6 +58,8 @@
                    {% endfor %}
                </ul>
            </div>
+
+           {% endif %}
 
            {% if this.toggleable %}
                <button type="button" class="btn btn-primary" aria-label="{{ 'Show or hide table'|trans }}"

@@ -1,8 +1,8 @@
 /* Quote Component - Base Variables */
 :root {
     /* Structure */
-    --quote-padding: 3rem;
-    --quote-border-radius: 0.5rem;
+    --quote-padding: clamp(1.5rem, 1rem + 2vw, 3rem);
+    --quote-border-radius: var(--bs-border-radius-lg, .75rem);
     --quote-margin-bottom: 1.5rem;
     --quote-icon-size: 3rem;
     --quote-icon-offset: 2rem;
@@ -23,7 +23,7 @@
     --quote-content-font-size: 1.25rem;
     --quote-content-font-style: italic;
     --quote-author-name-font-weight: 600;
-    --quote-author-name-font-size: 1.25rem; /* Adjusted to maintain size as in the image */
+    --quote-author-name-font-size: 1rem; /* Adjusted to maintain size as in the image */
     --quote-author-source-font-size: 0.9rem;
 
     /* Responsive Typography */
@@ -269,3 +269,9 @@
         padding-inline: 1rem;
     }
 }
+
+.derafu-block-quote { display: flow-root; }
+
+.derafu-block-quote__content > :last-child { margin-bottom: 0; }
+
+.derafu-block-quote__content { line-height: 1.65; text-wrap: pretty; }

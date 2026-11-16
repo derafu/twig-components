@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare mixed image heights, text lengths, missing actions and independently linked cards.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare mixed image heights, text lengths, missing actions and independently linked cards.</p>
 
 <twig:block-card-grid
     class="my-4"
@@ -87,4 +87,22 @@ show_source: true
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-card-grid class="container my-4" :cols="3" :cards="[{url: '#linked-card', image: 'assets/derafu-dev-programmer.png', title: 'A linked card with an independent action', content: 'Read the <a href=\'#card-details\'>details</a> or use the action below.', buttonText: 'Contact the team about this particular service', buttonUrl: '#contact-team'}, {icon: 'fa-solid fa-cloud', label: 'Cloud service', title: 'A card with an icon', content: 'A longer description to compare content and actions across cards with different amounts of information.', buttonText: 'Learn more', buttonUrl: '#'}, {title: 'Text only', content: 'No image and no action.'}]" />
+<twig:block-card-grid
+    class="container my-4"
+    :cols="3"
+    :cards="[{url: '#linked-card', image: 'assets/derafu-dev-programmer.png', title: 'A linked card with an independent action', content: 'Read the <a href=\'#card-details\'>details</a> or use the action below.', buttonText: 'Contact the team about this particular service', buttonUrl: '#contact-team'}, {icon: 'fa-solid fa-cloud', label: 'Cloud service', title: 'A card with an icon', content: 'A longer description to compare content and actions across cards with different amounts of information.', buttonText: 'Learn more', buttonUrl: '#'}, {title: 'Text only', content: 'No image and no action.'}]"
+/>
+
+<h2 class="h4 mx-3 mt-5">Full-width background with contained content</h2>
+<p class="mx-3">The root uses Bootstrap background and spacing utilities. The component creates its own responsive container.</p>
+<twig:block-card-grid
+    id="card-grid-contained"
+    class="bg-body-tertiary my-0 py-4"
+    :contained="true"
+    :cols="3"
+    :cards="[
+        {title: 'Plan the work', content: 'Give the team a clear starting point.', icon: 'fa-solid fa-list'},
+        {title: 'Share the context', content: 'Keep useful information together.', icon: 'fa-solid fa-comments'},
+        {title: 'Take the next step', content: 'Turn information into action.', icon: 'fa-solid fa-arrow-right'}
+    ]"
+/>

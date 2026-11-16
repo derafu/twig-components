@@ -1,7 +1,4 @@
-/* ======================================
-   Base Variables
-   ====================================== */
-   :root {
+:root {
     /* Spacing */
 
     /* Structure */
@@ -18,27 +15,22 @@
     --features-list-text-color: var(--bs-body-color, #212529);
 
     /* Typography */
-    --features-list-icon-font-size: 2rem;
+    --features-list-icon-font-size: 1.75rem;
     --features-list-title-font-size: 1.25rem;
     --features-list-title-font-weight: 600;
     --features-list-title-margin-bottom: 0.5rem;
-    --features-list-content-font-size: 0.9rem;
-    --features-list-content-line-height: 1.5;
+    --features-list-content-font-size: 1rem;
+    --features-list-content-line-height: 1.65;
 
     /* Breakpoints */
     --features-list-mobile-breakpoint: 768px;
 }
 
-/* ======================================
-   Component Container
-   ====================================== */
 .derafu-block-features-list {
+    display: flow-root;
     margin: var(--spacing-y, 2rem) auto;
 }
 
-/* ======================================
-   Row Structure
-   ====================================== */
 .derafu-block-features-list__row {
     display: flex;
     flex-wrap: wrap;
@@ -58,17 +50,11 @@
     transform: translateX(-50%);
 }
 
-/* ======================================
-   Column Structure
-   ====================================== */
 .derafu-block-features-list__column {
     flex: 1 1 50%;
     padding: var(--features-list-column-padding);
 }
 
-/* ======================================
-   Feature Item
-   ====================================== */
 .derafu-block-features-list__item {
     display: flex;
     align-items: flex-start;
@@ -90,9 +76,6 @@
     order: 2;
 }
 
-/* ======================================
-   Feature Content
-   ====================================== */
 .derafu-block-features-list__content {
     flex: 1;
 }
@@ -126,9 +109,6 @@
     text-decoration: underline;
 }
 
-/* ======================================
-   Feature Icon
-   ====================================== */
 .derafu-block-features-list__icon {
     font-size: var(--features-list-icon-font-size);
     color: var(--features-list-icon-color);
@@ -147,9 +127,6 @@
     padding-right: var(--spacing-md, 1rem);
 }
 
-/* ======================================
-   Responsive Styles
-   ====================================== */
 @media (max-width: 768px) {
     /* Hide vertical divider */
     .derafu-block-features-list__row::after {
@@ -202,15 +179,15 @@
 
     /* Maintain font size similar to desktop */
     .derafu-block-features-list__title {
-        font-size: 1.2rem;
+        font-size: var(--features-list-title-font-size);
     }
 
     .derafu-block-features-list__content {
-        font-size: 0.9rem;
+        font-size: var(--features-list-content-font-size);
     }
 
     .derafu-block-features-list__icon {
-        font-size: 1.85rem;
+        font-size: var(--features-list-icon-font-size);
     }
 }
 
@@ -218,3 +195,6 @@
     min-width: 0;
     overflow-wrap: anywhere;
 }
+
+.derafu-block-features-list__item:last-child { margin-bottom: 0; }
+.derafu-block-features-list__description > :last-child { margin-bottom: 0; }

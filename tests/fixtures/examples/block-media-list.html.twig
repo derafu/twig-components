@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare square and rounded items with short and long descriptions.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare square and rounded items with short and long descriptions.</p>
 
 <twig:block-media-list
     class="mb-5"
@@ -16,17 +16,17 @@ show_source: true
         {
             image: 'assets/derafu-dev-programmer.png',
             title: 'Title 1',
-            content: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>'
+            content: '<p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>'
         },
         {
             image: 'assets/derafu-dev-programmer.png',
             title: 'Title 2',
-            content: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>'
+            content: '<p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>'
         },
         {
             image: 'assets/derafu-dev-programmer.png',
             title: 'Title 3',
-            content: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>'
+            content: '<p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>'
         }
     ]"
 />
@@ -38,21 +38,24 @@ show_source: true
         {
             image: 'assets/derafu-dev-programmer.png',
             title: 'Title 1',
-            content: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>'
+            content: '<p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>'
         },
         {
             image: 'assets/derafu-dev-programmer.png',
             title: 'Title 2',
-            content: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>'
+            content: '<p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>'
         },
         {
             image: 'assets/derafu-dev-programmer.png',
             title: 'Title 3',
-            content: '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>'
+            content: '<p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>'
         }
     ]"
 />
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-media-list class="my-4" :items="[{image: 'assets/derafu-dev-programmer.png', title: 'A longer heading for a featured service', content: '<p>A longer description that wraps over several lines and explains how the service connects the different parts of the workflow.</p><p>A second paragraph with additional context.</p>'}, {image: 'assets/derafu-dev-programmer.png', title: 'Short item', content: '<p>Short content.</p>'}]" />
+<twig:block-media-list
+    class="my-4"
+    :items="[{image: 'assets/derafu-dev-programmer.png', title: 'A longer heading for a featured service', content: '<p>A longer description that wraps over several lines and explains how the service connects the different parts of the workflow.</p><p>A second paragraph with additional context.</p>'}, {image: 'assets/derafu-dev-programmer.png', title: 'Short item', content: '<p>Short content.</p>'}]"
+/>

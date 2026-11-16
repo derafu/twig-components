@@ -28,7 +28,7 @@
     box-shadow: var(--toast-shadow);
     width: 100%;
     max-width: 350px;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .derafu-block-toast .toast-container {
@@ -224,3 +224,8 @@
     min-width: 0;
     overflow-wrap: anywhere;
 }
+
+.derafu-block-toast .toast-header strong { min-width: 0; overflow-wrap: anywhere; }
+.derafu-block-toast .toast-header .btn-close { flex-shrink: 0; }
+.derafu-block-toast .toast-body { line-height: 1.6; }
+.derafu-block-toast .toast-body > :last-child { margin-bottom: 0; }

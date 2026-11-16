@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare simple and complex headings, scrolling, actions and long cell content.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare simple and complex headings, scrolling, actions and long cell content.</p>
 
 {# Basic table #}
 <twig:block-table
@@ -146,4 +146,9 @@ show_source: true
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-table class="container my-4" caption="Long content in a compact table" :headers="[[{text: 'Service'}, {text: 'Description'}, {text: 'Contact'}]]" :rows="[['Synchronization', 'A longer explanation of the configuration options for several companies', 'configuration-and-synchronization@example.com'], ['Documents', 'Short content', 'support@example.com']]" />
+<twig:block-table
+    class="container my-4"
+    caption="Long content in a compact table"
+    :headers="[[{text: 'Service'}, {text: 'Description'}, {text: 'Contact'}]]"
+    :rows="[['Synchronization', 'A longer explanation of the configuration options for several companies', 'configuration-and-synchronization@example.com'], ['Documents', 'Short content', 'support@example.com']]"
+/>

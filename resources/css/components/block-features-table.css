@@ -252,3 +252,7 @@
     height: calc(var(--features-table-mobile-icon-size) * 0.8);
   }
 }
+
+.derafu-block-features-table__table { font-variant-numeric: tabular-nums; }
+.derafu-block-features-table__cell { line-height: 1.55; }
+.derafu-block-features-table__feature-content > :last-child { margin-bottom: 0; }

@@ -116,9 +116,9 @@
 {% import _self as menu %}
 
 <nav class="derafu-block-header {{ attributes.render('class') }} navbar navbar-expand-lg
-    {% if this.position != 'normal' %}{{ this.position }}{% endif %}
+    {% if this.position != 'normal' %}{{ this.position }}{% endif %}"
     {% if this.backgroundColor %}style="background-color: {{ this.backgroundColor }};"{% endif %}
-    {% if this.dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %}"
+    {% if this.dropdownTrigger == 'hover' %}data-dropdown-trigger="hover"{% endif %}
     {{ attributes }}
     id="{{ this.id }}"
 >

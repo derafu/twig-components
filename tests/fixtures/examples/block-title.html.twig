@@ -91,3 +91,25 @@ show_source: true
     title="Adjust the size and reading width for your content"
     subtitle="The component accepts a fluid size while its other styles keep their default values."
 />
+
+<h2 class="h4 mx-3 mt-5">A heading on a coloured surface</h2>
+<p class="mx-3">The component contains its own subtitle spacing, including when the root has a background.</p>
+<twig:block-title
+    class="bg-body-tertiary px-4 py-4 mb-0"
+    align="start"
+    eyebrow="Shared information"
+    title="A clear starting point for the team"
+    subtitle="The title and description stay together on the same surface."
+/>
+
+<h2 class="h4 mx-3 mt-5">Full-width background with contained content</h2>
+<p class="mx-3">The root uses Bootstrap background and spacing utilities. The component creates its own responsive container.</p>
+<twig:block-title
+    id="title-contained"
+    class="bg-body-tertiary my-0 py-4"
+    :contained="true"
+    align="start"
+    eyebrow="A shared starting point"
+    title="Clear information for the whole team"
+    subtitle="The background belongs to the full-width component; Bootstrap limits the content inside it."
+/>

@@ -1,19 +1,29 @@
 {# templates/components/block-image.html.twig #}
 <div
-    class="derafu-block-image derafu-block-image--{{ this.align }} derafu-block-image--{{ this.size }} {{ attributes.render('class') }}"
+    class="derafu-block-image{{ this.contained ? ' derafu-block-image--contained' : '' }} derafu-block-image--{{ this.align }} derafu-block-image--{{ this.size }} {{ attributes.render('class') }}"
     {{ attributes }}
     id="{{ this.id }}"
 >
+    {% if this.contained %}<div class="derafu-block-image__inner container">{% endif %}
     <div class="derafu-block-image__wrapper">
+        {% if this.eyebrow is not null and this.eyebrow != '' %}
+            <div class="derafu-block-image__eyebrow">{{ this.eyebrow|raw }}</div>
+        {% endif %}
         {% if this.title %}
             <h2 class="derafu-block-image__title">{{ this.title|raw }}</h2>
         {% endif %}
 
+        {% if this.content and this.contentPosition == 'before' %}
+            <div class="derafu-block-image__content">
+                {{ this.content|raw }}
+            </div>
+        {% endif %}
+
         <div class="derafu-block-image__image">
-            <img src="{{ this.image }}" alt="{{ this.title }}" class="img-fluid">
+            <img src="{{ this.image }}" alt="{{ this.imageAlt ?? this.title|striptags }}" class="img-fluid">
         </div>
 
-        {% if this.content %}
+        {% if this.content and this.contentPosition != 'before' %}
             <div class="derafu-block-image__content">
                 {{ this.content|raw }}
             </div>
@@ -29,4 +39,5 @@
             </div>
         {% endif %}
     </div>
+    {% if this.contained %}</div>{% endif %}
 </div>

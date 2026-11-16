@@ -7,12 +7,12 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare short and long quotations with and without an author image.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare short and long quotations with and without an author image.</p>
 
 <twig:block-quote
     class="my-4"
-    content="Lorem ipsum dolor sit amet, consectetur adipiscing <a href='https://www.example.com/' target='_blank'>elit</a>."
+    content="Explore the <a href='https://www.example.com/' target='_blank'>workspace guide</a>."
     author="John Doe"
     note="Quote"
     image="assets/derafu-dev-programmer.png"
@@ -29,10 +29,15 @@ show_source: true
 {# Example without margins #}
 <twig:block-quote
     class="my-4"
-    content="A quote without special margins."
+    content="<p>Clear information gives everyone a useful starting point.</p><p>Shared context helps the team take its next step.</p>"
     author="Anonymous"
 />
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-quote class="container my-4" content="A useful tool makes the complete process understandable, even when the explanation needs several lines. The quotation should remain comfortably readable beside its decorative quotation marks on a small screen." author="A customer with a longer name" note="Configuration and synchronization team" />
+<twig:block-quote
+    class="container my-4"
+    content="A useful tool makes the complete process understandable, even when the explanation needs several lines. The quotation should remain comfortably readable beside its decorative quotation marks on a small screen."
+    author="A customer with a longer name"
+    note="Configuration and synchronization team"
+/>

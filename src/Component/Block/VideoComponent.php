@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Derafu\TwigComponents\Component\Block;
 
 use Derafu\TwigComponents\Abstract\AbstractComponent;
+use Derafu\TwigComponents\Trait\ContainedContentTrait;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 /**
@@ -24,6 +25,8 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-video')]
 class VideoComponent extends AbstractComponent
 {
+    use ContainedContentTrait;
+
     /**
      * Video title.
      *
@@ -72,6 +75,40 @@ class VideoComponent extends AbstractComponent
      * @var string
      */
     private string $aspectRatio = '16:9';
+
+    /**
+     * Optional introduction above the title, rendered with raw in Twig.
+     */
+    private ?string $eyebrow = null;
+
+    /**
+     * Position of the description relative to the media: before or after.
+     */
+    private string $contentPosition = 'after';
+
+    public function getEyebrow(): ?string
+    {
+        return $this->eyebrow;
+    }
+
+    public function setEyebrow(?string $eyebrow): static
+    {
+        $this->eyebrow = $eyebrow;
+
+        return $this;
+    }
+
+    public function getContentPosition(): string
+    {
+        return $this->contentPosition;
+    }
+
+    public function setContentPosition(string $contentPosition): static
+    {
+        $this->contentPosition = $contentPosition;
+
+        return $this;
+    }
 
     /**
      * Gets the video title.

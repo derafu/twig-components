@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare even and odd item counts. Each numbered section can be checked independently.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare even and odd item counts. Each numbered section can be checked independently.</p>
 
 {# Case 4 elements (one row of 4) #}
 <twig:block-features-icon
@@ -127,5 +127,35 @@ show_source: true
 {% for number in 1..count %}
 {% set features = features|merge([{icon: 'fa-solid fa-star', title: 'Feature ' ~ number ~ ': configuration and synchronization', content: 'A longer description to compare wrapping and spacing between consecutive items.'}]) %}
 {% endfor %}
-<twig:block-features-icon class="container my-4" :features="features" />
+<twig:block-features-icon
+    class="container my-4"
+    :features="features"
+/>
 {% endfor %}
+
+<h2 class="h4 mx-3 mt-5">Three columns with left alignment</h2>
+<p class="mx-3">Explicit desktop columns keep their width in the final row. Tablet and mobile layouts remain responsive.</p>
+{% set column_features = [
+    {icon: 'fa-solid fa-list', title: 'Plan the work', content: 'Choose a clear starting point.'},
+    {icon: 'fa-solid fa-comments', title: 'Share the context', content: 'Keep the team informed.'},
+    {icon: 'fa-solid fa-link', title: 'Connect your tools', content: 'Bring useful information together.'},
+    {icon: 'fa-solid fa-chart-line', title: 'Follow progress', content: 'Understand what needs attention.'},
+    {icon: 'fa-solid fa-users', title: 'Work together', content: 'Make collaboration part of everyday work.'},
+    {icon: 'fa-solid fa-check', title: 'Take the next step', content: 'Turn information into useful action.'}
+] %}
+<twig:block-features-icon
+    id="features-icon-contained"
+    class="bg-body-tertiary my-0 py-4"
+    :contained="true"
+    :cols="3"
+    align="left"
+    :features="column_features"
+/>
+
+<h2 class="h4 mx-3 mt-5">A partial row with right alignment</h2>
+<twig:block-features-icon
+    class="container my-4"
+    :cols="3"
+    align="end"
+    :features="column_features|merge([{icon: 'fa-solid fa-book', title: 'Keep learning', content: 'Build on what the team discovers.'}])"
+/>

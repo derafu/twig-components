@@ -13,11 +13,11 @@
                     {% for feature in (block.features ?? null) %}
                         <div class="derafu-block-features-grid__feature">
                             <div class="derafu-block-features-grid__icon">
-                                <i class="{{ (feature.icon ?? null) }}"></i>
+                                <i class="{{ (feature.icon ?? null) }}" aria-hidden="true"></i>
                             </div>
                             <div class="derafu-block-features-grid__content">
                                 <h4 class="derafu-block-features-grid__feature-title">{{ (feature.title ?? null)|raw  }}</h4>
-                                <div class="derafu-block-features-grid__content">
+                                <div class="derafu-block-features-grid__content derafu-block-features-grid__description">
                                     {{ (feature.content ?? null)|raw }}
                                 </div>
                             </div>

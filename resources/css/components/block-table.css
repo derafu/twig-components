@@ -249,3 +249,8 @@
         scroll-behavior: auto;
     }
 }
+
+.derafu-block-table .table { font-variant-numeric: tabular-nums; }
+.derafu-block-table .table > tbody > tr > td { line-height: 1.55; vertical-align: middle; }
+.derafu-block-table .table > tbody > tr > td > :last-child { margin-bottom: 0; }
+.derafu-block-table .table > caption { color: var(--bs-secondary-color, #6c757d); }

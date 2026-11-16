@@ -3,7 +3,7 @@
 <div class="derafu-block-card {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
     <div class="card">
         {% if this.image %}
-            <img src="{{ this.image }}" class="card-img-top" alt="{{ this.title|striptags }}">
+            <img src="{{ this.image }}" class="card-img-top" alt="{{ this.imageAlt ?? this.title|striptags }}">
         {% endif %}
         <div class="card-body">
             {% if this.title %}

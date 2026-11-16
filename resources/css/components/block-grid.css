@@ -37,6 +37,7 @@
    * Estilos generales
    */
   .derafu-block-grid {
+    display: flow-root;
     width: 100%;
   }
 
@@ -112,3 +113,6 @@
       padding: var(--grid-mobile-padding);
     }
   }
+
+.derafu-block-grid__row:last-child { margin-bottom: 0; }
+.derafu-block-grid__item > :last-child { margin-bottom: 0; }

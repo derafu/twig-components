@@ -7,18 +7,18 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Open several sections and use the keyboard to check focus and long headings.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Open several sections and use the keyboard to check focus and long headings.</p>
 
 <twig:block-accordion
     :items="[
         {
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim. <a href=\'https://www.example.com/\' target=\'_blank\'>Link</a>',
+            title: 'Bring your team, information and everyday work together.',
+            content: 'Bring your team, information and everyday work together. Keep project information close to the people who need it. Organize the work into clear steps, record decisions and share useful context with the team. Start with the essentials, then add the details that help everyone continue independently. A shared workspace makes it easier to follow progress, find the right information and understand what needs attention next. <a href=\'https://www.example.com/\' target=\'_blank\'>Link</a>',
         },
         {
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.',
+            title: 'Bring your team, information and everyday work together.',
+            content: 'Bring your team, information and everyday work together. Keep project information close to the people who need it. Organize the work into clear steps, record decisions and share useful context with the team. Start with the essentials, then add the details that help everyone continue independently. A shared workspace makes it easier to follow progress, find the right information and understand what needs attention next.',
         }
     ]"
 />
@@ -26,17 +26,19 @@ show_source: true
 <twig:block-accordion
     :items="[
         {
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.',
+            title: 'Bring your team, information and everyday work together.',
+            content: 'Bring your team, information and everyday work together. Keep project information close to the people who need it. Organize the work into clear steps, record decisions and share useful context with the team. Start with the essentials, then add the details that help everyone continue independently. A shared workspace makes it easier to follow progress, find the right information and understand what needs attention next.',
             active: true
         },
         {
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida. Nam ullamcorper libero ac velit pharetra, in volutpat sem vulputate. Integer quis suscipit nibh, non tempor enim. Nulla ipsum leo, vulputate nec dolor nec, aliquet porttitor nibh. Donec maximus tellus vitae ornare dignissim.',
+            title: 'Bring your team, information and everyday work together.',
+            content: 'Bring your team, information and everyday work together. Keep project information close to the people who need it. Organize the work into clear steps, record decisions and share useful context with the team. Start with the essentials, then add the details that help everyone continue independently. A shared workspace makes it easier to follow progress, find the right information and understand what needs attention next.',
         }
     ]"
 />
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-accordion :items="[{title: 'How do I configure synchronization for several companies and review the documents that need attention?', content: '<p>The full question and its answer remain readable at narrow widths.</p><p>Use Tab to reach the next question.</p>', active: true}, {title: 'A short question', content: 'A short answer.'}]" />
+<twig:block-accordion
+    :items="[{title: 'How do I configure synchronization for several companies and review the documents that need attention?', content: '<p>The full question and its answer remain readable at narrow widths.</p><p>Use Tab to reach the next question.</p>', active: true}, {title: 'A short question', content: 'A short answer.'}]"
+/>

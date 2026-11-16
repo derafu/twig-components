@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare both sides with different text lengths and a long link.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare both sides with different text lengths and a long link.</p>
 
 <twig:block-features-list
     class="my-4"
@@ -50,4 +50,8 @@ show_source: true
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-features-list class="container my-4" :featuresLeft="[{icon: 'fa-solid fa-cloud', title: 'Synchronization for several companies', content: 'A longer explanation with a <a href=\'#\'>link to the complete configuration instructions</a>.'}]" :featuresRight="[{icon: 'fa-solid fa-check', title: 'Ready', content: 'Short content.'}, {icon: 'fa-solid fa-file', title: 'Documents', content: 'This side has more items than the other side.'}]" />
+<twig:block-features-list
+    class="container my-4"
+    :featuresLeft="[{icon: 'fa-solid fa-cloud', title: 'Synchronization for several companies', content: 'A longer explanation with a <a href=\'#\'>link to the complete configuration instructions</a>.'}]"
+    :featuresRight="[{icon: 'fa-solid fa-check', title: 'Ready', content: 'Short content.'}, {icon: 'fa-solid fa-file', title: 'Documents', content: 'This side has more items than the other side.'}]"
+/>

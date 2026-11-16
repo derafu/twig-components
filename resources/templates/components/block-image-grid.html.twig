@@ -7,10 +7,10 @@
                 <div class="derafu-block-image-grid__item p-2">
                     {% if (image.url ?? null) %}
                         <a href="{{ (image.url ?? null) }}" class="derafu-block-image-grid__link" {% if (image.tooltip ?? null) %}data-bs-toggle="tooltip" title="{{ (image.tooltip ?? null) }}"{% endif %}>
-                            <img src="{{ (image.image ?? null) }}" alt="{{ image.tooltip|default('') }}" class="derafu-block-image-grid__image">
+                            <img src="{{ (image.image ?? null) }}" alt="{{ image.alt ?? image.tooltip|default('') }}" class="derafu-block-image-grid__image">
                         </a>
                     {% else %}
-                        <img src="{{ (image.image ?? null) }}" alt="{{ image.tooltip|default('') }}" class="derafu-block-image-grid__image" {% if (image.tooltip ?? null) %}data-bs-toggle="tooltip" title="{{ (image.tooltip ?? null) }}"{% endif %}>
+                        <img src="{{ (image.image ?? null) }}" alt="{{ image.alt ?? image.tooltip|default('') }}" class="derafu-block-image-grid__image" {% if (image.tooltip ?? null) %}data-bs-toggle="tooltip" title="{{ (image.tooltip ?? null) }}"{% endif %}>
                     {% endif %}
                 </div>
             </div>

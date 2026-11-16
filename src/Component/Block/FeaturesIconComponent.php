@@ -13,11 +13,52 @@ declare(strict_types=1);
 namespace Derafu\TwigComponents\Component\Block;
 
 use Derafu\TwigComponents\Abstract\AbstractComponent;
+use Derafu\TwigComponents\Trait\ContainedContentTrait;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent('block-features-icon')]
 class FeaturesIconComponent extends AbstractComponent
 {
+    use ContainedContentTrait;
+
+    /**
+     * Explicit desktop columns, or null for automatic grouping.
+     */
+    private ?int $cols = null;
+
+    /**
+     * Content alignment: left, center or right; start and end are aliases.
+     */
+    private string $align = 'center';
+
+    public function getCols(): ?int
+    {
+        return $this->cols;
+    }
+
+    public function setCols(?int $cols): static
+    {
+        if ($cols !== null && !in_array($cols, [1, 2, 3, 4, 6], true)) {
+            $this->error('Invalid number of columns. Must be 1, 2, 3, 4 or 6.');
+        }
+
+        $this->cols = $cols;
+
+        return $this;
+    }
+
+    public function getAlign(): string
+    {
+        return $this->align;
+    }
+
+    public function setAlign(string $align): static
+    {
+        $this->align = $align;
+
+        return $this;
+    }
+
     /**
      * Array of features with their configurations.
      *

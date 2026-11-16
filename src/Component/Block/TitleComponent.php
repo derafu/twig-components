@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Derafu\TwigComponents\Component\Block;
 
 use Derafu\TwigComponents\Abstract\AbstractComponent;
+use Derafu\TwigComponents\Trait\ContainedContentTrait;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 /**
@@ -24,6 +25,8 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('block-title')]
 class TitleComponent extends AbstractComponent
 {
+    use ContainedContentTrait;
+
     /**
      * The title text (supports HTML).
      *

@@ -7,30 +7,30 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare short and long quotations and navigate between the slides.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare short and long quotations and navigate between the slides.</p>
 
 <twig:block-testimonials
     class="my-4"
     :testimonials="[
         {
             background: 'assets/derafu-dev-programmer.png',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            content: 'Bring your team, information and everyday work together. Keep decisions, references and useful resources together. Follow the workspace guide.',
             author: 'John Doe',
             image: 'assets/derafu-dev-programmer.png',
-            note: 'Lorem ipsum',
+            note: 'Shared workspace',
             url: 'https://www.example.com'
         },
         {
             background: 'assets/derafu-dev-programmer.png',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            content: 'Bring your team, information and everyday work together. Keep decisions, references and useful resources together. Follow the workspace guide.',
             author: 'John Doe',
-            note: 'Lorem ipsum',
+            note: 'Shared workspace',
             position: 'left'
         },
         {
             background: 'assets/derafu-dev-programmer.png',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            content: 'Bring your team, information and everyday work together. Keep decisions, references and useful resources together. Follow the workspace guide.',
             author: 'John Doe',
             image: 'assets/derafu-dev-programmer.png',
             url: 'http://www.example.com',
@@ -45,15 +45,15 @@ show_source: true
     :testimonials="[
         {
             background: 'assets/derafu-dev-programmer.png',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet <a href=\'https://www.example.com/\' target=\'_blank\'>tempus gravida.</a>',
+            content: 'Bring your team, information and everyday work together. Keep decisions, references and useful resources together. Follow the <a href=\'https://www.example.com/\' target=\'_blank\'>workspace guide.</a>',
             author: 'John Doe',
             image: 'assets/derafu-dev-programmer.png',
-            note: 'Lorem ipsum',
+            note: 'Shared workspace',
             url: 'http://www.example.com'
         },
         {
             background: 'assets/derafu-dev-programmer.png',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            content: 'Bring your team, information and everyday work together. Keep decisions, references and useful resources together. Follow the workspace guide.',
             author: 'John Doe',
             image: 'assets/derafu-dev-programmer.png',
             url: 'http://www.example.com'
@@ -66,14 +66,17 @@ show_source: true
     :testimonials="[
         {
             background: 'assets/derafu-dev-programmer.png',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada tellus velit, in fringilla turpis interdum aliquet. Donec eget neque sit amet orci gravida eleifend. Fusce aliquet tempus gravida.',
+            content: 'Bring your team, information and everyday work together. Keep decisions, references and useful resources together. Follow the workspace guide.',
             author: 'John Doe',
             image: 'assets/derafu-dev-programmer.png',
-            note: 'Lorem ipsum'
+            note: 'Shared workspace'
         }
     ]"
 />
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-testimonials class="my-4" :testimonials="[{background: 'assets/derafu-dev-programmer.png', content: 'A longer quotation explains how the team configures several companies, reviews documents and follows synchronization from one place. It should remain readable without overlapping the navigation controls when the screen is narrow.', author: 'A customer with a longer name', image: 'assets/derafu-dev-programmer.png'}, {background: 'assets/derafu-dev-programmer.png', content: 'A short quotation for comparison.', author: 'Another customer'}]" />
+<twig:block-testimonials
+    class="my-4"
+    :testimonials="[{background: 'assets/derafu-dev-programmer.png', content: 'A longer quotation explains how the team configures several companies, reviews documents and follows synchronization from one place. It should remain readable without overlapping the navigation controls when the screen is narrow.', author: 'A customer with a longer name', image: 'assets/derafu-dev-programmer.png'}, {background: 'assets/derafu-dev-programmer.png', content: 'A short quotation for comparison.', author: 'Another customer'}]"
+/>

@@ -28,10 +28,10 @@
     --offcanvas-body-padding: 1.5rem;
     --offcanvas-body-mobile-padding: 1rem;
     /* Typography */
-    --offcanvas-title-font-size: 1.25rem;
+    --offcanvas-title-font-size: 1.375rem;
     --offcanvas-title-mobile-font-size: 1.125rem;
     /* Shadows and effects */
-    --offcanvas-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .12);
     --offcanvas-transition: transform 0.3s ease-in-out;
 }
 
@@ -226,3 +226,6 @@
         scroll-behavior: auto;
     }
 }
+
+.derafu-block-offcanvas .offcanvas-body { line-height: 1.65; }
+.derafu-block-offcanvas .offcanvas-body > :last-child { margin-bottom: 0; }

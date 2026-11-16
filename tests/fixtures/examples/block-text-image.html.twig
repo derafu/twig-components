@@ -141,3 +141,28 @@ show_source: true
     title="Adjust the reading width and heading size"
     content="<p>Both components use matching variable suffixes while retaining their own defaults.</p>"
 />
+
+<h2 class="h4 mx-3 mt-5">A concise introduction</h2>
+<p class="mx-3">An empty description does not reserve space between the introduction and supporting note.</p>
+<twig:block-text-image
+    class="container my-4"
+    title="Keep the next step within reach"
+    lead="A short introduction can stand on its own."
+    content=""
+    note="Choose the information your audience needs."
+    image="assets/derafu-dev-programmer.png"
+/>
+
+<h2 class="h4 mx-3 mt-5">Full-width background with contained content</h2>
+<p class="mx-3">The root uses Bootstrap background and spacing utilities. The component creates its own responsive container.</p>
+<twig:block-text-image
+    id="text-image-contained"
+    class="bg-body-tertiary my-0 py-4"
+    :contained="true"
+    eyebrow="Connected work"
+    title="Keep useful information within reach"
+    lead="The text and image share the responsive content area."
+    content="<p>Give the team context and a clear next step.</p>"
+    image="assets/derafu-dev-programmer.png"
+    imageAlt="Illustration of connected tools and services"
+/>

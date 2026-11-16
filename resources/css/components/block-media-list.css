@@ -1,7 +1,15 @@
-/* Empty. Just use the bootstrap classes. */
-
-.block-media-list .media-item-image img {
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
+.block-media-list {
+    background-color: var(--media-list-bg, var(--bs-secondary-bg-subtle, #e2e3e5));
+    padding-block: 3rem;
+    display: flow-root;
 }
+.block-media-list .media-item {
+    background-color: var(--media-list-item-bg, var(--bs-body-bg, #fff));
+    margin-bottom: 1.5rem;
+}
+.block-media-list .media-item:last-child { margin-bottom: 0; }
+.block-media-list .media-item-body { padding: clamp(1.25rem, 2vw, 2rem); }
+.block-media-list .media-item-content-title { line-height: 1.3; font-weight: 650; }
+.block-media-list .media-item-content-content { line-height: 1.65; }
+.block-media-list .media-item-content-content > :last-child { margin-bottom: 0; }
+.block-media-list .media-item-image img { margin: 0; border-radius: 0; box-shadow: none; }

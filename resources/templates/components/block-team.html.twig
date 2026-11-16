@@ -16,7 +16,7 @@
                 <div class="derafu-block-team__member">
                     {# Image #}
                     <div class="derafu-block-team__image">
-                        <img src="{{ (member.image ?? null) }}" alt="{{ (member.name ?? null) }}" class="img-fluid">
+                        <img src="{{ (member.image ?? null) }}" alt="{{ member.imageAlt ?? member.name|default('') }}" class="img-fluid">
                     </div>
 
                     {# Information #}

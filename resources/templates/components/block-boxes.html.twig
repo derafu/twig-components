@@ -1,6 +1,7 @@
 {# templates/components/block-boxes.html.twig #}
 
-<div class="derafu-block-boxes {{ attributes.render('class') }} derafu-block-boxes--{{ this.align }}" {{ attributes }} id="{{ this.id }}">
+<div class="derafu-block-boxes{{ this.contained ? ' derafu-block-boxes--contained' : '' }} {{ attributes.render('class') }} derafu-block-boxes--{{ this.align }}" {{ attributes }} id="{{ this.id }}">
+    {% if this.contained %}<div class="derafu-block-boxes__inner container">{% endif %}
     <div class="row g-0">
         {% for box in this.boxes %}
             <div class="col-12 col-md-{{ 12 / this.cols }}">
@@ -9,7 +10,7 @@
                     {% if (box.icon ?? null) %}
                     <div class="derafu-block-boxes__icon-container">
                         <div class="derafu-block-boxes__icon">
-                            <i class="{{ (box.icon ?? null) }}"></i>
+                            <i class="{{ (box.icon ?? null) }}" aria-hidden="true"></i>
                         </div>
                     </div>
 
@@ -18,7 +19,7 @@
                     {# Content #}
                     <div class="derafu-block-boxes__content">
                         <h3 class="derafu-block-boxes__title">{{ (box.title ?? null)|raw }}</h3>
-                        <p class="derafu-block-boxes__content">{{ (box.content ?? null)|raw }}</p>
+                        <div class="derafu-block-boxes__content derafu-block-boxes__description">{{ (box.content ?? null)|raw }}</div>
                     </div>
 
                     {# Button - Only show if buttonText is not empty #}
@@ -37,4 +38,5 @@
             </div>
         {% endfor %}
     </div>
+    {% if this.contained %}</div>{% endif %}
 </div>

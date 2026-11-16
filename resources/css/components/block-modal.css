@@ -5,11 +5,11 @@
     /* Structure */
     --modal-margin: 0.75rem;
     --modal-margin-mobile: 0.5rem;
-    --modal-border-radius: 0.5rem;
+    --modal-border-radius: var(--bs-border-radius-lg, .75rem);
     --modal-padding: 1rem;
-    --modal-header-padding: 1rem;
-    --modal-footer-padding: 1rem;
-    --modal-body-padding: 1rem;
+    --modal-header-padding: 1.25rem 1.5rem;
+    --modal-footer-padding: 1rem 1.5rem;
+    --modal-body-padding: 1.5rem;
     --modal-body-padding-mobile: 0.75rem;
 
     /* Responsive */
@@ -41,7 +41,7 @@
     --modal-btn-spacing: 0.5rem;
 
     /* Animation */
-    --modal-transition: all 0.3s ease-in-out;
+    --modal-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
 
   /*
@@ -301,3 +301,6 @@
     white-space: normal;
     overflow-wrap: anywhere;
 }
+
+.derafu-block-modal .modal-body > :last-child { margin-bottom: 0; }
+.derafu-block-modal .modal-title { text-wrap: balance; }

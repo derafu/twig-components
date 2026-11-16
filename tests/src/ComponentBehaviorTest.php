@@ -522,4 +522,204 @@ final class ComponentBehaviorTest extends RendersComponents
         $this->assertStringContainsString('First organization</a>', $html);
         $this->assertStringContainsString('• Second organization', $html);
     }
+
+    /**
+     * @return array<string, array{string, string}>
+     */
+    public static function provideStandaloneMediaComponents(): array
+    {
+        return [
+            'image' => ['block-image', 'image="/image.png"'],
+            'video' => ['block-video', 'video="https://www.youtube.com/watch?v=GOAEIMx39-w"'],
+        ];
+    }
+
+    #[Test]
+    #[DataProvider('provideStandaloneMediaComponents')]
+    public function standaloneMediaKeepTheirDescriptionAfterTheMediaByDefault(string $component, string $media): void
+    {
+        $html = $this->render('<twig:' . $component . ' title="Heading" content="<p>Description</p>" ' . $media . ' />');
+
+        $this->assertMatchesRegularExpression('/<(?:img|iframe).*<p>Description<\/p>/s', $html);
+        $this->assertStringNotContainsString('__eyebrow', $html);
+        $this->assertSame(1, substr_count($html, '<p>Description</p>'));
+    }
+
+    #[Test]
+    #[DataProvider('provideStandaloneMediaComponents')]
+    public function standaloneMediaCanOwnTheirIntroductionBeforeTheMedia(string $component, string $media): void
+    {
+        $html = $this->render('<twig:' . $component . ' eyebrow="<strong>Overview</strong>" title="Heading" content="<p>Description</p>" contentPosition="before" ' . $media . ' />');
+
+        $this->assertMatchesRegularExpression('/<strong>Overview<\/strong>.*Heading.*<p>Description<\/p>.*<(?:img|iframe)/s', $html);
+        $this->assertSame(1, substr_count($html, '<p>Description</p>'));
+    }
+
+    #[Test]
+    public function aVideoUsesItsAspectRatioWithoutOverridingTheDefaultThemeVariable(): void
+    {
+        $custom = $this->render('<twig:block-video title="<em>Overview</em>" video="https://www.youtube.com/watch?v=GOAEIMx39-w" aspectRatio="4:3" />');
+        $default = $this->render('<twig:block-video title="Overview" video="https://www.youtube.com/watch?v=GOAEIMx39-w" />');
+
+        $this->assertStringContainsString('--video-aspect-ratio: 4 / 3;', $custom);
+        $this->assertStringContainsString('title="Overview"', $custom);
+        $this->assertStringNotContainsString('--video-aspect-ratio:', $default);
+    }
+
+    #[Test]
+    public function imagesAndCardsAcceptIndependentOrDecorativeAlternativeText(): void
+    {
+        foreach (['block-image', 'block-card'] as $component) {
+            $default = $this->render('<twig:' . $component . ' title="<em>Overview</em>" image="/image.png" />');
+            $custom = $this->render('<twig:' . $component . ' title="Overview" image="/image.png" imageAlt="A diagram" />');
+            $decorative = $this->render('<twig:' . $component . ' title="Overview" image="/image.png" imageAlt="" />');
+            $this->assertStringContainsString('alt="Overview"', $default);
+            $this->assertStringContainsString('alt="A diagram"', $custom);
+            $this->assertStringContainsString('alt=""', $decorative);
+        }
+    }
+
+    #[Test]
+    public function headerOptionsAreAttributesRatherThanPartOfTheClass(): void
+    {
+        $html = $this->render('<twig:block-header id="main-menu" logoText="Workspace" backgroundColor="#123456" dropdownTrigger="hover" />');
+        $document = new \DOMDocument();
+        $this->assertTrue($document->loadHTML($html, LIBXML_NOERROR | LIBXML_NOWARNING));
+        $nav = $document->getElementsByTagName('nav')->item(0);
+        $this->assertInstanceOf(\DOMElement::class, $nav);
+        $this->assertSame('background-color: #123456;', $nav->getAttribute('style'));
+        $this->assertSame('hover', $nav->getAttribute('data-dropdown-trigger'));
+        $this->assertStringNotContainsString('style=', $nav->getAttribute('class'));
+    }
+
+    #[Test]
+    public function tableVisibilityCanBeToggledWithoutAnActionsMenu(): void
+    {
+        $html = $this->render('<twig:block-table id="report" :headers="[]" :rows="[[1, 2]]" :toggleable="true" />');
+
+        $this->assertStringContainsString('table-report', $html);
+        $this->assertStringContainsString("classList.toggle('d-none')", $html);
+        $this->assertStringNotContainsString('dropdown-toggle', $html);
+    }
+
+    #[Test]
+    public function untitledDialogsDoNotReferenceMissingHeadingIdentifiers(): void
+    {
+        foreach (['block-modal', 'block-offcanvas'] as $component) {
+            $html = $this->render('<twig:' . $component . ' content="Body" aria-label="Details" />');
+            $this->assertStringContainsString('aria-label="Details"', $html);
+            $this->assertStringNotContainsString('aria-labelledby=', $html);
+        }
+    }
+
+    #[Test]
+    #[DataProvider('provideTextMediaComponents')]
+    public function anEmptyTextMediaDescriptionDoesNotReserveAContentRegion(string $component, string $media): void
+    {
+        $html = $this->render('<twig:' . $component . ' title="Heading" content="" lead="Introduction" note="Details" ' . $media . ' />');
+
+        $this->assertStringNotContainsString('class="derafu-' . $component . '__text"', $html);
+        $this->assertStringContainsString('Introduction', $html);
+        $this->assertStringContainsString('Details', $html);
+    }
+
+    /**
+     * @return array<string, array{string, string}>
+     */
+    public static function provideContainedComponents(): array
+    {
+        return [
+            'title' => ['block-title', 'title="Heading"'],
+            'features' => ['block-features-icon', ':features="items"'],
+            'cards' => ['block-card-grid', ':cards="items"'],
+            'boxes' => ['block-boxes', ':boxes="items"'],
+            'steps' => ['block-steps', ':steps="items"'],
+            'image' => ['block-image', 'title="Heading" image="/image.png"'],
+            'video' => ['block-video', 'title="Heading" video="https://www.youtube.com/watch?v=GOAEIMx39-w"'],
+            'text-image' => ['block-text-image', 'title="Heading" content="Body" image="/image.png"'],
+            'text-video' => ['block-text-video', 'title="Heading" content="Body" video="https://www.youtube.com/watch?v=GOAEIMx39-w"'],
+        ];
+    }
+
+    #[Test]
+    #[DataProvider('provideContainedComponents')]
+    public function containmentIsOptInAndKeepsTheRootAttributes(string $component, string $attributes): void
+    {
+        foreach ([false, true] as $contained) {
+            $html = $this->render(
+                '<twig:' . $component . ' id="containment-check" class="bg-body-tertiary" :contained="contained" ' . $attributes . ' />',
+                ['contained' => $contained, 'items' => [['title' => 'First item', 'content' => 'Body', 'icon' => 'fa-solid fa-check']]]
+            );
+            $document = new \DOMDocument();
+            $this->assertTrue($document->loadHTML($html, LIBXML_NOERROR | LIBXML_NOWARNING));
+            $xpath = new \DOMXPath($document);
+            $roots = $xpath->query('//*[@id="containment-check"]');
+            $this->assertNotFalse($roots);
+            $root = $roots->item(0);
+            $this->assertInstanceOf(\DOMElement::class, $root);
+            $this->assertStringContainsString('bg-body-tertiary', $root->getAttribute('class'));
+            $inner = $xpath->query('./div[contains(concat(" ", normalize-space(@class), " "), " container ")]', $root);
+            $this->assertNotFalse($inner);
+            $this->assertSame($contained ? 1 : 0, $inner->length);
+        }
+    }
+
+    /**
+     * @return array<string, array{int}>
+     */
+    public static function provideFeatureColumnCounts(): array
+    {
+        return ['one' => [1], 'two' => [2], 'three' => [3], 'four' => [4], 'six' => [6]];
+    }
+
+    #[Test]
+    #[DataProvider('provideFeatureColumnCounts')]
+    public function explicitFeatureColumnsPreserveEveryItemAndThePartialRow(int $cols): void
+    {
+        $features = array_map(
+            static fn (int $index): array => ['title' => 'Feature ' . $index, 'content' => 'Description'],
+            range(1, 7)
+        );
+        $html = $this->render('<twig:block-features-icon :features="features" :cols="cols" align="left" :contained="true" />', ['features' => $features, 'cols' => $cols]);
+        $document = new \DOMDocument();
+        $this->assertTrue($document->loadHTML($html, LIBXML_NOERROR | LIBXML_NOWARNING));
+        $xpath = new \DOMXPath($document);
+        $rows = $xpath->query('//*[contains(concat(" ", normalize-space(@class), " "), " derafu-block-features-icon__row ")]');
+        $items = $xpath->query('//*[contains(concat(" ", normalize-space(@class), " "), " derafu-block-features-icon__item--' . $cols . ' ")]');
+        $this->assertNotFalse($rows);
+        $this->assertNotFalse($items);
+        $this->assertSame((int) ceil(7 / $cols), $rows->length);
+        $this->assertSame(7, $items->length);
+        $this->assertStringContainsString('derafu-block-features-icon--left', $html);
+        foreach (range(1, 7) as $index) {
+            $this->assertSame(1, substr_count($html, 'Feature ' . $index));
+        }
+    }
+
+    #[Test]
+    public function featureColumnsCanReturnToAutomaticGrouping(): void
+    {
+        $component = new \Derafu\TwigComponents\Component\Block\FeaturesIconComponent();
+        $this->assertNull($component->getCols());
+        $this->assertSame('center', $component->getAlign());
+        $this->assertSame($component, $component->setCols(3)->setCols(null));
+        $this->assertNull($component->getCols());
+    }
+
+    #[Test]
+    public function unsupportedFeatureColumnCountsRaiseTheComponentException(): void
+    {
+        $component = new \Derafu\TwigComponents\Component\Block\FeaturesIconComponent();
+        $this->expectException(\Derafu\TwigComponents\Exception\TwigComponentException::class);
+        $component->setCols(5);
+    }
+
+    #[Test]
+    public function featureAlignmentAcceptsStartAndEndAliases(): void
+    {
+        foreach (['start' => 'left', 'end' => 'right'] as $align => $expected) {
+            $html = $this->render('<twig:block-features-icon :features="[]" :align="align" />', ['align' => $align]);
+            $this->assertStringContainsString('derafu-block-features-icon--' . $expected, $html);
+        }
+    }
 }

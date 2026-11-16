@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare column counts and cards with different amounts of text.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare column counts and cards with different amounts of text.</p>
 
 <twig:block-video-grid
     class="my-4"
@@ -16,22 +16,22 @@ show_source: true
     :videos="[
         {
             video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
-            title: 'Lorem ipsum',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore <a href=\'https://www.example.com/\' target=\'_blank\'>magna aliqua.</a>',
+            title: 'Shared workspace',
+            content: 'Bring your team, information and everyday work together. Explore the workspace and read the <a href=\'https://www.example.com/\' target=\'_blank\'>complete guide.</a>',
             buttonText: 'Learn more',
             buttonUrl: '#'
         },
         {
             video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
-            title: 'Lorem ipsum',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            title: 'Shared workspace',
+            content: 'Bring your team, information and everyday work together. Explore the workspace and read the complete guide.',
             buttonText: 'Learn more',
             buttonUrl: ''
         },
         {
             video: 'https://www.youtube.com/watch?v=GOAEIMx39-w',
-            title: 'Lorem ipsum',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            title: 'Shared workspace',
+            content: 'Bring your team, information and everyday work together. Explore the workspace and read the complete guide.',
             buttonText: 'Learn more',
             buttonUrl: '#'
         }
@@ -63,4 +63,8 @@ show_source: true
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-video-grid class="container my-4" :cols="2" :videos="[{video: 'https://www.youtube.com/watch?v=GOAEIMx39-w', title: 'A video with a longer heading and explanation', content: 'A longer explanation to compare text spacing and the alignment of actions.', buttonText: 'Read the complete instructions before starting configuration', buttonUrl: '#'}, {video: 'https://www.youtube.com/watch?v=GOAEIMx39-w', title: 'A short introduction', content: 'Short content.'}]" />
+<twig:block-video-grid
+    class="container my-4"
+    :cols="2"
+    :videos="[{video: 'https://www.youtube.com/watch?v=GOAEIMx39-w', title: 'A video with a longer heading and explanation', content: 'A longer explanation to compare text spacing and the alignment of actions.', buttonText: 'Read the complete instructions before starting configuration', buttonUrl: '#'}, {video: 'https://www.youtube.com/watch?v=GOAEIMx39-w', title: 'A short introduction', content: 'Short content.'}]"
+/>

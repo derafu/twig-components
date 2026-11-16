@@ -25,6 +25,7 @@
 }
 
 .derafu-block-timeline {
+    display: flow-root;
     margin: var(--spacing-y, 2rem) auto;
     position: relative;
 }
@@ -82,7 +83,7 @@
     left: 50%;
     transform: translateX(-50%);
     color: var(--timeline-year-color);
-    font-size: 2rem;
+    font-size: var(--timeline-year-font-size);
     font-weight: bold;
     background-color: white;
     padding: 0 1rem;
@@ -119,13 +120,13 @@
 .derafu-block-timeline__title {
     color: var(--timeline-title-color);
     margin: 0;
-    font-size: 1.25rem;
+    font-size: var(--timeline-title-font-size);
     font-weight: 600;
 }
 
 .derafu-block-timeline__date {
     color: var(--timeline-date-color);
-    font-size: 0.875rem;
+    font-size: var(--timeline-date-font-size);
 }
 
 .derafu-block-timeline__text {
@@ -342,3 +343,6 @@
         margin-inline: 1.5rem 0;
     }
 }
+
+.derafu-block-timeline__title { font-weight: var(--timeline-title-font-weight); line-height: 1.3; }
+.derafu-block-timeline__text > :last-child { margin-bottom: 0; }

@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Open each dialog and compare sizing, long titles, scrolling and fullscreen content.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Open each dialog and compare sizing, long titles, scrolling and fullscreen content.</p>
 
 {# Simple modal #}
 <div class="mb-4">
@@ -176,7 +176,7 @@ show_source: true
     title="Terms and Conditions"
     content="<div>
         <h4>1. Introduction</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <p>Bring your team, information and everyday work together...</p>
     </div>"
     size="lg"
     :scrollable="true"
@@ -265,4 +265,9 @@ show_source: true
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
 <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#modal-long-copy">Open modal with a long title and action</button>
-<twig:block-modal id="modal-long-copy" title="Review the configuration and synchronization settings for all companies in this account" content="<p>This dialog has a longer heading and action so both can be checked on a small screen.</p>" :buttons="[{text: 'Close this dialog and return to the configuration overview', dismiss: true, type: 'secondary'}]" />
+<twig:block-modal
+    id="modal-long-copy"
+    title="Review the configuration and synchronization settings for all companies in this account"
+    content="<p>This dialog has a longer heading and action so both can be checked on a small screen.</p>"
+    :buttons="[{text: 'Close this dialog and return to the configuration overview', dismiss: true, type: 'secondary'}]"
+/>

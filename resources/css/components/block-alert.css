@@ -1,6 +1,3 @@
-/* ======================================
-Base Variables
-====================================== */
 :root {
     /* Breakpoints */
     --small-mobile-breakpoint: 375px;
@@ -44,9 +41,6 @@ Base Variables
     --alert-primary-icon-color: var(--bs-primary, #0d6efd);
 }
 
-/* ======================================
-Alert Base Styles
-====================================== */
 .derafu-block-alert {
     margin-bottom: var(--alert-margin-bottom);
     width: 100%;
@@ -71,12 +65,9 @@ Alert Base Styles
     align-items: center;
     justify-content: center;
     font-size: var(--alert-icon-font-size);
-    transition: all 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* ======================================
-Alert Variations
-====================================== */
 .derafu-block-alert .alert-primary {
     --bs-alert-color: var(--alert-primary-color);
     --bs-alert-bg: var(--alert-primary-bg);
@@ -87,9 +78,6 @@ Alert Variations
     color: var(--alert-primary-icon-color);
 }
 
-/* ======================================
-Alert Content Styles
-====================================== */
 .derafu-block-alert .alert p {
     margin-bottom: 0.5rem;
 }
@@ -114,9 +102,6 @@ Alert Content Styles
     font-weight: 600;
 }
 
-/* ======================================
-Utility Classes
-====================================== */
 .derafu-block-alert.container {
     width: 100%;
     margin-left: auto;
@@ -125,9 +110,6 @@ Utility Classes
     padding-right: 1rem;
 }
 
-/* ======================================
-Responsive Styles
-====================================== */
 /* Tablets (≤ 768px) */
 @media (max-width: 768px) {
     .derafu-block-alert .alert {
@@ -235,3 +217,7 @@ Responsive Styles
         scroll-behavior: auto;
     }
 }
+
+.derafu-block-alert .alert { line-height: 1.6; }
+.derafu-block-alert .alert > div { min-width: 0; }
+.derafu-block-alert .alert > div > :last-child { margin-bottom: 0; }

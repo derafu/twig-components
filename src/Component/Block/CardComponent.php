@@ -24,6 +24,23 @@ class CardComponent extends AbstractComponent
     private ?string $image = null;
 
     /**
+     * Alternative image text. Null uses the title; an empty string is decorative.
+     */
+    private ?string $imageAlt = null;
+
+    public function getImageAlt(): ?string
+    {
+        return $this->imageAlt;
+    }
+
+    public function setImageAlt(?string $imageAlt): static
+    {
+        $this->imageAlt = $imageAlt;
+
+        return $this;
+    }
+
+    /**
      * Optional card title.
      */
     private ?string $title = null;

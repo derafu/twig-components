@@ -1,7 +1,4 @@
-/* ======================================
-   Base Variables
-   ====================================== */
-   :root {
+:root {
     /* Spacing & Structure */
     --features-grid-gap: 1.5rem;
     --features-grid-header-margin-bottom: 2rem;
@@ -10,7 +7,7 @@
     --features-grid-row-margin: 0;
 
     /* Typography - Main Title & Subtitle */
-    --features-grid-title-font-size: 1.5rem;
+    --features-grid-title-font-size: clamp(1.5rem, 1.25rem + .6vw, 2rem);
     --features-grid-title-font-weight: bold;
     --features-grid-title-margin-bottom: 0.5rem;
     --features-grid-subtitle-font-size: 1rem;
@@ -19,12 +16,12 @@
     --features-grid-feature-title-font-size: 1.1rem;
     --features-grid-feature-title-font-weight: bold;
     --features-grid-feature-title-margin-bottom: 0.5rem;
-    --features-grid-content-font-size: 0.9rem;
-    --features-grid-content-line-height: 1.5;
+    --features-grid-content-font-size: 1rem;
+    --features-grid-content-line-height: 1.65;
 
     /* Icon Styles */
     --features-grid-icon-size: 50px;
-    --features-grid-icon-border-radius: 50%;
+    --features-grid-icon-border-radius: var(--bs-border-radius-lg, .75rem);
     --features-grid-icon-font-size: 1.25rem;
 
     /* Colors */
@@ -39,10 +36,8 @@
     --features-grid-mobile-breakpoint: 768px;
 }
 
-/* ======================================
-   Component Container
-   ====================================== */
 .derafu-block-features-grid {
+    display: flow-root;
     margin: var(--spacing-y, 2rem) auto;
 }
 
@@ -50,16 +45,15 @@
     display: flex;
     flex-wrap: wrap;
     margin: var(--features-grid-row-margin);
+    gap: var(--features-grid-gap);
 }
 
 .derafu-block-features-grid__block {
-    flex: 1 1 50%;
+    flex: 1 1 calc((100% - var(--features-grid-gap)) / 2);
+    min-width: 0;
     padding: var(--features-grid-blocks-padding);
 }
 
-/* ======================================
-   Header Section
-   ====================================== */
 .derafu-block-features-grid__header {
     margin-bottom: var(--features-grid-header-margin-bottom);
 }
@@ -77,9 +71,6 @@
     margin: 0;
 }
 
-/* ======================================
-   Features Section
-   ====================================== */
 .derafu-block-features-grid__features {
     display: flex;
     flex-direction: column;
@@ -152,9 +143,6 @@
     padding-right: var(--features-grid-blocks-padding, 1rem);
 }
 
-/* ======================================
-   Responsive Styles
-   ====================================== */
 @media (max-width: 768px) {
     .derafu-block-features-grid__row {
         flex-direction: column;
@@ -164,7 +152,7 @@
     .derafu-block-features-grid__block {
         flex: 1 1 100%;
         padding: var(--features-grid-blocks-padding) 1rem;
-        margin-bottom: 2rem; /* Space between stacked blocks */
+        margin-bottom: 0;
     }
 
     .derafu-block-features-grid__header {
@@ -181,3 +169,6 @@
         text-align: left; /* Maintain left alignment for better readability */
     }
 }
+
+.derafu-block-features-grid__content { min-width: 0; overflow-wrap: anywhere; }
+.derafu-block-features-grid__description > :last-child { margin-bottom: 0; }

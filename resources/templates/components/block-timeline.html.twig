@@ -2,7 +2,7 @@
 
 {% macro eventContent(event, dateFormat, monthFormat) %}
 <div class="derafu-block-timeline__content">
-    <i class="{{ (event.icon ?? null) }} derafu-block-timeline__icon"></i>
+    <i class="{{ (event.icon ?? null) }} derafu-block-timeline__icon" aria-hidden="true"></i>
     <div class="derafu-block-timeline__header">
         <div class="derafu-block-timeline__title-row">
             {% if (event.title ?? null) %}

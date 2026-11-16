@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare plans with different amounts of content and long action labels.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare plans with different amounts of content and long action labels.</p>
 
 <twig:block-comparison
     class="my-4"
@@ -124,4 +124,7 @@ show_source: true
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-comparison class="container my-4" :plans="[{title: 'A plan for teams with several companies', price: '$20', period: '/month', features: [{text: 'Includes configuration and support for the whole team', value: true}], buttonText: 'Request more information about this plan for my company', buttonUrl: '#'}, {title: 'Basic', price: '$10', period: '/month', features: [{text: 'One company', value: true}], buttonText: 'Choose basic', buttonUrl: '#'}]" />
+<twig:block-comparison
+    class="container my-4"
+    :plans="[{title: 'A plan for teams with several companies', price: '$20', period: '/month', features: [{text: 'Includes configuration and support for the whole team', value: true}], buttonText: 'Request more information about this plan for my company', buttonUrl: '#'}, {title: 'Basic', price: '$10', period: '/month', features: [{text: 'One company', value: true}], buttonText: 'Choose basic', buttonUrl: '#'}]"
+/>

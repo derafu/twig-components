@@ -16,10 +16,10 @@
 
     /* Thumbnail */
     --gallery-item-aspect-ratio: 4/3;
-    --gallery-item-border-radius: 0.5rem;
+    --gallery-item-border-radius: var(--bs-border-radius-lg, .75rem);
     --gallery-item-bg: var(--bs-tertiary-bg, #f8f9fa);
-    --gallery-item-hover-transform: translateY(-3px);
-    --gallery-transition-duration: 0.3s;
+    --gallery-item-hover-transform: translateY(-2px);
+    --gallery-transition-duration: .2s;
 
     /* Play icon */
     --gallery-play-icon-size: 3rem;
@@ -41,6 +41,7 @@
  * Gallery - Main Container
  */
 .derafu-block-gallery {
+    display: flow-root;
     margin: var(--gallery-spacing-y) auto;
     box-sizing: border-box;
 }
@@ -293,3 +294,5 @@
         scroll-behavior: auto;
     }
 }
+
+.derafu-block-gallery__item:focus-visible { outline: 2px solid var(--bs-primary, #0d6efd); outline-offset: 3px; }

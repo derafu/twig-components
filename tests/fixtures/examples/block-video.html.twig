@@ -7,16 +7,16 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare sizes, alignment and a longer description with a wrapping action.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare sizes, alignment and a longer description with a wrapping action.</p>
 
 <twig:block-video
     class="my-4"
     size="normal"
     align="center"
-    title="Lorem ipsum dolor sit amet"
+    title="A clearer way to work together"
     video="https://www.youtube.com/watch?v=GOAEIMx39-w"
-    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat <a href='https://www.example.com/' target='_blank'>nulla pariatur.</a>"
+    content="Bring your team, information and everyday work together. Explore the workflow from the first idea to the next useful action. Review the information, identify what needs attention and share the result with your team. The examples show how descriptions, media and actions stay readable at different screen widths. Continue with the <a href='https://www.example.com/' target='_blank'>complete guide.</a>"
     :buttons="[
         {
             text: 'Learn more',
@@ -29,9 +29,9 @@ show_source: true
     class="my-4"
     size="small"
     align="center"
-    title="Lorem ipsum dolor sit amet"
+    title="A clearer way to work together"
     video="https://www.youtube.com/watch?v=GOAEIMx39-w"
-    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    content="Bring your team, information and everyday work together. Explore the workflow from the first idea to the next useful action. Review the information, identify what needs attention and share the result with your team. The examples show how descriptions, media and actions stay readable at different screen widths. Continue with the complete guide."
     :buttons="[
         {
             text: 'Learn more',
@@ -42,4 +42,49 @@ show_source: true
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-video class="container my-4" align="left" size="small" title="An introduction to configuration and synchronization" video="https://www.youtube.com/watch?v=GOAEIMx39-w" content="A longer description that explains the video and wraps within the available width on small screens." :buttons="[{text: 'Read all the configuration and synchronization instructions', url: '#'}]" />
+<twig:block-video
+    class="container my-4"
+    align="left"
+    size="small"
+    title="An introduction to configuration and synchronization"
+    video="https://www.youtube.com/watch?v=GOAEIMx39-w"
+    content="A longer description that explains the video and wraps within the available width on small screens."
+    :buttons="[{text: 'Read all the configuration and synchronization instructions', url: '#'}]"
+/>
+
+<h2 class="h4 mx-3 mt-5">Introduction inside the component</h2>
+<p class="mx-3">The component owns the introduction, media and action. Its existing description can appear before or after the media.</p>
+<twig:block-video
+    class="container my-4"
+    align="left"
+    eyebrow="Explore the workspace"
+    title="Turn shared ideas into useful work"
+    content="<p>Connect the tools your team uses, share the context that matters and choose your next step.</p>"
+    contentPosition="before"
+    video="https://www.youtube.com/watch?v=GOAEIMx39-w"
+    :buttons="[{text: 'Explore the guide', url: '#'}]"
+/>
+
+<h2 class="h4 mx-3 mt-5">A different video proportion</h2>
+<twig:block-video
+    class="container my-4"
+    title="A closer look at the workspace"
+    content="The player follows the requested aspect ratio."
+    video="https://www.youtube.com/watch?v=GOAEIMx39-w"
+    size="small"
+    aspectRatio="4:3"
+/>
+
+<h2 class="h4 mx-3 mt-5">Full-width background with contained content</h2>
+<p class="mx-3">The root uses Bootstrap background and spacing utilities. The component creates its own responsive container.</p>
+<twig:block-video
+    id="video-contained"
+    class="bg-body-tertiary my-0 py-4"
+    :contained="true"
+    align="left"
+    eyebrow="A closer look"
+    title="Follow the workflow from start to finish"
+    content="<p>The component owns the introduction and video, including their background.</p>"
+    contentPosition="before"
+    video="https://www.youtube.com/watch?v=GOAEIMx39-w"
+/>

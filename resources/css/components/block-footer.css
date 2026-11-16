@@ -43,7 +43,7 @@
 .derafu-block-footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
-    padding: var(--footer-padding-top) 0 0;
+    padding: var(--footer-padding-top) 0 var(--footer-padding-bottom);
 }
 
 /*
@@ -149,7 +149,7 @@
 @media (max-width: 767px) {
     /* Estructura general responsive */
     .derafu-block-footer {
-        padding: var(--footer-mobile-padding-top) 0 0;
+        padding: var(--footer-mobile-padding-top) 0 var(--footer-padding-bottom);
     }
 
     .derafu-block-footer .row {
@@ -218,3 +218,9 @@
         scroll-behavior: auto;
     }
 }
+
+.derafu-block-footer__text { line-height: 1.65; }
+.derafu-block-footer__text > :last-child { margin-bottom: 0; }
+.derafu-block-footer a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+.derafu-block-footer__text { margin-bottom: var(--footer-title-margin-bottom); }

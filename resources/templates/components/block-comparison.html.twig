@@ -64,9 +64,9 @@
     {# Initialize tooltips #}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+            const tooltipTriggerList = [].slice.call(document.getElementById('{{ this.id|e('js') }}').querySelectorAll('[title]'));
             tooltipTriggerList.map(function(tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
+                return bootstrap.Tooltip.getOrCreateInstance(tooltipTriggerEl);
             });
         });
     </script>

@@ -143,3 +143,26 @@ show_source: true
     title="Adjust the reading width and heading size"
     content="<p>Both components use matching variable suffixes while retaining their own defaults.</p>"
 />
+
+<h2 class="h4 mx-3 mt-5">A concise introduction</h2>
+<p class="mx-3">An empty description does not reserve space between the introduction and supporting note.</p>
+<twig:block-text-video
+    class="container my-4"
+    title="Keep the next step within reach"
+    lead="A short introduction can stand on its own."
+    content=""
+    note="Choose the information your audience needs."
+    video="https://www.youtube.com/watch?v=GOAEIMx39-w"
+/>
+
+<h2 class="h4 mx-3 mt-5">Full-width background with contained content</h2>
+<p class="mx-3">The root uses Bootstrap background and spacing utilities. The component creates its own responsive container.</p>
+<twig:block-text-video
+    id="text-video-contained"
+    class="bg-body-tertiary my-0 py-4"
+    :contained="true"
+    eyebrow="See the workflow"
+    title="Explore a shared workspace"
+    content="<p>The component keeps its introduction and player on the same background.</p>"
+    video="https://www.youtube.com/watch?v=GOAEIMx39-w"
+/>

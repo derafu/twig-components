@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare column counts and left, center and right alignment at each screen width.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare column counts and left, center and right alignment at each screen width.</p>
 
 <twig:block-boxes
     class="my-4"
@@ -16,9 +16,9 @@ show_source: true
     :boxes="[
         {
             icon: 'fa-solid fa-search',
-            title: 'Lorem ipsum dolor sit amet',
-            content: 'Lorem ipsum dolor sit amet, consectetur <a href=\'https://www.example.com/\' target=\'_blank\'>adipiscing elit.</a>',
-            buttonText: 'Lorem ipsum',
+            title: 'A clearer way to work together',
+            content: 'Explore <a href=\'https://www.example.com/\' target=\'_blank\'>the workspace guide.</a>',
+            buttonText: 'Shared workspace',
             buttonUrl: '#'
         }
     ]"
@@ -29,16 +29,16 @@ show_source: true
     :boxes="[
         {
             icon: 'fa-solid fa-search',
-            title: 'Lorem ipsum dolor sit amet',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            buttonText: 'Lorem ipsum',
+            title: 'A clearer way to work together',
+            content: 'Bring your team, information and everyday work together.',
+            buttonText: 'Shared workspace',
             buttonUrl: '#'
         },
         {
             icon: 'fa-solid fa-file',
-            title: 'Lorem ipsum dolor sit amet',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            buttonText: 'Lorem ipsum',
+            title: 'A clearer way to work together',
+            content: 'Bring your team, information and everyday work together.',
+            buttonText: 'Shared workspace',
         }
     ]"
 />
@@ -49,21 +49,21 @@ show_source: true
     :boxes="[
         {
             icon: 'fa-solid fa-search',
-            title: 'Lorem ipsum dolor sit amet',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            title: 'A clearer way to work together',
+            content: 'Bring your team, information and everyday work together.',
         },
         {
             icon: 'fa-solid fa-file',
-            title: 'Lorem ipsum dolor sit amet',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            buttonText: 'Lorem ipsum',
+            title: 'A clearer way to work together',
+            content: 'Bring your team, information and everyday work together.',
+            buttonText: 'Shared workspace',
             buttonUrl: '#'
         },
         {
             icon: 'fa-solid fa-file',
-            title: 'Lorem ipsum dolor sit amet',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            buttonText: 'Lorem ipsum',
+            title: 'A clearer way to work together',
+            content: 'Bring your team, information and everyday work together.',
+            buttonText: 'Shared workspace',
             buttonUrl: '#'
         }
     ]"
@@ -73,5 +73,23 @@ show_source: true
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
 {% for align in ['left', 'center', 'right'] %}
 <h3 class="h5 mt-4">Alignment: {{ align }}</h3>
-<twig:block-boxes align="{{ align }}" :cols="3" :boxes="[{icon: 'fa-solid fa-cloud', title: 'A longer introduction to cloud synchronization', content: 'The requested alignment applies to the title, description, icon and action.', buttonText: 'Review all synchronization settings for this company', buttonUrl: '#'}, {icon: 'fa-solid fa-file', title: 'Documents', content: 'A shorter description.'}, {title: 'Without an icon', content: 'A box can also contain text and an action.', buttonText: 'Learn more', buttonUrl: '#'}]" />
+<twig:block-boxes
+    align="{{ align }}"
+    :cols="3"
+    :boxes="[{icon: 'fa-solid fa-cloud', title: 'A longer introduction to cloud synchronization', content: 'The requested alignment applies to the title, description, icon and action.', buttonText: 'Review all synchronization settings for this company', buttonUrl: '#'}, {icon: 'fa-solid fa-file', title: 'Documents', content: 'A shorter description.'}, {title: 'Without an icon', content: 'A box can also contain text and an action.', buttonText: 'Learn more', buttonUrl: '#'}]"
+/>
 {% endfor %}
+
+<h2 class="h4 mx-3 mt-5">Full-width background with contained content</h2>
+<p class="mx-3">The root uses Bootstrap background and spacing utilities. The component creates its own responsive container.</p>
+<twig:block-boxes
+    id="boxes-contained"
+    class="bg-body-tertiary my-0 py-4"
+    :contained="true"
+    :cols="2"
+    align="left"
+    :boxes="[
+        {title: 'Start with the essentials', content: 'Choose the tools your team needs.', icon: 'fa-solid fa-check'},
+        {title: 'Grow at your own pace', content: 'Add capabilities as your work evolves.', icon: 'fa-solid fa-arrow-up'}
+    ]"
+/>

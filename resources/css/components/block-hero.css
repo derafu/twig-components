@@ -13,7 +13,7 @@
     --hero-content-with-bg-padding: 4rem;
     --hero-content-with-bg-radius: 0.5rem;
     --hero-content-with-bg-blur: 5px;
-    --hero-title-margin-bottom: 1rem;
+    --hero-title-margin-bottom: 1.25rem;
     --hero-subtitle-margin-bottom: 2rem;
 
     /* Hero Colors */
@@ -39,11 +39,11 @@
     --hero-link-hover-color: var(--bs-light, #f8f9fa);
     --hero-link-font-weight: 500;
 
-    --hero-title-font-weight: bold;
+    --hero-title-font-weight: 700;
 
     /* Responsive Variables */
     --hero-mobile-spacing-y: 1.5rem;
-    --hero-mobile-title-font-size: 2rem;
+    --hero-mobile-title-font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
     --hero-mobile-subtitle-font-size: 1rem;
     --hero-mobile-content-padding: 1rem;
     --hero-mobile-height-reduction: 0.7;
@@ -131,9 +131,9 @@
 .derafu-block-hero__title {
     margin-bottom: var(--hero-title-margin-bottom);
     font-weight: var(--hero-title-font-weight);
-    font-size: var(--hero-title-font-size, min(calc(1.375rem + 1.5vw), 2.5rem));
-    line-height: var(--hero-title-line-height, 1.2);
-    letter-spacing: var(--hero-title-letter-spacing, normal);
+    font-size: var(--hero-title-font-size, clamp(2.5rem, 1.5rem + 2.5vw, 4rem));
+    line-height: var(--hero-title-line-height, 1.1);
+    letter-spacing: var(--hero-title-letter-spacing, -.035em);
     max-width: var(--hero-title-max-width, 100%);
     color: var(--hero-title-color);
     word-wrap: break-word;
@@ -146,7 +146,7 @@
     color: var(--hero-subtitle-color);
     max-width: var(--hero-subtitle-max-width, 100%);
     font-size: var(--hero-subtitle-font-size, inherit);
-    line-height: var(--hero-subtitle-line-height, inherit);
+    line-height: var(--hero-subtitle-line-height, 1.65);
     width: 100%;
     word-wrap: break-word;
     hyphens: auto;
@@ -383,3 +383,6 @@
     color: var(--hero-highlight-icon-color, var(--hero-accent-color, var(--hero-text)));
     flex-shrink: 0;
 }
+
+.derafu-block-hero__title { text-wrap: balance; }
+.derafu-block-hero__subtitle > :last-child { margin-bottom: 0; }

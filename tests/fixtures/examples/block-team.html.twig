@@ -7,8 +7,8 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Compare member counts and biographies with different lengths.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Compare member counts and biographies with different lengths.</p>
 
 <twig:block-team
     class="my-4"
@@ -18,7 +18,7 @@ show_source: true
             name: 'John Doe',
             role: 'Founder',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing <a href=\'https://www.example.com/\' target=\'_blank\'>elit.</a>',
+            bio: 'Explore the <a href=\'https://www.example.com/\' target=\'_blank\'>workspace guide.</a>',
             links: [
                 {
                     icon: 'fa-brands fa-linkedin',
@@ -43,7 +43,7 @@ show_source: true
             name: 'John Doe',
             role: 'Founder',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Bring your team, information and everyday work together.',
             links: [
                 {
                     icon: 'fa-brands fa-linkedin',
@@ -61,7 +61,7 @@ show_source: true
             name: 'Jane Smith',
             role: 'Co-Founder',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Bring your team, information and everyday work together.',
             links: [
                 {
                     icon: 'fa-brands fa-linkedin',
@@ -81,7 +81,7 @@ show_source: true
             name: 'John Doe',
             role: 'Founder',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Bring your team, information and everyday work together.',
             links: [
                 {
                     icon: 'fa-brands fa-linkedin',
@@ -99,7 +99,7 @@ show_source: true
             name: 'Jane Smith',
             role: 'Co-Founder',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Bring your team, information and everyday work together.',
             links: [
                 {
                     icon: 'fa-brands fa-linkedin',
@@ -112,7 +112,7 @@ show_source: true
             name: 'Mike Johnson',
             role: 'Developer',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Bring your team, information and everyday work together.',
             links: [
                 {
                     icon: 'fa-brands fa-github',
@@ -132,7 +132,7 @@ show_source: true
             name: 'John Doe',
             role: 'Founder',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Bring your team, information and everyday work together.',
             links: [
                 {
                     icon: 'fa-brands fa-linkedin',
@@ -145,7 +145,7 @@ show_source: true
             name: 'Jane Smith',
             role: 'Co-Founder',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Bring your team, information and everyday work together.',
             links: [
                 {
                     icon: 'fa-brands fa-github',
@@ -158,7 +158,7 @@ show_source: true
             name: 'Saul Goodman',
             role: 'HR',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Bring your team, information and everyday work together.',
             links: [
                 {
                     icon: 'fa-brands fa-linkedin',
@@ -171,7 +171,7 @@ show_source: true
             name: 'Mike Johnson',
             role: 'Developer',
             image: 'assets/derafu-dev-programmer.png',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            bio: 'Bring your team, information and everyday work together.',
             links: [
                 {
                     icon: 'fa-brands fa-github',
@@ -185,4 +185,8 @@ show_source: true
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-team class="container my-4" :cols="2" :members="[{name: 'A member with a longer name', role: 'Configuration and synchronization specialist', image: 'assets/derafu-dev-programmer.png', bio: 'A longer biography with several sentences to compare card heights and the placement of links.', links: [{text: 'Read the professional profile', url: '#', icon: 'fa-solid fa-link'}]}, {name: 'Another member', role: 'Support', image: 'assets/derafu-dev-programmer.png', bio: 'A short biography.'}]" />
+<twig:block-team
+    class="container my-4"
+    :cols="2"
+    :members="[{name: 'A member with a longer name', role: 'Configuration and synchronization specialist', image: 'assets/derafu-dev-programmer.png', bio: 'A longer biography with several sentences to compare card heights and the placement of links.', links: [{text: 'Read the professional profile', url: '#', icon: 'fa-solid fa-link'}]}, {name: 'Another member', role: 'Support', image: 'assets/derafu-dev-programmer.png', bio: 'A short biography.'}]"
+/>

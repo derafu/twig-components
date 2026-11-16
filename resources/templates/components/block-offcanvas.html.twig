@@ -6,7 +6,7 @@
     {{ attributes }}
     id="{{ this.id }}"
     tabindex="-1"
-    aria-labelledby="{{ this.id }}-label"
+    {% if this.title %}aria-labelledby="{{ this.id }}-label"{% endif %}
     {% if not this.withBackdrop %}data-bs-backdrop="false"{% endif %}
     {% if this.scrollable %}data-bs-scroll="true"{% endif %}
 >

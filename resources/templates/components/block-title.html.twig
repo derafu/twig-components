@@ -2,10 +2,11 @@
 {% set text_align = {left: 'start', right: 'end'}[this.align] ?? this.align %}
 
 <div
-    class="derafu-block-title {{ attributes.render('class') }}"
+    class="derafu-block-title{{ this.contained ? ' derafu-block-title--contained' : '' }} {{ attributes.render('class') }}"
     {{ attributes }}
     id="{{ this.id }}"
 >
+    {% if this.contained %}<div class="derafu-block-title__inner container">{% endif %}
     <div class="derafu-block-title__wrapper text-{{ text_align }}{% if this.border %} derafu-block-title__wrapper--bordered{% endif %}">
         {% if this.eyebrow is not null and this.eyebrow != '' %}
             <p class="derafu-block-title__eyebrow">{{ this.eyebrow }}</p>
@@ -19,4 +20,5 @@
             </p>
         {% endif %}
     </div>
+    {% if this.contained %}</div>{% endif %}
 </div>

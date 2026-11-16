@@ -20,7 +20,8 @@
                         <iframe
                             class="derafu-block-video-grid__player"
                             src="{{ (video.video ?? null)|replace({'watch?v=': 'embed/'}) }}"
-                            frameborder="0"
+                            title="{{ video.title|default('')|striptags }}"
+                        frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
@@ -33,7 +34,7 @@
                             {% endif %}
 
                             {% if (video.content ?? null) %}
-                                <div class="derafu-block-video-grid__content">
+                                <div class="derafu-block-video-grid__content derafu-block-video-grid__description">
                                     {{ (video.content ?? null)|raw }}
                                 </div>
                             {% endif %}

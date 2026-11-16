@@ -51,7 +51,7 @@
 }
 
 .derafu-block-text-image__title {
-    letter-spacing: var(--text-image-title-letter-spacing, normal);
+    letter-spacing: var(--text-image-title-letter-spacing, -.025em);
     color: var(--text-image-title-color);
     font-weight: var(--text-image-title-font-weight);
     font-size: var(--text-image-title-font-size, min(calc(1.325rem + .9vw), 2rem));
@@ -77,7 +77,7 @@
     display: inline-block;
     background-color: var(--text-image-button-bg);
     color: var(--text-image-text-color);
-    padding: 0.75rem 1.5rem;
+    padding: var(--text-image-button-padding, .75rem 1.5rem);
     border-radius: 0.375rem;
     text-decoration: none;
     font-weight: var(--text-image-button-font-weight);
@@ -94,7 +94,7 @@
 }
 .derafu-block-text-image__image img {
     border-radius: var(--text-image-border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 32px var(--text-image-shadow);
     margin: 0;
 }
 
@@ -254,3 +254,15 @@
 .derafu-block-text-image__badge .badge > :last-child {
     margin-bottom: 0;
 }
+
+.derafu-block-text-image__title {
+    line-height: 1.2;
+    text-wrap: balance;
+}
+.derafu-block-text-image__text { text-wrap: pretty; }
+.derafu-block-text-image__text > :last-child { margin-bottom: 0; }
+.derafu-block-text-image__button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+.derafu-block-text-image--contained { padding-inline: 0; }
+
+.derafu-block-text-image__inner { display: flow-root; }

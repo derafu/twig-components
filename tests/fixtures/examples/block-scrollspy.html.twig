@@ -7,60 +7,60 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Use each navigation independently and compare vertical and horizontal layouts.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Use each navigation independently and compare vertical and horizontal layouts.</p>
 
 {# Define the contents for the sections #}
 {% set section_content_introduction %}
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="https://www.example.com/" target="_blank">Quisquam, quos.</a></p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <p>A clearer way to work together with shared information and clear next steps. <a href="https://www.example.com/" target="_blank">Read the guide.</a></p>
+    <p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>
 {% endset %}
 
 {% set section_content_features %}
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>
+    <p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>
     <ul>
-        <li><strong>Lorem  Ipsum</strong> - Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li><strong>Lorem  Ipsum</strong> - Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li><strong>Lorem  Ipsum</strong> - Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li><strong>Lorem  Ipsum</strong> - Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li><strong>Lorem  Ipsum</strong> - Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+        <li><strong>Workspace guide</strong> - A clearer way to work together with shared information and clear next steps.</li>
+        <li><strong>Workspace guide</strong> - A clearer way to work together with shared information and clear next steps.</li>
+        <li><strong>Workspace guide</strong> - A clearer way to work together with shared information and clear next steps.</li>
+        <li><strong>Workspace guide</strong> - A clearer way to work together with shared information and clear next steps.</li>
+        <li><strong>Workspace guide</strong> - A clearer way to work together with shared information and clear next steps.</li>
     </ul>
 {% endset %}
 
 {% set section_content_options %}
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>
     <ul>
-        <li><code>Lorem</code>: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li><code>Lorem</code>: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li><code>Lorem</code>: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li><code>Lorem</code>: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li><code>Lorem</code>: Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+        <li><code>Overview</code>: A clearer way to work together with shared information and clear next steps.</li>
+        <li><code>Overview</code>: A clearer way to work together with shared information and clear next steps.</li>
+        <li><code>Overview</code>: A clearer way to work together with shared information and clear next steps.</li>
+        <li><code>Overview</code>: A clearer way to work together with shared information and clear next steps.</li>
+        <li><code>Overview</code>: A clearer way to work together with shared information and clear next steps.</li>
     </ul>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>
 {% endset %}
 
 {% set section_content_usage %}
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>
     <ol>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+        <li>A clearer way to work together with shared information and clear next steps.</li>
+        <li>A clearer way to work together with shared information and clear next steps.</li>
+        <li>A clearer way to work together with shared information and clear next steps.</li>
+        <li>A clearer way to work together with shared information and clear next steps.</li>
+        <li>A clearer way to work together with shared information and clear next steps.</li>
     </ol>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>
 {% endset %}
 
 {% set section_content_advanced %}
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>
     <ul>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+        <li>A clearer way to work together with shared information and clear next steps.</li>
+        <li>A clearer way to work together with shared information and clear next steps.</li>
+        <li>A clearer way to work together with shared information and clear next steps.</li>
+        <li>A clearer way to work together with shared information and clear next steps.</li>
     </ul>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <p>A clearer way to work together with shared information and clear next steps. Read the guide.</p>
 {% endset %}
 
 {# Example 1: Vertical Scrollspy #}
@@ -72,17 +72,17 @@ show_source: true
     :sections="[
         {
             id: 'introduction',
-            title: 'Lorem ipsum dolor sit amet',
+            title: 'A clearer way to work together',
             content: section_content_introduction
         },
         {
             id: 'features',
-            title: 'Lorem',
+            title: 'Overview',
             content: section_content_features
         },
         {
             id: 'options',
-            title: 'Lorem',
+            title: 'Overview',
             content: section_content_options
         }
     ]"
@@ -100,22 +100,22 @@ show_source: true
     :sections="[
         {
             id: 'introduction-h',
-            title: 'Lorem ipsum dolor sit amet',
+            title: 'A clearer way to work together',
             content: section_content_introduction,
         },
         {
             id: 'features-h',
-            title: 'Lorem',
+            title: 'Overview',
             content: section_content_features,
         },
         {
             id: 'options-h',
-            title: 'Lorem',
+            title: 'Overview',
             content: section_content_options,
         },
             {
             id: 'usage-h',
-            title: 'Lorem',
+            title: 'Overview',
             content: section_content_usage,
         }
     ]"
@@ -124,4 +124,9 @@ show_source: true
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
 <h3 class="h5 mt-4">A second vertical navigation with a different width</h3>
-<twig:block-scrollspy class="my-4" :cols="5" height="240px" :sections="[{id: 'independent-overview', title: 'Overview and configuration', content: '<p>The third navigation has its own sections and scroll position.</p><p>Read the guide and review the settings.</p>'}, {id: 'independent-details', title: 'Detailed instructions', content: '<p>Longer content provides enough height to verify the active section.</p><p>Review every item before continuing.</p><p>Continue with the remaining settings.</p>'}, {id: 'independent-summary', title: 'Summary', content: '<p>The final section is independently reachable.</p>'}]" />
+<twig:block-scrollspy
+    class="my-4"
+    :cols="5"
+    height="240px"
+    :sections="[{id: 'independent-overview', title: 'Overview and configuration', content: '<p>The third navigation has its own sections and scroll position.</p><p>Read the guide and review the settings.</p>'}, {id: 'independent-details', title: 'Detailed instructions', content: '<p>Longer content provides enough height to verify the active section.</p><p>Review every item before continuing.</p><p>Continue with the remaining settings.</p>'}, {id: 'independent-summary', title: 'Summary', content: '<p>The final section is independently reachable.</p>'}]"
+/>

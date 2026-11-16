@@ -21,3 +21,14 @@
     max-width: 100%;
     white-space: normal;
 }
+
+.derafu-block-card .card {
+    --bs-card-border-radius: var(--bs-border-radius-lg, .75rem);
+    --bs-card-spacer-x: 1.5rem;
+    --bs-card-spacer-y: 1.5rem;
+    height: 100%;
+}
+.derafu-block-card .card-title { font-size: 1.25rem; font-weight: 650; line-height: 1.3; }
+.derafu-block-card .card-text { line-height: 1.65; }
+.derafu-block-card .card-text > :last-child { margin-bottom: 0; }
+.derafu-block-card .card-text:has(+ .btn) { margin-bottom: 1.25rem; }

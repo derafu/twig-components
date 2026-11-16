@@ -13,17 +13,37 @@ declare(strict_types=1);
 namespace Derafu\TwigComponents\Component\Block;
 
 use Derafu\TwigComponents\Abstract\AbstractComponent;
+use Derafu\TwigComponents\Trait\ContainedContentTrait;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent('block-image')]
 class ImageComponent extends AbstractComponent
 {
+    use ContainedContentTrait;
+
     /**
      * Title of the image section.
      *
      * @var string
      */
     private string $title;
+
+    /**
+     * Alternative image text. Null uses the title; an empty string is decorative.
+     */
+    private ?string $imageAlt = null;
+
+    public function getImageAlt(): ?string
+    {
+        return $this->imageAlt;
+    }
+
+    public function setImageAlt(?string $imageAlt): static
+    {
+        $this->imageAlt = $imageAlt;
+
+        return $this;
+    }
 
     /**
      * URL of the image.
@@ -61,6 +81,40 @@ class ImageComponent extends AbstractComponent
      * @var string
      */
     private string $size = 'medium';
+
+    /**
+     * Optional introduction above the title, rendered with raw in Twig.
+     */
+    private ?string $eyebrow = null;
+
+    /**
+     * Position of the description relative to the media: before or after.
+     */
+    private string $contentPosition = 'after';
+
+    public function getEyebrow(): ?string
+    {
+        return $this->eyebrow;
+    }
+
+    public function setEyebrow(?string $eyebrow): static
+    {
+        $this->eyebrow = $eyebrow;
+
+        return $this;
+    }
+
+    public function getContentPosition(): string
+    {
+        return $this->contentPosition;
+    }
+
+    public function setContentPosition(string $contentPosition): static
+    {
+        $this->contentPosition = $contentPosition;
+
+        return $this;
+    }
 
     /**
      * Gets the title of the image section.

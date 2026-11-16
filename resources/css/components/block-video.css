@@ -2,9 +2,9 @@
     /* Video - Structure */
     --video-padding: 2rem;
     --video-spacing: 2rem;
-    --video-border-radius: 0.5rem;
+    --video-border-radius: var(--bs-border-radius-lg, .75rem);
     --video-max-width: 1000px;
-    --video-content-max-width: 800px;
+    --video-content-max-width: 65ch;
     --video-button-gap: 1rem;
     --video-small-padding: 2rem;
     --video-small-max-width: 600px;
@@ -19,7 +19,7 @@
     --video-button-padding-x: 1.5rem;
     --video-button-font-weight: 500;
     /* Video - Typography */
-    --video-title-font-size: 2.5rem;
+    --video-title-font-size: clamp(2rem, 1.4rem + 1vw, 2.75rem);
     --video-small-title-font-size: 2rem;
     /* Video - Aspect Ratio */
     --video-aspect-ratio: 16/9;
@@ -270,3 +270,29 @@
         scroll-behavior: auto;
     }
 }
+
+.derafu-block-video { display: flow-root; }
+.derafu-block-video__title {
+    font-weight: 650;
+    letter-spacing: -.025em;
+    text-wrap: balance;
+}
+.derafu-block-video__eyebrow {
+    margin-bottom: .75rem;
+    color: var(--bs-primary, #0d6efd);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+.derafu-block-video__eyebrow > :last-child,
+.derafu-block-video__content > :last-child { margin-bottom: 0; }
+.derafu-block-video__content { line-height: 1.65; text-wrap: pretty; }
+.derafu-block-video__button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+.derafu-block-video--left .derafu-block-video__media,
+.derafu-block-video--left .derafu-block-video__content { margin-left: 0; }
+.derafu-block-video--right .derafu-block-video__media,
+.derafu-block-video--right .derafu-block-video__content { margin-right: 0; }
+
+.derafu-block-video__inner { display: flow-root; }

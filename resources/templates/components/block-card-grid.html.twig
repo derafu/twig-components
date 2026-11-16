@@ -1,8 +1,9 @@
 {# templates/components/block-card-grid.html.twig #}
 {% trans_default_domain 'twig+intl-icu' %}
 
-<div class="derafu-block-card-grid {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
-    <div class="row mx-0 g-4">
+<div class="derafu-block-card-grid{{ this.contained ? ' derafu-block-card-grid--contained' : '' }} {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
+    {% if this.contained %}<div class="derafu-block-card-grid__inner container">{% endif %}
+    <div class="row {{ this.contained ? '' : 'mx-0' }} g-4">
         {% for card in this.cards %}
             <div class="col-sm-6 {% if this.cols == 1 %}col-lg-12
                 {% elseif this.cols == 2 %}col-lg-6
@@ -14,7 +15,7 @@
                 <div class="derafu-block-card-grid__card{{ (card.url ?? null) ? ' derafu-block-card-grid__card--linked' : '' }}">
                     {% if (card.image ?? null) %}
                         <div class="derafu-block-card-grid__image">
-                            <img src="{{ (card.image ?? null) }}" alt="{{ (card.title ?? null) }}">
+                            <img src="{{ (card.image ?? null) }}" alt="{{ card.imageAlt ?? (card.title|default('')|striptags) }}">
                         </div>
                     {% endif %}
 
@@ -61,4 +62,5 @@
             </div>
         {% endfor %}
     </div>
+    {% if this.contained %}</div>{% endif %}
 </div>

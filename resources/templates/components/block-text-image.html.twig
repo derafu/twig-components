@@ -1,11 +1,12 @@
 {# templates/components/block-text-image.html.twig #}
 
 <div
-    class="derafu-block-text-image{{ this.insideTabs ? ' derafu-block-text-image--in-tabs' : '' }} {{ attributes.render('class') }}"
+    class="derafu-block-text-image{{ this.contained ? ' derafu-block-text-image--contained' : '' }}{{ this.insideTabs ? ' derafu-block-text-image--in-tabs' : '' }} {{ attributes.render('class') }}"
     {{ attributes }}
     id="{{ this.id }}"
 >
-    <div class="row mx-0 align-items-center">
+    {% if this.contained %}<div class="derafu-block-text-image__inner container">{% endif %}
+    <div class="row {{ this.contained ? '' : 'mx-0' }} align-items-center">
         {# Text Column #}
         <div class="col-md-{{ this.cols }} {% if this.imagePosition == 'left' %}order-md-2{% endif %}">
             <div class="derafu-block-text-image__content">
@@ -16,9 +17,11 @@
                 {% if this.lead is not null and this.lead != '' %}
                     <div class="derafu-block-text-image__lead lead">{{ this.lead|raw }}</div>
                 {% endif %}
-                <div class="derafu-block-text-image__text">
-                    {{ this.content|raw }}
-                </div>
+                {% if this.content != '' %}
+                    <div class="derafu-block-text-image__text">
+                        {{ this.content|raw }}
+                    </div>
+                {% endif %}
                 {% if this.items|length > 0 %}
                     <ul class="derafu-block-text-image__items list-unstyled d-grid">
                         {% for item in this.items %}
@@ -59,4 +62,5 @@
             </div>
         </div>
     </div>
+    {% if this.contained %}</div>{% endif %}
 </div>

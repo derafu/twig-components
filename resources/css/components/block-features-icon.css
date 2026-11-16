@@ -1,14 +1,11 @@
-/* ======================================
-   Base Variables
-   ====================================== */
-   :root {
+:root {
     /* Spacing */
 
     /* Structure */
     --features-icon-row-gap: 2rem;
     --features-icon-row-margin-bottom: 2rem;
-    --features-icon-size: 80px;
-    --features-icon-border-radius: 0.5rem;
+    --features-icon-size: clamp(3rem, 2.5rem + 1vw, 4rem);
+    --features-icon-border-radius: var(--bs-border-radius-lg, .75rem);
     --features-icon-margin-bottom: 1rem;
 
     /* Colors */
@@ -20,25 +17,19 @@
     /* Typography */
     --features-icon-icon-font-size: 1.5rem;
     --features-icon-title-font-size: 1.25rem;
-    --features-icon-title-font-weight: 600;
+    --features-icon-title-font-weight: 650;
     --features-icon-title-margin-bottom: 0.5rem;
-    --features-icon-content-line-height: 1.5;
+    --features-icon-content-line-height: 1.65;
 
     /* Responsive */
     --features-icon-mobile-breakpoint: 768px;
     --features-icon-mobile-row-gap: 1.5rem;
 }
 
-/* ======================================
-   Component Container
-   ====================================== */
 .derafu-block-features-icon {
     margin: var(--spacing-y, 2rem) auto;
 }
 
-/* ======================================
-   Feature Row
-   ====================================== */
 .derafu-block-features-icon__row {
     display: flex;
     justify-content: flex-start;
@@ -51,9 +42,6 @@
     justify-content: center;
 }
 
-/* ======================================
-   Feature Item
-   ====================================== */
 .derafu-block-features-icon__item {
     display: flex;
     flex-direction: column;
@@ -63,14 +51,11 @@
 
 /* Width Variants */
 .derafu-block-features-icon__item--1 { width: 100%; }
-.derafu-block-features-icon__item--2 { width: calc(50% - 1rem); }
-.derafu-block-features-icon__item--3 { width: calc(33.333% - 1.334rem); }
-.derafu-block-features-icon__item--4 { width: calc(25% - 1.5rem); }
-.derafu-block-features-icon__item--6 { width: calc(16.666% - 1.667rem); }
+.derafu-block-features-icon__item--2 { width: calc((100% - 1 * var(--features-icon-row-gap)) / 2); }
+.derafu-block-features-icon__item--3 { width: calc((100% - 2 * var(--features-icon-row-gap)) / 3); }
+.derafu-block-features-icon__item--4 { width: calc((100% - 3 * var(--features-icon-row-gap)) / 4); }
+.derafu-block-features-icon__item--6 { width: calc((100% - 5 * var(--features-icon-row-gap)) / 6); }
 
-/* ======================================
-   Feature Icon
-   ====================================== */
 .derafu-block-features-icon__icon {
     width: var(--features-icon-size);
     height: var(--features-icon-size);
@@ -84,9 +69,6 @@
     font-size: var(--features-icon-icon-font-size);
 }
 
-/* ======================================
-   Feature Content
-   ====================================== */
 .derafu-block-features-icon__title {
     color: var(--features-icon-title-color);
     font-size: var(--features-icon-title-font-size);
@@ -122,11 +104,9 @@
     padding-right: var(--features-icon-row-gap, 2rem);
 }
 
-/* ======================================
-   Responsive Styles
-   ====================================== */
 @media (max-width: 768px) {
-    .derafu-block-features-icon {
+    .derafu-block-features-icon,
+    .derafu-block-features-icon__inner {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -153,3 +133,24 @@
 .derafu-block-features-icon__row:only-child .derafu-block-features-icon__item--1 {
     width: 100%;
 }
+
+.derafu-block-features-icon__item { min-width: 0; overflow-wrap: anywhere; }
+.derafu-block-features-icon__title { line-height: 1.3; text-wrap: balance; }
+.derafu-block-features-icon__row:last-child { margin-bottom: 0; }
+
+.derafu-block-features-icon--left .derafu-block-features-icon__item {
+    align-items: flex-start;
+    text-align: left;
+}
+.derafu-block-features-icon--right .derafu-block-features-icon__item {
+    align-items: flex-end;
+    text-align: right;
+}
+.derafu-block-features-icon--left .derafu-block-features-icon__row { justify-content: flex-start; }
+.derafu-block-features-icon--right .derafu-block-features-icon__row { justify-content: flex-end; }
+.derafu-block-features-icon--contained { display: flow-root; }
+
+.derafu-block-features-icon--left,
+.derafu-block-features-icon--left > .derafu-block-features-icon__inner { justify-content: flex-start; }
+.derafu-block-features-icon--right,
+.derafu-block-features-icon--right > .derafu-block-features-icon__inner { justify-content: flex-end; }

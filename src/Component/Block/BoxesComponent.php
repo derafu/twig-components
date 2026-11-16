@@ -13,11 +13,14 @@ declare(strict_types=1);
 namespace Derafu\TwigComponents\Component\Block;
 
 use Derafu\TwigComponents\Abstract\AbstractComponent;
+use Derafu\TwigComponents\Trait\ContainedContentTrait;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent('block-boxes')]
 class BoxesComponent extends AbstractComponent
 {
+    use ContainedContentTrait;
+
     /**
      * Array of boxes with their configurations.
      *

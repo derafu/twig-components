@@ -1,11 +1,12 @@
 {# templates/components/block-text-video.html.twig #}
 
 <div
-    class="derafu-block-text-video {{ attributes.render('class') }}"
+    class="derafu-block-text-video{{ this.contained ? ' derafu-block-text-video--contained' : '' }} {{ attributes.render('class') }}"
     {{ attributes }}
     id="{{ this.id }}"
 >
-    <div class="row mx-0 align-items-center">
+    {% if this.contained %}<div class="derafu-block-text-video__inner container">{% endif %}
+    <div class="row {{ this.contained ? '' : 'mx-0' }} align-items-center">
         {# Text Column #}
         <div class="col-12 col-md-{{ this.cols }} {% if this.videoPosition == 'left' %}order-md-2{% endif %}">
             <div class="derafu-block-text-video__content">
@@ -16,9 +17,11 @@
                 {% if this.lead is not null and this.lead != '' %}
                     <div class="derafu-block-text-video__lead lead">{{ this.lead|raw }}</div>
                 {% endif %}
-                <div class="derafu-block-text-video__text">
-                    {{ this.content|raw }}
-                </div>
+                {% if this.content != '' %}
+                    <div class="derafu-block-text-video__text">
+                        {{ this.content|raw }}
+                    </div>
+                {% endif %}
                 {% if this.items|length > 0 %}
                     <ul class="derafu-block-text-video__items list-unstyled d-grid">
                         {% for item in this.items %}
@@ -58,6 +61,7 @@
                 <div class="derafu-block-text-video__media derafu-block-text-video__media--{{ this.aspectRatio|replace({':': '-'}) }}">
                     <iframe
                         src="{{ this.video }}{% if not this.showControls %}?controls=0{% endif %}"
+                        title="{{ this.title|striptags }}"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen
@@ -66,4 +70,5 @@
             </div>
         </div>
     </div>
+    {% if this.contained %}</div>{% endif %}
 </div>

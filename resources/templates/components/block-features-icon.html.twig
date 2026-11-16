@@ -1,11 +1,15 @@
 {# templates/components/block-features-icon.html.twig #}
+{% set feature_align = {start: 'left', end: 'right'}[this.align] ?? this.align %}
 
-<div class="derafu-block-features-icon {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
+<div class="derafu-block-features-icon derafu-block-features-icon--{{ feature_align }}{{ this.contained ? ' derafu-block-features-icon--contained' : '' }} {{ attributes.render('class') }}" {{ attributes }} id="{{ this.id }}">
+    {% if this.contained %}<div class="derafu-block-features-icon__inner container">{% endif %}
     {% set total = this.features|length %}
 
-    {# Primero determinamos el tamaño base de filas que usaremos #}
-    {% set baseRowSize = 0 %}
-    {% if total % 6 == 0 %}
+    {# Automatic grouping is independent of an explicit column count. #}
+    {% set baseRowSize = this.cols ?? 0 %}
+    {% if this.cols is not null %}
+        {% set baseRowSize = this.cols %}
+    {% elseif total % 6 == 0 %}
         {% set baseRowSize = 6 %}
     {% elseif total % 4 == 0 %}
         {% set baseRowSize = 4 %}
@@ -13,17 +17,16 @@
         {% set baseRowSize = 3 %}
     {% endif %}
 
-    {# Calculamos cuántas filas necesitaremos #}
-    {% set rows = [] %}
+    {# A partial final row keeps the requested item width. #}
     {% set remaining = total %}
     {% set offset = 0 %}
 
-    {% for i in range(0, ((total / 2)|round(0, 'ceil') - 1)) %}
+    {% for i in range(0, ((total / (this.cols ?? 2))|round(0, 'ceil') - 1)) %}
         {% if remaining > 0 %}
             {% set rowSize = 0 %}
 
             {% if baseRowSize > 0 %}
-                {% set rowSize = baseRowSize %}
+                {% set rowSize = min(baseRowSize, remaining) %}
             {% elseif remaining >= 4 %}
                 {% set rowSize = 4 %}
             {% elseif remaining == 3 %}
@@ -34,16 +37,16 @@
                 {% set rowSize = 1 %}
             {% endif %}
 
-            {% if remaining == 5 and offset == 0 %}
+            {% if this.cols is null and remaining == 5 and offset == 0 %}
                 {% set rowSize = 3 %}
             {% endif %}
 
             <div class="derafu-block-features-icon__row{% if rowSize < 3 %} derafu-block-features-icon__row--centered{% endif %}">
                 {% for j in range(0, rowSize - 1) %}
                     {% set feature = this.features[offset + j] %}
-                    <div class="derafu-block-features-icon__item derafu-block-features-icon__item--{{ rowSize }}">
+                    <div class="derafu-block-features-icon__item derafu-block-features-icon__item--{{ this.cols ?? rowSize }}">
                         <div class="derafu-block-features-icon__icon">
-                            <i class="{{ (feature.icon ?? null) }}"></i>
+                            <i class="{{ (feature.icon ?? null) }}" aria-hidden="true"></i>
                         </div>
                         <h3 class="derafu-block-features-icon__title">{{ (feature.title ?? null)|raw }}</h3>
                         <div class="derafu-block-features-icon__content">
@@ -57,4 +60,5 @@
             {% set remaining = remaining - rowSize %}
         {% endif %}
     {% endfor %}
+    {% if this.contained %}</div>{% endif %}
 </div>

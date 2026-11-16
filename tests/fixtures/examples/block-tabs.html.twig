@@ -7,13 +7,13 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<p class="lead mx-3 my-4">Switch each tab set independently; compare horizontal and vertical layouts on mobile.</p>
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
+<p class="lead mx-3 my-4">Switch each tab set independently; compare horizontal and vertical layouts on mobile.</p>
 
 {% set tab_content_1 %}
     <twig:block-text-image
-        title="Lorem ipsum dolor sit amet"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet commodo odio. Mauris sagittis consequat quam interdum laoreet. Vivamus pretium pellentesque ligula, eget euismod turpis maximus sed."
+        title="A clearer way to work together"
+        content="Bring your team, information and everyday work together. Organize the details, share the context and keep the next action within reach. Clear information helps everyone follow the work and contribute at the right moment."
         :buttons="[
             {
                 text: 'Learn more',
@@ -31,7 +31,7 @@ show_source: true
 
 {% set tab_content_2 %}
     <h2>Information</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet commodo odio. Mauris sagittis consequat quam interdum laoreet. Vivamus pretium pellentesque ligula, eget euismod turpis maximus sed....</p>
+    <p>Bring your team, information and everyday work together. Organize the details, share the context and keep the next action within reach. Clear information helps everyone follow the work and contribute at the right moment....</p>
 {% endset %}
 
 <twig:block-tabs
@@ -75,4 +75,9 @@ show_source: true
 
 
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
-<twig:block-tabs class="container my-4" position="vertical" :cols="4" :tabs="[{id: 'long-tab-overview', title: 'Configuration and synchronization overview', content: '<h3>Overview</h3><p>A long navigation label should not reduce the content to a narrow column on mobile.</p>'}, {id: 'long-tab-details', title: 'Detailed instructions for the whole team', content: '<h3>Instructions</h3><p>The second panel remains independently selectable.</p>'}]" />
+<twig:block-tabs
+    class="container my-4"
+    position="vertical"
+    :cols="4"
+    :tabs="[{id: 'long-tab-overview', title: 'Configuration and synchronization overview', content: '<h3>Overview</h3><p>A long navigation label should not reduce the content to a narrow column on mobile.</p>'}, {id: 'long-tab-details', title: 'Detailed instructions for the whole team', content: '<h3>Instructions</h3><p>The second panel remains independently selectable.</p>'}]"
+/>

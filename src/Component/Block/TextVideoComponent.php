@@ -13,12 +13,15 @@ declare(strict_types=1);
 namespace Derafu\TwigComponents\Component\Block;
 
 use Derafu\TwigComponents\Abstract\AbstractComponent;
+use Derafu\TwigComponents\Trait\ContainedContentTrait;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
 
 #[AsTwigComponent('block-text-video')]
 class TextVideoComponent extends AbstractComponent
 {
+    use ContainedContentTrait;
+
     /**
      * Position of the video (right, left).
      *
