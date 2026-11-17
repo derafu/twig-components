@@ -34,7 +34,6 @@
             {% endif %}
             data-bs-target="#{{ this.id }}-{% if this.orientation == 'horizontal' %}list-scrollspy-horizontal{% else %}list-scrollspy-vertical{% endif %}"
             data-bs-offset="0"
-            data-bs-smooth-scroll="true"
             class="scrollspy-example p-3"
             tabindex="0"
         >
@@ -59,8 +58,36 @@
             if (!content || typeof bootstrap === 'undefined') {
                 return;
             }
-            const spy = bootstrap.ScrollSpy.getOrCreateInstance(content);
-            window.addEventListener('resize', () => spy.refresh());
+            let spy = bootstrap.ScrollSpy.getOrCreateInstance(content);
+            let pageScroll = getComputedStyle(content).overflowY === 'visible';
+            window.addEventListener('resize', () => {
+                const nextPageScroll = getComputedStyle(content).overflowY === 'visible';
+                if (nextPageScroll !== pageScroll) {
+                    spy.dispose();
+                    spy = bootstrap.ScrollSpy.getOrCreateInstance(content);
+                    pageScroll = nextPageScroll;
+                } else {
+                    spy.refresh();
+                }
+            });
+            root.querySelector('.list-group').addEventListener('click', event => {
+                const link = event.target.closest('a[href]');
+                const section = link && document.getElementById(link.getAttribute('href').slice(1));
+                if (!section || !content.contains(section)) {
+                    return;
+                }
+                event.preventDefault();
+                const behavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+                if (pageScroll) {
+                    const navigationHeight = root.querySelector('.derafu-block-scrollspy__list').getBoundingClientRect().height;
+                    window.scrollTo({
+                        top: section.getBoundingClientRect().top + window.scrollY - navigationHeight,
+                        behavior
+                    });
+                } else {
+                    section.scrollIntoView({ block: 'start', behavior });
+                }
+            });
         };
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initialize, { once: true });

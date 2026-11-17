@@ -13,8 +13,8 @@
     --cta-action-margin-top-mobile: 1rem;
     --cta-action-margin-top-small: 1rem;
     /* Colors */
-    --cta-bg: var(--bs-tertiary-bg, #f8f9fa);
-    --cta-bg-text: var(--bs-body-color, #212529);
+    --cta-bg: color-mix(in srgb, var(--bs-primary, #0d6efd) 30%, #000);
+    --cta-bg-text: var(--bs-white, #fff);
     /* Title Typography */
     --cta-title-margin-bottom: 1rem;
     --cta-title-font-weight: bold;
@@ -33,9 +33,9 @@
     /* Action Alignment */
     --cta-action-text-align: right;
     /* Button Styles */
-    --cta-button: var(--bs-primary, #0d6efd);
-    --cta-button-text: var(--bs-white, #fff);
-    --cta-button-hover: var(--bs-btn-primary-hover-bg, #0b5ed7);
+    --cta-button: var(--bs-white, #fff);
+    --cta-button-text: color-mix(in srgb, var(--bs-primary, #0d6efd) 30%, #000);
+    --cta-button-hover: color-mix(in srgb, var(--bs-primary, #0d6efd) 12%, var(--bs-white, #fff));
     --cta-button-padding-y: 0.75rem;
     --cta-button-padding-x: 1.5rem;
     --cta-button-mobile-padding-y: 0.625rem;
@@ -48,8 +48,8 @@
     --cta-button-font-size: 1rem;
     --cta-button-mobile-font-size: 0.9375rem;
     /* Links in Content */
-    --cta-link-color: var(--bs-link-color, #0d6efd);
-    --cta-link-hover-color: var(--bs-link-hover-color, #0a58ca);
+    --cta-link-color: color-mix(in srgb, var(--bs-primary, #0d6efd) 20%, var(--bs-white, #fff));
+    --cta-link-hover-color: var(--bs-white, #fff);
     --cta-link-font-weight: 500;
 }
 

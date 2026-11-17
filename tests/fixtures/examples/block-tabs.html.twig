@@ -34,6 +34,18 @@ show_source: true
     <p>Bring your team, information and everyday work together. Organize the details, share the context and keep the next action within reach. Clear information helps everyone follow the work and contribute at the right moment....</p>
 {% endset %}
 
+<h3 class="h5 mx-3 mt-4">A continuous bar with five sections</h3>
+<twig:block-tabs
+    class="container my-4"
+    :tabs="[
+        {id: 'bar-workspace', title: 'Workspace', content: '<h3>Workspace</h3><p>Organize your everyday work.</p>'},
+        {id: 'bar-connections', title: 'Connections', content: '<h3>Connections</h3><p>Connect the services your team uses.</p>'},
+        {id: 'bar-reports', title: 'Reports', content: '<h3>Reports</h3><p>Explore the information behind your results.</p>'},
+        {id: 'bar-documents', title: 'Documents', content: '<h3>Documents</h3><p>Keep shared documents within reach.</p>'},
+        {id: 'bar-settings', title: 'Settings', content: '<h3>Settings</h3><p>Choose the settings for your workspace.</p>'}
+    ]"
+/>
+
 <twig:block-tabs
     class="my-4"
     :tabs="[
@@ -80,4 +92,15 @@ show_source: true
     position="vertical"
     :cols="4"
     :tabs="[{id: 'long-tab-overview', title: 'Configuration and synchronization overview', content: '<h3>Overview</h3><p>A long navigation label should not reduce the content to a narrow column on mobile.</p>'}, {id: 'long-tab-details', title: 'Detailed instructions for the whole team', content: '<h3>Instructions</h3><p>The second panel remains independently selectable.</p>'}]"
+/>
+
+<h2 class="h4 mx-3 mt-5">Compact horizontal navigation from the theme</h2>
+<p class="mx-3">Horizontal tabs fill the available width by default. This case keeps each tab close to its label width.</p>
+<twig:block-tabs
+    class="container my-4"
+    style="--tab-horizontal-item-flex: 0 1 auto;"
+    :tabs="[
+        {id: 'compact-overview', title: 'Overview', content: '<h3>Overview</h3><p>A compact navigation can suit a small set of sections.</p>'},
+        {id: 'compact-details', title: 'Details', content: '<h3>Details</h3><p>The panel uses the same content area as the default layout.</p>'}
+    ]"
 />

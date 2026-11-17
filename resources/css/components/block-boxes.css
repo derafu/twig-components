@@ -11,9 +11,9 @@
     --boxes-small-padding: 1.25rem;
     --boxes-gap: 0;
     /* Background Colors - using Bootstrap colors */
-    --boxes-bg-1: var(--bs-light, #f8f9fa);
-    --boxes-bg-2: var(--bs-tertiary-bg, #f8f9fa);
-    --boxes-bg-3: var(--bs-secondary-bg, #e9ecef);
+    --boxes-bg-1: var(--bs-tertiary-bg, #f8f9fa);
+    --boxes-bg-2: var(--bs-secondary-bg, #e9ecef);
+    --boxes-bg-3: color-mix(in srgb, var(--bs-secondary-bg, #e9ecef) 50%, var(--bs-tertiary-bg, #f8f9fa));
     --boxes-text: var(--bs-body-color, #212529);
     /* Icon Styles */
     --boxes-icon-size: 3rem;
@@ -21,7 +21,7 @@
     --boxes-mobile-icon-size: 2.75rem;
     --boxes-small-icon-size: 2.75rem;
     --boxes-icon-bg: transparent;
-    --boxes-icon-color: var(--bs-primary, #0d6efd);
+    --boxes-icon-color: color-mix(in srgb, var(--bs-primary, #0d6efd) 65%, var(--bs-emphasis-color, #000));
     --boxes-icon-margin-bottom: 1rem;
     --boxes-icon-mobile-margin-bottom: 1rem;
     /* Typography - Titles */

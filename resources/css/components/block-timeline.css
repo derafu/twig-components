@@ -10,13 +10,13 @@
     --timeline-content-bg: var(--bs-white, #fff);
     --timeline-content-shadow: var(--bs-border-color, #dee2e6);
     /* Typography */
-    --timeline-year-font-size: calc(var(--font-size-xl, 2rem) * .7);
+    --timeline-year-font-size: var(--font-size-xl, 2rem);
     --timeline-title-font-size: var(--font-size-lg, 1.25rem);
     --timeline-title-font-weight: var(--font-weight-semibold, 600);
     --timeline-date-font-size: var(--font-size-sm, 0.875rem);
     /* Dimensions and Spacing */
     --timeline-line-width: 2px;
-    --timeline-event-width: var(--timeline-event-width);
+    --timeline-event-width: 45%;
     --timeline-mobile-event-margin: 1.5rem;
     --timeline-content-padding: var(--spacing-md, 1rem);
     --timeline-content-border-radius: var(--border-radius-md, 0.5rem);
@@ -66,7 +66,7 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.75rem;
+    margin-bottom: 3rem;
 }
 
 .derafu-block-timeline__event {
@@ -221,7 +221,8 @@
         background-color: var(--timeline-line-color);
     }
 
-    /* Hide Empty Events */
+    .derafu-block-timeline__event:empty { display: none; }
+
     /* Year Styling */
     .derafu-block-timeline__year {
         position: relative;

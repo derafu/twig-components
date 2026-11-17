@@ -59,3 +59,15 @@ show_source: true
     class="my-4"
     :items="[{image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&auto=format&fit=crop', title: 'A longer heading for a featured service', content: '<p>A longer description that wraps over several lines and explains how the service connects the different parts of the workflow.</p><p>A second paragraph with additional context.</p>'}, {image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900&auto=format&fit=crop', title: 'Short item', content: '<p>Short content.</p>'}]"
 />
+
+<h2 class="h4 mx-3 mt-5">Surface colors from the theme</h2>
+<p class="mx-3">The default uses the Bootstrap secondary background. This case uses its tertiary background and keeps each item on the body surface.</p>
+<twig:block-media-list
+    class="my-4"
+    style="--media-list-bg: var(--bs-tertiary-bg); --media-list-item-bg: var(--bs-body-bg);"
+    :rounded="true"
+    :items="[
+        {image: 'assets/derafu-dev-programmer.png', title: 'A connected workspace', content: '<p>Surface colors follow the theme of the site.</p>'},
+        {image: 'assets/derafu-dev-programmer.png', title: 'Clear next steps', content: '<p>Each item stays visually grouped with its image.</p>'}
+    ]"
+/>

@@ -14,10 +14,10 @@
 
   /* Features Table - Colores */
   --features-table-border: var(--bs-border-color, #dee2e6);
-  --features-table-header-bg: var(--bs-primary, #0d6efd);
-  --features-table-header-text: var(--bs-white, #fff);
-  --features-table-icon-bg: var(--bs-light, #f8f9fa);
-  --features-table-icon-text: var(--bs-primary, #0d6efd);
+  --features-table-header-bg: var(--bs-tertiary-bg, #f8f9fa);
+  --features-table-header-text: var(--bs-body-color, #212529);
+  --features-table-icon-bg: color-mix(in srgb, var(--bs-primary, #0d6efd) 8%, var(--bs-body-bg, #fff));
+  --features-table-icon-text: color-mix(in srgb, var(--bs-primary, #0d6efd) 65%, var(--bs-emphasis-color, #000));
   --features-table-feature-text: var(--bs-body-color, #212529);
   --features-table-content-text: var(--bs-body-color, #212529);
   --features-table-check-color: var(--bs-success, #198754);
@@ -35,8 +35,8 @@
   --features-table-mobile-icon-size: 2em;
 
   /* Nuevas variables para los encabezados de sección */
-  --features-table-section-header-bg: var(--bs-light, #f8f9fa);
-  --features-table-section-header-text: var(--bs-primary, #0d6efd);
+  --features-table-section-header-bg: var(--bs-secondary-bg, #e9ecef);
+  --features-table-section-header-text: var(--bs-body-color, #212529);
   --features-table-section-header-font-weight: 600;
   --features-table-section-header-font-size: 1.05em;
   --features-table-section-header-padding: 0.75rem 1rem;

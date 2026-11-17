@@ -17,7 +17,7 @@
     --hero-subtitle-margin-bottom: 2rem;
 
     /* Hero Colors */
-    --hero-bg: var(--bs-primary, #0d6efd);
+    --hero-bg: color-mix(in srgb, var(--bs-primary, #0d6efd) 30%, #000);
     --hero-text: var(--bs-white, #fff);
     --hero-title-color: var(--bs-white, #fff);
     --hero-subtitle-color: var(--bs-white, #fff);
@@ -28,14 +28,14 @@
 
     /* Button Colors */
     --hero-button-primary-bg: var(--bs-white, #fff);
-    --hero-button-primary-text: var(--bs-primary, #0d6efd);
-    --hero-button-primary-hover: var(--bs-primary-emphasis, #0b5ed7);
+    --hero-button-primary-text: color-mix(in srgb, var(--bs-primary, #0d6efd) 65%, #000);
+    --hero-button-primary-hover: color-mix(in srgb, var(--bs-primary, #0d6efd) 65%, #000);
     --hero-button-secondary-bg: transparent;
     --hero-button-secondary-text: var(--bs-white, #fff);
     --hero-button-secondary-border: var(--bs-white, #fff);
 
     /* Subtitle Links */
-    --hero-link-color: var(--bs-warning, #ffc107);
+    --hero-link-color: color-mix(in srgb, var(--bs-primary, #0d6efd) 20%, var(--bs-white, #fff));
     --hero-link-hover-color: var(--bs-light, #f8f9fa);
     --hero-link-font-weight: 500;
 

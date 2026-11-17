@@ -1,15 +1,14 @@
 .block-media-list {
-    background-color: var(--media-list-bg, transparent);
+    background-color: var(--media-list-bg, var(--bs-secondary-bg, #e9ecef));
     padding-block: clamp(1.5rem, 3vw, 3rem);
     display: flow-root;
 }
 .block-media-list .media-item {
     background-color: var(--media-list-item-bg, var(--bs-body-bg, #fff));
-    padding-block: 1.5rem;
-    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
 }
-.block-media-list .media-item:first-child { padding-top: 0; }
-.block-media-list .media-item:last-child { padding-bottom: 0; border-bottom: 0; }
+.block-media-list .media-item:last-child { margin-bottom: 0; }
 .block-media-list .media-item > .row {
     display: grid;
     grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);

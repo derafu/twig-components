@@ -8,7 +8,7 @@
     --title-border-width: 1px;
 
     /* Title - Colors */
-    --title-text-color: var(--bs-primary, #0d6efd);
+    --title-text-color: var(--bs-body-color, #212529);
     --title-subtitle-color: var(--bs-secondary-color, #495057);
     --title-border-color: var(--bs-secondary, #6c757d);
 

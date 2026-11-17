@@ -28,10 +28,21 @@
 
 .derafu-block-features-list { display: flow-root; margin: var(--spacing-y, 2rem) auto; }
 .derafu-block-features-list__row {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(1.5rem, 4vw, 4rem);
     margin: var(--features-list-row-margin);
+}
+.derafu-block-features-list__row::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 50%;
+    width: var(--features-list-divider-width);
+    background-color: var(--features-list-divider-color);
+    transform: translateX(-50%);
+    pointer-events: none;
 }
 .derafu-block-features-list__column { min-width: 0; padding: var(--features-list-column-padding); }
 .derafu-block-features-list__item {
@@ -40,6 +51,12 @@
     gap: 1rem;
     margin-bottom: var(--features-list-item-margin-bottom);
     text-align: start;
+}
+.derafu-block-features-list__item--right {
+    text-align: var(--features-list-left-align, end);
+}
+.derafu-block-features-list__item--right > .derafu-block-features-list__icon {
+    order: var(--features-list-left-icon-order, 0);
 }
 .derafu-block-features-list__item:last-child { margin-bottom: 0; }
 .derafu-block-features-list__icon {
@@ -52,6 +69,7 @@
     line-height: 1.3;
 }
 .derafu-block-features-list__content { min-width: 0; overflow-wrap: anywhere; }
+.derafu-block-features-list__item > .derafu-block-features-list__content { flex: 1; }
 .derafu-block-features-list__title {
     color: var(--features-list-title-color);
     font-size: var(--features-list-title-font-size);
@@ -68,6 +86,9 @@
 .derafu-block-features-list__description > :last-child { margin-bottom: 0; }
 .derafu-block-features-list a { text-underline-offset: .2em; }
 @media (max-width: 767.98px) {
+    .derafu-block-features-list__row::after { display: none; }
+    .derafu-block-features-list__item--right { text-align: start; }
+    .derafu-block-features-list__item--right > .derafu-block-features-list__icon { order: -1; }
     .derafu-block-features-list__row { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .derafu-block-features-list__column + .derafu-block-features-list__column {
         border-top: var(--features-list-divider-width) solid var(--features-list-divider-color);

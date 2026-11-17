@@ -1,11 +1,11 @@
 :root {
     /* Team - Structure */
-    --team-border-radius: .75rem;
+    --team-border-radius: 1rem;
     --team-padding: 2rem;
     --team-hover-transform: translateY(-2px);
     --team-transition-duration: 0.3s;
-    --team-image-padding: 1.5rem 1.5rem 0;
-    --team-info-padding: 1.5rem;
+    --team-image-padding: 2rem 2rem 0;
+    --team-info-padding: 2rem;
     --team-links-gap: 1rem;
 
     /* Team - Image Sizes by Columns */
@@ -19,7 +19,7 @@
     /* Team - Colors */
     --team-bg: transparent;
     --team-member-bg: var(--bs-white, #fff);
-    --team-image-shadow: transparent;
+    --team-image-shadow: color-mix(in srgb, var(--bs-emphasis-color, #000) 10%, transparent);
     --team-name-color: var(--bs-gray-900, #212529);
     --team-role-color: var(--bs-gray-600, #6c757d);
     --team-bio-color: var(--bs-gray-700, #495057);
@@ -36,18 +36,18 @@
     --team-bio-font-size: 1rem;
     --team-bio-line-height: 1.6;
     --team-bio-margin-bottom: 1rem;
-    --team-bio-padding-bottom: 0;
-    --team-bio-border-bottom: 0;
+    --team-bio-padding-bottom: 1rem;
+    --team-bio-border-bottom: 1px solid var(--team-border-color);
 
     /* Team - Links */
     --team-link-color: var(--bs-primary, #0d6efd);
-    --team-link-bg: transparent;
+    --team-link-bg: var(--bs-tertiary-bg, #f8f9fa);
     --team-link-hover-text: var(--bs-white, #fff);
     --team-link-hover-bg: var(--bs-primary, #0d6efd);
     --team-link-border-radius: 2rem;
     --team-link-gap: 0.5rem;
     --team-link-font-size: .9375rem;
-    --team-link-padding: .375rem .625rem;
+    --team-link-padding: .5rem 1rem;
     --team-link-hover-transform: translateY(-2px);
     --team-link-icon-size: 1.1em;
 }
@@ -159,6 +159,9 @@
     font-size: var(--team-bio-font-size);
     line-height: var(--team-bio-line-height);
     margin-bottom: var(--team-bio-margin-bottom);
+}
+
+.derafu-block-team__bio:has(+ .derafu-block-team__links) {
     padding-bottom: var(--team-bio-padding-bottom);
     border-bottom: var(--team-bio-border-bottom);
 }

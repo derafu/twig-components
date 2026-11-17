@@ -23,8 +23,8 @@
     --steps-arrow-width: calc(var(--spacing-lg, 2rem) * 2);
 
     /* Color Variables */
-    --steps-icon-bg: var(--bs-primary, #0d6efd);
-    --steps-icon-color: var(--bs-white, #fff);
+    --steps-icon-bg: color-mix(in srgb, var(--bs-primary, #0d6efd) 8%, var(--bs-body-bg, #fff));
+    --steps-icon-color: color-mix(in srgb, var(--bs-primary, #0d6efd) 65%, var(--bs-emphasis-color, #000));
     --steps-title-color: var(--bs-gray-900, #212529);
     --steps-text-color: var(--bs-dark, #343a40);
     --steps-arrow-color: var(--bs-gray-600, #6c757d);

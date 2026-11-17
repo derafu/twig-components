@@ -15,9 +15,9 @@
     --grid-item-6-width: calc(16.66% - var(--grid-gap));
 
     /* Grid - Colores (opcionales) */
-    --grid-item-bg: var(--bs-white, #fff);
+    --grid-item-bg: var(--bs-body-bg, #fff);
     --grid-item-border: var(--bs-border-color, #dee2e6);
-    --grid-item-text: var(--bs-primary, #0d6efd);
+    --grid-item-text: var(--bs-body-color, #212529);
 
     /* Grid - Responsive */
     --grid-mobile-breakpoint: 768px;

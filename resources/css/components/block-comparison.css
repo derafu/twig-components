@@ -9,6 +9,7 @@
     --comparison-tablet-plan-border-radius: 0.875rem;
     --comparison-mobile-plan-border-radius: 0.75rem;
     --comparison-small-plan-border-radius: 0.5rem;
+    --comparison-heading-align: center;
     --comparison-title-font-size: 1.5rem;
     --comparison-title-font-weight: 650;
     --comparison-title-bg: transparent;
@@ -120,7 +121,7 @@
 .derafu-block-comparison__title-section {
     padding: var(--comparison-title-padding);
     background-color: var(--comparison-title-bg);
-    text-align: start;
+    text-align: var(--comparison-heading-align);
 }
 
 .derafu-block-comparison__title {
@@ -142,7 +143,7 @@
 
 .derafu-block-comparison__price-section {
     padding: var(--comparison-price-padding);
-    text-align: start;
+    text-align: var(--comparison-heading-align);
     background-color: var(--comparison-plan-bg);
 }
 
@@ -151,7 +152,8 @@
     font-size: var(--comparison-price-font-size);
     font-weight: var(--comparison-price-font-weight);
     line-height: 1;
-    display: flex;
+    display: inline-flex;
+    max-width: 100%;
     align-items: center;
     justify-content: flex-start;
     gap: var(--comparison-price-gap);

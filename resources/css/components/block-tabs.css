@@ -1,18 +1,19 @@
 :root {
     /* Tabs - Color Variables */
-    --tab-inactive-text: var(--bs-gray-600, #6c757d);
-    --tab-inactive-bg: transparent;
-    --tab-hover-text: var(--bs-gray-700, #495057);
-    --tab-hover-bg: var(--bs-gray-300, #dee2e6);
-    --tab-active-text: color-mix(in srgb, var(--bs-primary, #0d6efd) 70%, var(--bs-emphasis-color, #000));
-    --tab-active-bg: color-mix(in srgb, var(--bs-primary, #0d6efd) 12%, var(--bs-body-bg, #fff));
+    --tab-inactive-text: var(--bs-secondary-color, #495057);
+    --tab-inactive-bg: var(--bs-secondary-bg, #e9ecef);
+    --tab-hover-text: var(--bs-emphasis-color, #000);
+    --tab-hover-bg: var(--bs-tertiary-bg, #f8f9fa);
+    --tab-active-text: var(--bs-white, #fff);
+    --tab-active-bg: var(--bs-primary, #0d6efd);
     /* Tabs - Content Colors */
     --tab-content-bg: var(--bs-white, #fff);
     /* Tabs - Structure */
-    --tab-border-radius: var(--bs-border-radius, .375rem);
+    --tab-border-radius: 0;
     --tab-content-border-radius: var(--bs-border-radius-lg, 0.5rem);
     --tab-content-padding: 1.5rem 0;
-    --tab-gap: .375rem;
+    --tab-gap: 0;
+    --tab-horizontal-item-flex: 1 1 8rem;
     /* Responsive Variables */
     --tab-mobile-content-padding: 1rem 0;
     --tab-mobile-font-size: 0.875rem;
@@ -36,6 +37,12 @@
     gap: var(--tab-gap);
     flex-wrap: wrap;
     justify-content: flex-start;
+}
+
+.derafu-block-tabs .nav-pills:not(.flex-column) > .nav-link {
+    flex: var(--tab-horizontal-item-flex);
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 /* Vertical Tabs */
@@ -96,12 +103,12 @@
     /* Always Vertical Tabs */
     .derafu-block-tabs .nav-pills.flex-column {
         flex-direction: column !important;
-        gap: 0.5rem;
+        gap: var(--tab-gap);
     }
 
     .derafu-block-tabs .nav-pills.flex-column .nav-link {
         width: 100%;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
         text-align: left;
         white-space: normal;
         word-break: break-word;

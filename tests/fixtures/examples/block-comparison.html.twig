@@ -128,3 +128,14 @@ show_source: true
     class="container my-4"
     :plans="[{title: 'A plan for teams with several companies', price: '$20', period: '/month', features: [{text: 'Includes configuration and support for the whole team', value: true}], buttonText: 'Request more information about this plan for my company', buttonUrl: '#'}, {title: 'Basic', price: '$10', period: '/month', features: [{text: 'One company', value: true}], buttonText: 'Choose basic', buttonUrl: '#'}]"
 />
+
+<h2 class="h4 mx-3 mt-5">Heading alignment from the theme</h2>
+<p class="mx-3">The default heading and price are centered. This case changes their alignment with one CSS variable.</p>
+<twig:block-comparison
+    class="container my-4"
+    style="--comparison-heading-align: start;"
+    :plans="[
+        {title: 'Personal', price: '$10', period: '/month', features: [{text: 'One workspace', value: true}], buttonText: 'Choose personal', buttonUrl: '#'},
+        {title: 'Team', price: '$20', period: '/month', features: [{text: 'Shared workspaces', value: true}], buttonText: 'Choose team', buttonUrl: '#', highlighted: true}
+    ]"
+/>

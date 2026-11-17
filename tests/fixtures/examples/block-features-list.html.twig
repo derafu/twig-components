@@ -55,3 +55,18 @@ show_source: true
     :featuresLeft="[{icon: 'fa-solid fa-cloud', title: 'Synchronization for several companies', content: 'A longer explanation with a <a href=\'#\'>link to the complete configuration instructions</a>.'}]"
     :featuresRight="[{icon: 'fa-solid fa-check', title: 'Ready', content: 'Short content.'}, {icon: 'fa-solid fa-file', title: 'Documents', content: 'This side has more items than the other side.'}]"
 />
+
+<h2 class="h4 mx-3 mt-5">Both columns aligned to the start</h2>
+<p class="mx-3">The theme can change the left column through CSS variables. On mobile both columns use start alignment.</p>
+<twig:block-features-list
+    class="container my-4"
+    style="--features-list-left-align: start; --features-list-left-icon-order: -1;"
+    :featuresLeft="[
+        {icon: 'fa-solid fa-cloud', title: 'Shared workspace', content: 'Keep your documents and information together.'},
+        {icon: 'fa-solid fa-chart-line', title: 'Useful insights', content: 'Review the information behind your next decision.'}
+    ]"
+    :featuresRight="[
+        {icon: 'fa-solid fa-users', title: 'Your team', content: 'Give everyone the context they need.'},
+        {icon: 'fa-solid fa-shield', title: 'Access control', content: 'Choose who can access shared information.'}
+    ]"
+/>
