@@ -38,7 +38,7 @@
     display: flow-root;
 }
 .derafu-block-text-video__content {
-    max-width: var(--text-video-content-max-width, 65ch);
+    max-width: var(--text-video-content-max-width, 80ch);
     color: var(--text-video-content-color, inherit);
     font-size: var(--text-video-text-font-size, inherit);
     padding: var(--text-video-content-padding, 0);

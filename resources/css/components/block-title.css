@@ -65,7 +65,7 @@
     margin: var(--title-subtitle-margin-top) 0 0;
     opacity: var(--title-subtitle-opacity);
     color: var(--title-subtitle-color);
-    max-width: var(--title-subtitle-max-width, 70ch);
+    max-width: var(--title-subtitle-max-width, 80ch);
 }
 
 .derafu-block-title__subtitle a {

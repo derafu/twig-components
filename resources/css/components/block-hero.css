@@ -144,7 +144,7 @@
 .derafu-block-hero__subtitle {
     margin-bottom: var(--hero-subtitle-margin-bottom);
     color: var(--hero-subtitle-color);
-    max-width: var(--hero-subtitle-max-width, 70ch);
+    max-width: var(--hero-subtitle-max-width, 80ch);
     font-size: var(--hero-subtitle-font-size, inherit);
     line-height: var(--hero-subtitle-line-height, 1.65);
     width: 100%;

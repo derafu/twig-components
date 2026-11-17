@@ -18,7 +18,7 @@
     margin: 0;
 }
 .block-media-list .media-item > .row > * { width: auto; padding: 0; min-width: 0; }
-.block-media-list .media-item-body { padding: 0; max-width: 70ch; }
+.block-media-list .media-item-body { padding: 0; max-width: 80ch; }
 .block-media-list .media-item-content-title {
     font-size: clamp(1.125rem, 1rem + .5vw, 1.5rem);
     line-height: 1.3;

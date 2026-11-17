@@ -4,7 +4,7 @@
     --video-spacing: 2rem;
     --video-border-radius: var(--bs-border-radius-lg, .75rem);
     --video-max-width: 1000px;
-    --video-content-max-width: 60ch;
+    --video-content-max-width: 80ch;
     --video-button-gap: 1rem;
     --video-small-padding: 2rem;
     --video-small-max-width: 600px;
