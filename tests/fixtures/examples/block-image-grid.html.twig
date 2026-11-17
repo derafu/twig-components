@@ -8,41 +8,41 @@ show_source: true
 ---
 
 <h2 class="h4 mx-3 mt-4">Standard variants</h2>
-<p class="lead mx-3 my-4">Compare even and odd image counts; focus links and inspect their tooltips.</p>
+<p class="lead mx-3 my-4">Compare recognizable service marks in even and odd groups; focus links and inspect their tooltips.</p>
 
 <twig:block-image-grid
     class="my-4"
     :cols="4"
     :images="[
         {
-            image: 'assets/derafu-dev-programmer.png',
+            image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/php.svg',
             url: 'https://www.example.com',
-            tooltip: 'Company 1'
+            tooltip: 'PHP'
         },
         {
-            image: 'assets/derafu-dev-programmer.png',
-            tooltip: 'Company 2'
+            image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/python.svg',
+            tooltip: 'Python'
         },
         {
-            image: 'assets/derafu-dev-programmer.png',
+            image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/docker.svg',
         },
         {
-            image: 'assets/derafu-dev-programmer.png',
+            image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/github.svg',
         },
         {
-            image: 'assets/derafu-dev-programmer.png',
+            image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/php.svg',
             url: 'https://www.example.com',
-            tooltip: 'Company 1'
+            tooltip: 'PHP'
         },
         {
-            image: 'assets/derafu-dev-programmer.png',
-            tooltip: 'Company 2'
+            image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/python.svg',
+            tooltip: 'Python'
         },
         {
-            image: 'assets/derafu-dev-programmer.png',
+            image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/docker.svg',
         },
         {
-            image: 'assets/derafu-dev-programmer.png',
+            image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/github.svg',
         }
     ]"
 />
@@ -52,5 +52,5 @@ show_source: true
 <twig:block-image-grid
     class="container my-4"
     :cols="3"
-    :images="[{image: 'assets/derafu-dev-programmer.png', url: '#', tooltip: 'A longer description of this connected service'}, {image: 'assets/derafu-dev-programmer.png', tooltip: 'A second service'}, {image: 'assets/derafu-dev-programmer.png', tooltip: 'A third service'}]"
+    :images="[{image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/php.svg', url: '#', tooltip: 'A longer description of this connected service'}, {image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/python.svg', tooltip: 'A second service'}, {image: 'https://cdn.jsdelivr.net/npm/simple-icons@16.0.0/icons/docker.svg', tooltip: 'A third service'}]"
 />

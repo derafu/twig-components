@@ -4,7 +4,7 @@
  * Features:
  * - Flexible and responsive step-by-step process display
  * - Custom CSS variables for easy theming
- * - Horizontal scrollable on mobile
+ * - Horizontal sequence on desktop and vertical sequence on small screens
  * - Adaptive typography and layout
  */
 
@@ -50,10 +50,10 @@
 
 .derafu-block-steps__container {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: safe center;
     flex-wrap: nowrap;
-    overflow-x: auto; /* Allow horizontal scrolling on mobile */
+    overflow-x: auto;
     padding: var(--steps-container-padding);
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     scrollbar-width: thin;
@@ -112,6 +112,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: flex-start;
+    height: var(--steps-icon-size);
+    margin-top: var(--steps-step-padding);
 }
 
 /* Button Styling within Content */
@@ -125,7 +128,7 @@
 }
 
 /* Small screens show the full sequence; larger screens retain the horizontal flow. */
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
     .derafu-block-steps__container {
         flex-direction: var(--steps-mobile-direction, column);
         align-items: stretch;
@@ -146,6 +149,7 @@
         width: var(--steps-icon-size);
         height: var(--steps-mobile-arrow-width);
         margin-inline-start: var(--steps-step-padding);
+        margin-top: 0;
     }
     .derafu-block-steps__arrow svg { width: 2rem; transform: rotate(90deg); }
 }

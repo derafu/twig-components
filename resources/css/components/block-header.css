@@ -237,20 +237,25 @@
   }
 
 .derafu-block-header .navbar-brand {
+    display: flex;
+    align-items: center;
     min-width: 0;
     max-width: calc(100% - 4.5rem);
     white-space: normal;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
 }
 
 .derafu-block-header .navbar-brand img {
     max-width: var(--header-logo-max-width);
-    height: auto;
+    height: var(--header-logo-height, 2.5rem);
+    width: auto;
+    object-fit: contain;
     flex-shrink: 1;
 }
 
 .derafu-block-header .navbar-brand span {
     min-width: 0;
+    text-wrap: balance;
 }
 
 
@@ -267,7 +272,7 @@
 
 @media (max-width: 991.98px) {
     .derafu-block-header .navbar-brand img {
-        max-width: min(var(--header-logo-max-width), 40%);
+        max-width: min(var(--header-logo-max-width, 150px), 25vw, 5rem);
     }
 }
 
@@ -275,5 +280,4 @@
 .derafu-block-header .nav-link { color: var(--header-link); }
 .derafu-block-header .nav-link:hover { color: var(--header-link-hover); }
 .derafu-block-header .mega-dropdown-footer-item { font-size: var(--header-mega-footer-font-size); }
-.derafu-block-header .navbar-brand img { max-width: var(--header-logo-max-width, 150px); }
 .derafu-block-header a:focus-visible { outline: 2px solid var(--bs-primary, #0d6efd); outline-offset: 3px; }

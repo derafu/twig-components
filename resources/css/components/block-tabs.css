@@ -1,20 +1,20 @@
 :root {
     /* Tabs - Color Variables */
     --tab-inactive-text: var(--bs-gray-600, #6c757d);
-    --tab-inactive-bg: var(--bs-tertiary-bg, #f8f9fa);
+    --tab-inactive-bg: transparent;
     --tab-hover-text: var(--bs-gray-700, #495057);
     --tab-hover-bg: var(--bs-gray-300, #dee2e6);
-    --tab-active-text: var(--bs-white, #fff);
-    --tab-active-bg: var(--bs-primary, #0d6efd);
+    --tab-active-text: color-mix(in srgb, var(--bs-primary, #0d6efd) 70%, var(--bs-emphasis-color, #000));
+    --tab-active-bg: color-mix(in srgb, var(--bs-primary, #0d6efd) 12%, var(--bs-body-bg, #fff));
     /* Tabs - Content Colors */
     --tab-content-bg: var(--bs-white, #fff);
     /* Tabs - Structure */
     --tab-border-radius: var(--bs-border-radius, .375rem);
     --tab-content-border-radius: var(--bs-border-radius-lg, 0.5rem);
-    --tab-content-padding: 1.5rem;
+    --tab-content-padding: 1.5rem 0;
     --tab-gap: .375rem;
     /* Responsive Variables */
-    --tab-mobile-content-padding: 1rem;
+    --tab-mobile-content-padding: 1rem 0;
     --tab-mobile-font-size: 0.875rem;
     --tab-mobile-padding: 0.5rem 0.75rem;
     --tab-tablet-padding: 0.625rem 1rem;
@@ -53,7 +53,7 @@
 .derafu-block-tabs .nav-link.active {
     color: var(--tab-active-text);
     background-color: var(--tab-active-bg);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
 }
 
 /* Tab Content */
@@ -76,7 +76,7 @@
     }
 
     .derafu-block-tabs .tab-content {
-        padding: 1.25rem;
+        padding: var(--tab-mobile-content-padding);
     }
 }
 

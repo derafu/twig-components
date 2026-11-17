@@ -257,12 +257,13 @@
 
     /* Stack buttons vertically on very small screens */
     .derafu-block-modal .modal-footer {
-      flex-direction: column;
-      align-items: stretch;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: .5rem;
     }
 
     .derafu-block-modal .modal-footer .btn {
-      margin-bottom: 0.5rem;
+      margin: 0;
     }
 
     .derafu-block-modal .modal-footer .btn:last-child {

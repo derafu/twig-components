@@ -1,8 +1,8 @@
 :root {
     /* Spacing & Structure */
     --features-grid-gap: 1.5rem;
-    --features-grid-header-margin-bottom: 2rem;
-    --features-grid-feature-gap: 1rem;
+    --features-grid-header-margin-bottom: 1.5rem;
+    --features-grid-feature-gap: 1.25rem;
     --features-grid-blocks-padding: 1rem;
     --features-grid-row-margin: 0;
 
@@ -20,7 +20,7 @@
     --features-grid-content-line-height: 1.65;
 
     /* Icon Styles */
-    --features-grid-icon-size: 50px;
+    --features-grid-icon-size: 2.75rem;
     --features-grid-icon-border-radius: var(--bs-border-radius-lg, .75rem);
     --features-grid-icon-font-size: 1.25rem;
 
@@ -29,8 +29,8 @@
     --features-grid-subtitle-color: var(--bs-secondary, #6c757d);
     --features-grid-text-color: var(--bs-body-color, #212529);
     --features-grid-feature-title-color: var(--bs-body-color, #212529);
-    --features-grid-icon-bg: var(--bs-primary, #0d6efd);
-    --features-grid-icon-color: var(--bs-white, #fff);
+    --features-grid-icon-bg: color-mix(in srgb, var(--bs-primary, #0d6efd) 12%, var(--bs-body-bg, #fff));
+    --features-grid-icon-color: var(--bs-primary, #0d6efd);
 
     /* Breakpoints */
     --features-grid-mobile-breakpoint: 768px;
@@ -156,7 +156,7 @@
     }
 
     .derafu-block-features-grid__header {
-        text-align: center;
+        text-align: start;
     }
 
     .derafu-block-features-grid__features {

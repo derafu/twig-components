@@ -144,12 +144,12 @@
 .derafu-block-hero__subtitle {
     margin-bottom: var(--hero-subtitle-margin-bottom);
     color: var(--hero-subtitle-color);
-    max-width: var(--hero-subtitle-max-width, 100%);
+    max-width: var(--hero-subtitle-max-width, 70ch);
     font-size: var(--hero-subtitle-font-size, inherit);
     line-height: var(--hero-subtitle-line-height, 1.65);
     width: 100%;
     word-wrap: break-word;
-    hyphens: auto;
+    hyphens: manual;
 }
 
 /* Buttons */

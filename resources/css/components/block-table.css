@@ -191,13 +191,15 @@
 
 @media (max-width: 768px) {
     .derafu-block-table__actions {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
         margin-bottom: 0.75rem;
     }
 
     .derafu-block-table__actions .btn {
-        width: 100%;
+        width: auto;
+        max-width: 100%;
         padding: 0.5rem;
         font-size: 0.95rem;
     }
@@ -213,18 +215,7 @@
         font-size: var(--table-mobile-header-font-size);
     }
 
-    /* Scroll Indicator */
-    .derafu-block-table .table-responsive::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 20px;
-        height: 100%;
-        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8));
-        pointer-events: none;
-        opacity: 0.7;
-    }
+
 }
 
 /* Small Screen Card-like View */

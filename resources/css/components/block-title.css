@@ -180,6 +180,9 @@
 }
 
 .derafu-block-title__wrapper { display: flow-root; }
+.derafu-block-title__wrapper--bordered { width: fit-content; max-width: 100%; }
+.derafu-block-title__wrapper--bordered.text-center { margin-inline: auto; }
+.derafu-block-title__wrapper--bordered.text-end { margin-left: auto; }
 .derafu-block-title__title { text-wrap: balance; }
 .derafu-block-title__subtitle { line-height: 1.65; text-wrap: pretty; }
 

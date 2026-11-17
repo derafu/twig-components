@@ -8,13 +8,13 @@
 
     /* Responsive Spacing */
     --accordion-mobile-button-padding-x: var(--spacing-sm, 1rem);
-    --accordion-mobile-button-padding-y: var(--spacing-xs, 0.5rem);
+    --accordion-mobile-button-padding-y: var(--spacing-xs, .875rem);
     --accordion-mobile-body-padding: var(--spacing-sm, 1rem);
 
     /* Typography */
-    --accordion-button-font-weight: var(--font-weight-medium, 500);
+    --accordion-button-font-weight: var(--font-weight-semibold, 600);
     --accordion-button-font-size: 1rem;
-    --accordion-mobile-button-font-size: 0.9375rem;
+    --accordion-mobile-button-font-size: 1rem;
 
     /* Paragraphs */
     --accordion-paragraph-margin-bottom: var(--spacing-sm, 1rem);
@@ -155,15 +155,15 @@
 
     .derafu-block-accordion .accordion-body p {
         margin-bottom: var(--accordion-mobile-paragraph-margin-bottom);
-        font-size: 0.9375rem;
-        line-height: 1.5;
+        font-size: inherit;
+        line-height: 1.65;
     }
 }
 
 /* Small Mobile (≤ 375px) */
 @media (max-width: 375px) {
     .derafu-block-accordion .accordion-button {
-        font-size: 0.875rem;
+        font-size: var(--accordion-mobile-button-font-size);
         padding: calc(var(--accordion-mobile-button-padding-y) * 0.9) calc(var(--accordion-mobile-button-padding-x) * 0.9);
         line-height: 1.3;
     }
@@ -173,7 +173,7 @@
     }
 
     .derafu-block-accordion .accordion-body p {
-        font-size: 0.875rem;
+        font-size: inherit;
     }
 }
 

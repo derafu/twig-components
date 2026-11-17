@@ -44,7 +44,7 @@
                     {% if (card.buttonText ?? null) %}
                         <div class="derafu-block-card-grid__footer">
                             <a href="{{ (card.buttonUrl ?? null) }}"
-                               class="btn w-100
+                               class="btn
                                        {% if card.buttonColor is defined and (card.buttonColor ?? null) %}btn-{{ (card.buttonColor ?? null) }}{% else %}btn-primary{% endif %}
                                        {% if (card.buttonUrl ?? null) is empty %}disabled{% endif %}"
                                role="button"

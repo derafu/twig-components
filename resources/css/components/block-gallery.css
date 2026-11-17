@@ -27,7 +27,7 @@
     --gallery-play-icon-color: var(--bs-white, #fff);
 
     /* Caption */
-    --gallery-caption-bg: rgba(0, 0, 0, 0.6);
+    --gallery-caption-bg: rgba(0, 0, 0, .75);
     --gallery-caption-color: var(--bs-white, #fff);
     --gallery-caption-font-size: 0.875rem;
 
@@ -92,11 +92,11 @@
 }
 
 .derafu-block-gallery__item:hover .derafu-block-gallery__thumbnail {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
-.derafu-block-gallery__thumbnail--video {
-    background-color: #000;
+.derafu-block-gallery .derafu-block-gallery__thumbnail--video {
+    background-color: var(--bs-dark, #212529);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -124,8 +124,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 0.5rem 0.75rem;
-    background-color: var(--gallery-caption-bg);
+    padding: 1rem .875rem .75rem;
+    background: linear-gradient(transparent, var(--gallery-caption-bg));
     color: var(--gallery-caption-color);
     font-size: var(--gallery-caption-font-size);
     line-height: 1.3;

@@ -13,8 +13,8 @@
     --cta-action-margin-top-mobile: 1rem;
     --cta-action-margin-top-small: 1rem;
     /* Colors */
-    --cta-bg: var(--bs-secondary, #6c757d);
-    --cta-bg-text: var(--bs-white, #fff);
+    --cta-bg: var(--bs-tertiary-bg, #f8f9fa);
+    --cta-bg-text: var(--bs-body-color, #212529);
     /* Title Typography */
     --cta-title-margin-bottom: 1rem;
     --cta-title-font-weight: bold;
@@ -48,8 +48,8 @@
     --cta-button-font-size: 1rem;
     --cta-button-mobile-font-size: 0.9375rem;
     /* Links in Content */
-    --cta-link-color: var(--bs-warning, #ffc107);
-    --cta-link-hover-color: var(--bs-light, #f8f9fa);
+    --cta-link-color: var(--bs-link-color, #0d6efd);
+    --cta-link-hover-color: var(--bs-link-hover-color, #0a58ca);
     --cta-link-font-weight: 500;
 }
 
@@ -143,9 +143,9 @@
     cursor: pointer;
     white-space: normal;
     overflow-wrap: anywhere;
-    max-width: 100%;
+    max-width: min(100%, 28rem);
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
 }
 
 .derafu-block-cta__button:hover {
@@ -158,7 +158,7 @@
 
 .derafu-block-cta__button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
 }
 
 /* Tablets (≤ 768px) */

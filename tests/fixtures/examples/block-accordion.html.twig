@@ -7,38 +7,51 @@ hide_table_of_contents: true
 show_source: true
 ---
 
-<h2 class="h4 mx-3 mt-4">Standard variants</h2>
-<p class="lead mx-3 my-4">Open several sections and use the keyboard to check focus and long headings.</p>
+<h2 class="h4 mx-3 mt-4">Frequently asked questions</h2>
+<p class="lead mx-3 my-4">Compare short questions, detailed answers and an initially expanded section.</p>
 
 <twig:block-accordion
+    class="container my-4"
     :items="[
         {
-            title: 'Bring your team, information and everyday work together.',
-            content: 'Bring your team, information and everyday work together. Keep project information close to the people who need it. Organize the work into clear steps, record decisions and share useful context with the team. Start with the essentials, then add the details that help everyone continue independently. A shared workspace makes it easier to follow progress, find the right information and understand what needs attention next. <a href=\'https://www.example.com/\' target=\'_blank\'>Link</a>',
+            title: 'Where should a new project start?',
+            content: '<p>Start with a clear outcome and a small first step. Add the people who need to contribute and keep the useful references together.</p>'
         },
         {
-            title: 'Bring your team, information and everyday work together.',
-            content: 'Bring your team, information and everyday work together. Keep project information close to the people who need it. Organize the work into clear steps, record decisions and share useful context with the team. Start with the essentials, then add the details that help everyone continue independently. A shared workspace makes it easier to follow progress, find the right information and understand what needs attention next.',
+            title: 'Can everyone follow the work?',
+            content: '<p>Share the project with your team and give each task a clear owner. Keep decisions alongside the work so people can continue independently.</p>'
         }
     ]"
 />
 
+<h2 class="h4 mx-3 mt-5">An open answer with supporting details</h2>
 <twig:block-accordion
+    class="container my-4"
     :items="[
         {
-            title: 'Bring your team, information and everyday work together.',
-            content: 'Bring your team, information and everyday work together. Keep project information close to the people who need it. Organize the work into clear steps, record decisions and share useful context with the team. Start with the essentials, then add the details that help everyone continue independently. A shared workspace makes it easier to follow progress, find the right information and understand what needs attention next.',
+            title: 'What information should the team share?',
+            content: '<p>Keep the information that helps someone take the next step:</p><ul><li>The outcome you want to achieve.</li><li>The decisions that explain the current direction.</li><li>The references and responsibilities needed to continue.</li></ul><p>Review the details together as the project develops.</p>',
             active: true
         },
         {
-            title: 'Bring your team, information and everyday work together.',
-            content: 'Bring your team, information and everyday work together. Keep project information close to the people who need it. Organize the work into clear steps, record decisions and share useful context with the team. Start with the essentials, then add the details that help everyone continue independently. A shared workspace makes it easier to follow progress, find the right information and understand what needs attention next.',
+            title: 'How often should we review progress?',
+            content: '<p>Choose a rhythm that suits the team. Use each review to identify what needs attention and agree on the next action.</p>'
         }
     ]"
 />
 
-
-<h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
+<h2 class="h4 mx-3 mt-5">Long questions and narrow screens</h2>
 <twig:block-accordion
-    :items="[{title: 'How do I configure synchronization for several companies and review the documents that need attention?', content: '<p>The full question and its answer remain readable at narrow widths.</p><p>Use Tab to reach the next question.</p>', active: true}, {title: 'A short question', content: 'A short answer.'}]"
+    class="container my-4"
+    :items="[
+        {
+            title: 'How do we keep decisions and project information understandable when several teams contribute at different times?',
+            content: '<p>Give each update enough context to stand on its own. Explain the decision, link the supporting information and name the next action.</p><p>A short overview helps new contributors understand the direction before they explore the details.</p>',
+            active: true
+        },
+        {
+            title: 'Where can I find the guide?',
+            content: '<p>Open the workspace guide from the project resources.</p>'
+        }
+    ]"
 />

@@ -256,3 +256,19 @@
 .derafu-block-features-table__table { font-variant-numeric: tabular-nums; }
 .derafu-block-features-table__cell { line-height: 1.55; }
 .derafu-block-features-table__feature-content > :last-child { margin-bottom: 0; }
+
+@media (max-width: 767.98px) {
+    .derafu-block-features-table__header--feature,
+    .derafu-block-features-table__cell--feature {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        min-width: 12rem;
+        max-width: 14rem;
+        box-shadow: 1px 0 var(--features-table-border);
+    }
+    .derafu-block-features-table__cell--feature { background: var(--bs-body-bg, #fff); }
+    .derafu-block-features-table__table { min-width: max-content; }
+    .derafu-block-features-table__feature-content { max-width: 24ch; }
+    .derafu-block-features-table__feature { gap: .625rem; }
+}

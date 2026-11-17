@@ -10,18 +10,18 @@
     --timeline-content-bg: var(--bs-white, #fff);
     --timeline-content-shadow: var(--bs-border-color, #dee2e6);
     /* Typography */
-    --timeline-year-font-size: var(--font-size-xl, 2rem);
+    --timeline-year-font-size: calc(var(--font-size-xl, 2rem) * .7);
     --timeline-title-font-size: var(--font-size-lg, 1.25rem);
     --timeline-title-font-weight: var(--font-weight-semibold, 600);
     --timeline-date-font-size: var(--font-size-sm, 0.875rem);
     /* Dimensions and Spacing */
     --timeline-line-width: 2px;
-    --timeline-event-width: 45%;
-    --timeline-mobile-event-margin: 2rem;
+    --timeline-event-width: var(--timeline-event-width);
+    --timeline-mobile-event-margin: 1.5rem;
     --timeline-content-padding: var(--spacing-md, 1rem);
     --timeline-content-border-radius: var(--border-radius-md, 0.5rem);
     /* Responsive */
-    --timeline-mobile-breakpoint: 768px;
+    --timeline-mobile-breakpoint: 992px;
 }
 
 .derafu-block-timeline {
@@ -66,11 +66,11 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 3rem;
+    margin-bottom: 1.75rem;
 }
 
 .derafu-block-timeline__event {
-    width: 45%;
+    width: var(--timeline-event-width);
 }
 
 .derafu-block-timeline__event--empty {
@@ -85,7 +85,7 @@
     color: var(--timeline-year-color);
     font-size: var(--timeline-year-font-size);
     font-weight: bold;
-    background-color: white;
+    background-color: var(--bs-body-bg, #fff);
     padding: 0 1rem;
     z-index: 2;
     line-height: 1;
@@ -194,19 +194,19 @@
     margin-right: 8rem;
 }
 
-/* Maintain Original Width for Center Mode */
+/* Centered event width */
 .derafu-block-timeline__container--center .derafu-block-timeline__event {
-    width: 45%;
+    width: var(--timeline-event-width);
 }
 
 /* Mobile Version */
-@media (max-width: 768px) {
+@media (max-width: 991.98px) {
     /* Base Structure */
     .derafu-block-timeline__container {
         padding: 0;
     }
 
-    /* New Mobile Structure */
+    /* Stacked events */
     .derafu-block-timeline__row {
         display: block;
     }
@@ -227,11 +227,12 @@
         position: relative;
         display: block;
         left: 0;
+        margin-top: 0;
         margin-left: 2rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         transform: none;
-        font-size: 1.75rem;
-        background-color: #fff;
+        font-size: var(--timeline-year-font-size);
+        background-color: var(--bs-body-bg, #fff);
         padding: 0.25rem 0.5rem;
         text-align: left;
         line-height: 1.2;
@@ -244,7 +245,7 @@
         width: calc(100% - 2rem);
         margin-left: 2rem;
         margin-right: 0;
-        margin-bottom: 1rem;
+        margin-bottom: var(--timeline-mobile-event-margin);
         padding: 0 1rem 0 0;
     }
 
@@ -276,7 +277,7 @@
     }
 
     .derafu-block-timeline__year {
-        font-size: 1.5rem;
+        font-size: var(--timeline-year-font-size);
         margin-left: 1.5rem;
     }
 
@@ -292,49 +293,13 @@
     }
 }
 
-/* Year Adjustment for Medium Screens */
-@media (min-width: 762px) and (max-width: 1200px) {
-    .derafu-block-timeline__container {
-        padding: 4rem 0;
-    }
-
-    .derafu-block-timeline__year {
-        position: static;
-        text-align: center;
-        margin: 0 0 1rem 0;
-        padding: 0;
-        font-size: 1.75rem;
-        display: block;
-        width: 100%;
-    }
-
-    .derafu-block-timeline__container--center .derafu-block-timeline__year,
-    .derafu-block-timeline__container--left .derafu-block-timeline__year,
-    .derafu-block-timeline__container--right .derafu-block-timeline__year {
-        position: static;
-        left: auto;
-        right: auto;
-        transform: none;
-        margin: 0 0 1rem 0;
-    }
-
-    .derafu-block-timeline__event {
-        position: relative;
-        padding-top: 2rem;
-    }
-
-    .derafu-block-timeline__line {
-        top: 3rem;
-    }
-}
-
 .derafu-block-timeline__event,
 .derafu-block-timeline__content {
     min-width: 0;
     overflow-wrap: anywhere;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991.98px) {
     .derafu-block-timeline__container .derafu-block-timeline__year {
         left: auto;
         right: auto;

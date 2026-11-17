@@ -117,3 +117,14 @@ show_source: true
     class="container my-4"
     :stats="[{value: '1,234,567', text: 'Documents synchronized across all companies in the account'}, {value: '99.99%', text: 'Availability'}, {value: '24/7', text: 'Access to the complete document history'}]"
 />
+
+<h2 class="h4 mx-3 mt-5">Values stay together on narrow screens</h2>
+<p class="mx-3">Compare currency amounts, percentages and short labels at phone and tablet widths.</p>
+<twig:block-stats
+    class="container my-4"
+    :stats="[
+        {value: '$125,000', text: 'Annual project value'},
+        {value: '99.95%', text: 'Service availability'},
+        {value: '12,500', text: 'Active workspaces'}
+    ]"
+/>

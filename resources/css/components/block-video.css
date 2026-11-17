@@ -4,7 +4,7 @@
     --video-spacing: 2rem;
     --video-border-radius: var(--bs-border-radius-lg, .75rem);
     --video-max-width: 1000px;
-    --video-content-max-width: 65ch;
+    --video-content-max-width: 60ch;
     --video-button-gap: 1rem;
     --video-small-padding: 2rem;
     --video-small-max-width: 600px;
@@ -296,3 +296,5 @@
 .derafu-block-video--right .derafu-block-video__content { margin-right: 0; }
 
 .derafu-block-video__inner { display: flow-root; }
+
+.derafu-block-video__wrapper > :last-child { margin-bottom: 0; }

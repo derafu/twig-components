@@ -8,7 +8,7 @@
     --card-box-shadow: transparent;
     --card-transition-duration: 0.3s;
     /* Card Hover Effects */
-    --card-hover-transform: translateY(-2px);
+    --card-hover-transform: none;
     --card-hover-mobile-transform: none;
     /* Card Colors */
     --card-bg: var(--bs-card-bg, #fff);
@@ -97,13 +97,14 @@
     border-radius: var(--card-border-radius);
     overflow: hidden;
     box-shadow: var(--card-box-shadow);
-    transition: all var(--card-transition-duration) ease;
+    transition: border-color var(--card-transition-duration) ease, box-shadow var(--card-transition-duration) ease;
     position: relative;
     width: 100%;
     overflow-wrap: break-word;
 }
 
 .derafu-block-card-grid__card:hover {
+    border-color: var(--bs-primary, #0d6efd);
     transform: var(--card-hover-transform);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
@@ -141,7 +142,7 @@
 }
 
 .derafu-block-card-grid__card:hover .derafu-block-card-grid__image img {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .derafu-block-card-grid__icon {
@@ -492,3 +493,8 @@
 .derafu-block-card-grid__link:focus-visible { outline: 2px solid var(--bs-primary, #0d6efd); outline-offset: -3px; }
 
 .derafu-block-card-grid__inner { display: flow-root; }
+
+/* Text-only cards keep a deliberate central composition beside media cards. */
+.derafu-block-card-grid__card:not(:has(.derafu-block-card-grid__image, .derafu-block-card-grid__icon)) .derafu-block-card-grid__body { justify-content: center; }
+.derafu-block-card-grid__card:not(:has(.derafu-block-card-grid__image, .derafu-block-card-grid__icon)) .derafu-block-card-grid__content { flex: 0; }
+.derafu-block-card-grid__footer .btn { max-width: 100%; white-space: normal; text-align: start; }

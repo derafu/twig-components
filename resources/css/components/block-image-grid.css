@@ -13,7 +13,7 @@
   /* Structure */
 
   --image-grid-item-border-radius: var(--bs-border-radius-lg, .75rem);
-  --image-grid-item-border-width: 1px;
+  --image-grid-item-border-width: 0;
   --image-grid-hover-transform: translateY(-2px);
 
   /* Layout */
@@ -65,7 +65,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--image-grid-transition-duration) ease;
+  transition: background-color var(--image-grid-transition-duration) ease, transform var(--image-grid-transition-duration) ease;
   aspect-ratio: 16/9; /* Maintain consistent aspect ratio */
   overflow: hidden; /* Prevent content overflow */
 }
@@ -111,7 +111,7 @@
   margin: 0;
   border-radius: 0;
   box-shadow: none;
-  transition: all var(--image-grid-transition-duration) ease;
+  transition: background-color var(--image-grid-transition-duration) ease, transform var(--image-grid-transition-duration) ease;
 }
 
 .derafu-block-image-grid .derafu-block-image-grid__item:hover .derafu-block-image-grid__image {
@@ -241,3 +241,5 @@
 }
 
 .derafu-block-image-grid__link:focus-visible { outline: 2px solid var(--bs-primary, #0d6efd); outline-offset: 3px; }
+
+.derafu-block-image-grid .derafu-block-image-grid__image { width: 100%; height: 100%; max-height: var(--image-grid-image-max-height, 8rem); padding: .5rem; }

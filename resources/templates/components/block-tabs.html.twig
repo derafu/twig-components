@@ -6,7 +6,7 @@
     id="{{ this.id }}"
 >
     {% if this.position == 'horizontal' %}
-        <nav class="nav nav-pills nav-justified" role="tablist">
+        <nav class="nav nav-pills" role="tablist">
             {% for tab in this.tabs %}
                 <button class="nav-link{% if (this.activeTab is null and loop.first) or this.activeTab == (tab.id ?? null) %} active{% endif %}"
                         id="tab-{{ (tab.id ?? null) }}"

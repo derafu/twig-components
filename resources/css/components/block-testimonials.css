@@ -9,8 +9,8 @@
     --testimonial-brightness: 0.7;
 
     /* Testimonial Card */
-    --testimonial-card-bg: #ffffffe6;
-    --testimonial-card-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    --testimonial-card-bg: var(--bs-body-bg, #fff);
+    --testimonial-card-shadow: 0 12px 32px rgba(0, 0, 0, .08);
     --testimonial-card-max-width: 50rem;
 
     /* Text Colors */
@@ -24,7 +24,7 @@
 
     /* Responsive */
     --testimonial-mobile-padding: var(--spacing-md, 1rem);
-    --testimonial-mobile-text-size: var(--font-size-base, 1rem);
+    --testimonial-mobile-text-size: calc(var(--font-size-base, 1rem) * 1.125);
     --testimonial-mobile-quote-icon-size: var(--font-size-lg, 1.25rem);
 
     /* Responsive Widths */
@@ -38,7 +38,7 @@
 .derafu-block-testimonials .carousel-item {
     min-height: var(--testimonial-height);
     position: relative;
-    padding: 2rem 3rem 3rem;
+    padding: 2.5rem 3.5rem 3.5rem;
 }
 .derafu-block-testimonials .carousel-item.active,
 .derafu-block-testimonials .carousel-item-next,
@@ -57,13 +57,13 @@
 .derafu-block-testimonials__card {
     position: relative;
     background: var(--testimonial-card-bg);
-    padding: clamp(1.25rem, 2vw, 2rem);
+    padding: clamp(1.5rem, 3vw, 3rem);
     border-radius: var(--bs-border-radius-lg, .75rem);
     box-shadow: var(--testimonial-card-shadow);
     max-width: var(--testimonial-card-max-width);
     width: 90%;
     margin-inline: auto;
-    text-align: center;
+    text-align: start;
     z-index: 2;
     min-width: 0;
     overflow-wrap: anywhere;
@@ -74,25 +74,25 @@
 .derafu-block-testimonials__quote-start-icon,
 .derafu-block-testimonials__quote-end-icon { color: var(--testimonial-quote-color); font-size: 1.75rem; line-height: 1; }
 .derafu-block-testimonials__quote-start-icon { text-align: left; margin-bottom: .75rem; }
-.derafu-block-testimonials__quote-end-icon { text-align: right; margin-top: .75rem; }
-.derafu-block-testimonials__content { color: var(--testimonial-text-color); font-size: 1.125rem; line-height: 1.65; text-wrap: pretty; }
+.derafu-block-testimonials__quote-end-icon { display: none; }
+.derafu-block-testimonials__content { color: var(--testimonial-text-color); font-size: clamp(1.25rem, 1rem + .6vw, 1.5rem); line-height: 1.55; text-wrap: pretty; }
 .derafu-block-testimonials__content > :last-child { margin-bottom: 0; }
 .derafu-block-testimonials__content a,
 .derafu-block-testimonials__author-info a { color: var(--testimonial-link-color); }
-.derafu-block-testimonials__author { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; font-size: .9375rem; font-weight: 600; color: var(--testimonial-author-color); }
+.derafu-block-testimonials__author { display: flex; align-items: center; justify-content: flex-start; flex-wrap: nowrap; gap: .75rem; margin-top: 1.5rem; font-size: .9375rem; font-weight: 600; color: var(--testimonial-author-color); }
 .derafu-block-testimonials .derafu-block-testimonials__image { width: 3rem; height: 3rem; border-radius: 50%; object-fit: cover; margin: 0; box-shadow: none; }
-.derafu-block-testimonials__author-info { text-align: left; }
+.derafu-block-testimonials__author-info { text-align: start; min-width: 0; }
 .derafu-block-testimonials .carousel-indicators { margin-bottom: .75rem; z-index: 5; }
 .derafu-block-testimonials .carousel-indicators [data-bs-target] { background-color: var(--testimonial-indicator-color); width: 10px; height: 10px; border-radius: 50%; margin: 0 4px; }
 .derafu-block-testimonials .carousel-control-prev,
-.derafu-block-testimonials .carousel-control-next { width: calc(var(--carousel-control-width) + 1rem); z-index: 5; }
+.derafu-block-testimonials .carousel-control-next { width: calc(var(--carousel-control-width) + 1rem); z-index: 5; opacity: .85; }
 .derafu-block-testimonials .carousel-control-prev-icon,
-.derafu-block-testimonials .carousel-control-next-icon { filter: invert(1); width: 1.75rem; height: 1.75rem; background-size: 100%; }
+.derafu-block-testimonials .carousel-control-next-icon { filter: none; width: 1.75rem; height: 1.75rem; background-size: 65%; background-color: #212529; border-radius: 50%; }
 @media (max-width: 1200px) {
     .derafu-block-testimonials__card { width: var(--testimonial-tablet-card-width); margin-inline: auto; }
 }
 @media (max-width: 768px) {
-    .derafu-block-testimonials .carousel-item { padding: 1.5rem 2rem 3rem; }
+    .derafu-block-testimonials .carousel-item { padding: 1.5rem 2.25rem 3rem; }
     .derafu-block-testimonials__card { width: var(--testimonial-mobile-card-width); padding: var(--testimonial-mobile-padding); }
     .derafu-block-testimonials__content { font-size: var(--testimonial-mobile-text-size); }
     .derafu-block-testimonials__quote-start-icon,

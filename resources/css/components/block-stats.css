@@ -28,10 +28,10 @@
     /* Responsive Variables */
     --stats-mobile-breakpoint: 768px;
     --stats-mobile-number-font-size: 2.5rem;
-    --stats-mobile-item-padding: 1rem;
-    --stats-mobile-horizontal-margin: 1.5rem;
+    --stats-mobile-item-padding: .75rem .25rem;
+    --stats-mobile-horizontal-margin: 1rem;
     --stats-tablet-number-font-size: 2.75rem;
-    --stats-small-number-font-size: 2rem;
+    --stats-small-number-font-size: clamp(1.5rem, 6vw, 2rem);
 }
 
 .derafu-block-stats {
@@ -46,6 +46,7 @@
 .derafu-block-stats__item {
     min-width: 0;
     height: 100%;
+    container-type: inline-size;
     padding: var(--stats-spacing) var(--stats-item-margin);
     display: flex;
     flex-direction: column;
@@ -53,8 +54,10 @@
     overflow-wrap: anywhere;
 }
 .derafu-block-stats__value {
+    max-width: 100%;
+    overflow-wrap: normal;
     color: var(--stats-number-color);
-    font-size: var(--stats-number-font-size);
+    font-size: min(var(--stats-number-font-size), 20cqi);
     font-weight: var(--stats-number-font-weight);
     line-height: var(--stats-number-line-height);
     margin: var(--stats-number-margin);
@@ -71,15 +74,15 @@
 .derafu-block-stats__text > :last-child { margin-bottom: 0; }
 @media (min-width: 992px) { .derafu-block-stats__column--fifth { width: 20%; } }
 @media (max-width: 991px) {
-    .derafu-block-stats__value { font-size: var(--stats-tablet-number-font-size); }
+    .derafu-block-stats__value { font-size: min(var(--stats-tablet-number-font-size), 20cqi); }
 }
 @media (max-width: 768px) {
     .derafu-block-stats { padding-inline: var(--stats-mobile-horizontal-margin); }
-    .derafu-block-stats__value { font-size: var(--stats-mobile-number-font-size); }
+    .derafu-block-stats__value { font-size: min(var(--stats-mobile-number-font-size), 20cqi); }
     .derafu-block-stats__item { padding: var(--stats-mobile-item-padding); }
 }
 @media (max-width: 576px) {
-    .derafu-block-stats__value { font-size: var(--stats-small-number-font-size); }
+    .derafu-block-stats__value { font-size: min(var(--stats-small-number-font-size), 20cqi); }
 }
 
 /* Specific Classes for Prices and Multiple Values */
@@ -93,7 +96,7 @@
 }
 
 .derafu-block-stats__primary-value {
-    font-size: var(--stats-number-font-size);
+    font-size: min(var(--stats-number-font-size), 20cqi);
     color: var(--stats-number-color);
     font-weight: var(--stats-number-font-weight);
     line-height: 1;
@@ -101,7 +104,7 @@
 }
 
 .derafu-block-stats__secondary-value {
-    font-size: calc(var(--stats-number-font-size) * 0.6);
+    font-size: min(calc(var(--stats-number-font-size) * 0.6), 12cqi);
     color: var(--stats-number-color);
     font-weight: var(--stats-number-font-weight);
     line-height: 1;
@@ -110,21 +113,21 @@
 /* Responsive Adjustments for Price Values */
 @media (max-width: 991px) {
     .derafu-block-stats__primary-value {
-        font-size: var(--stats-tablet-number-font-size);
+        font-size: min(var(--stats-tablet-number-font-size), 20cqi);
     }
 
     .derafu-block-stats__secondary-value {
-        font-size: calc(var(--stats-tablet-number-font-size) * 0.6);
+        font-size: min(calc(var(--stats-tablet-number-font-size) * 0.6), 12cqi);
     }
 }
 
 @media (max-width: 768px) {
     .derafu-block-stats__primary-value {
-        font-size: var(--stats-mobile-number-font-size);
+        font-size: min(var(--stats-mobile-number-font-size), 20cqi);
     }
 
     .derafu-block-stats__secondary-value {
-        font-size: calc(var(--stats-mobile-number-font-size) * 0.6);
+        font-size: min(calc(var(--stats-mobile-number-font-size) * 0.6), 12cqi);
     }
 }
 
@@ -135,16 +138,16 @@
     }
 
     .derafu-block-stats__primary-value {
-        font-size: var(--stats-small-number-font-size);
+        font-size: min(var(--stats-small-number-font-size), 20cqi);
         margin-right: 0;
         margin-bottom: 0.25rem;
     }
 
     .derafu-block-stats__secondary-value {
-        font-size: calc(var(--stats-small-number-font-size) * 0.6);
+        font-size: min(calc(var(--stats-small-number-font-size) * 0.6), 12cqi);
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 359.98px) {
     .derafu-block-stats > .row > [class*="col-"] { width: 100%; }
 }

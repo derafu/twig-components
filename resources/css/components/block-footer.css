@@ -30,9 +30,9 @@
     --footer-transition-speed: 0.2s;
     /* Footer - Responsive */
     --footer-mobile-breakpoint: 768px;
-    --footer-mobile-padding-top: 3rem;
+    --footer-mobile-padding-top: 2rem;
     --footer-mobile-title-margin-bottom: 1rem;
-    --footer-mobile-links-margin-bottom: 2rem;
+    --footer-mobile-links-margin-bottom: 1.5rem;
     --footer-mobile-bottom-margin-bottom: 0.5rem;
     --footer-mobile-bottom-text-margin-bottom: 0.5rem;
 }
@@ -171,8 +171,8 @@
 
     /* Enlaces responsive */
     .derafu-block-footer__links {
-        display: inline-block;
-        margin-bottom: var(--footer-mobile-links-margin-bottom);
+        display: block;
+        margin-bottom: 0;
     }
 
     .derafu-block-footer__links li {
@@ -181,7 +181,7 @@
 
     /* Iconos sociales responsive */
     .derafu-block-footer__social {
-        justify-content: center;
+        justify-content: flex-start;
         margin-top: 1rem;
     }
 

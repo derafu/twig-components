@@ -75,3 +75,24 @@ show_source: true
     image="assets/derafu-dev-programmer.png"
     imageAlt="Illustration of connected tools and services"
 />
+
+<h2 class="h4 mx-3 mt-5">Optional content and multiple actions</h2>
+<p class="mx-3">The image owns its spacing whether it ends with media, a caption or wrapping actions.</p>
+<twig:block-image
+    class="container my-4"
+    size="small"
+    title="A view of connected work"
+    image="assets/derafu-dev-programmer.png"
+    imageAlt="Illustration of a developer connecting tools and services"
+/>
+<twig:block-image
+    class="container my-4"
+    title="Choose your next step"
+    image="assets/derafu-dev-programmer.png"
+    imageAlt="Illustration of connected tools and services"
+    content="<p>Keep project information close to the people who need it.</p><p>Explore the guide or talk to the team about the next stage.</p>"
+    :buttons="[
+        {text: 'Explore the complete workspace guide', url: '#'},
+        {text: 'Contact the team', url: '#'}
+    ]"
+/>

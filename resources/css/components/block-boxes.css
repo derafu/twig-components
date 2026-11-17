@@ -12,17 +12,17 @@
     --boxes-gap: 0;
     /* Background Colors - using Bootstrap colors */
     --boxes-bg-1: var(--bs-light, #f8f9fa);
-    --boxes-bg-2: var(--bs-gray-200, #e9ecef);
-    --boxes-bg-3: var(--bs-gray-300, #dee2e6);
+    --boxes-bg-2: var(--bs-tertiary-bg, #f8f9fa);
+    --boxes-bg-3: var(--bs-secondary-bg, #e9ecef);
     --boxes-text: var(--bs-body-color, #212529);
     /* Icon Styles */
-    --boxes-icon-size: 4rem;
-    --boxes-tablet-icon-size: 3.75rem;
-    --boxes-mobile-icon-size: 3.5rem;
-    --boxes-small-icon-size: 3rem;
-    --boxes-icon-bg: var(--bs-white, #ffffff);
+    --boxes-icon-size: 3rem;
+    --boxes-tablet-icon-size: 3rem;
+    --boxes-mobile-icon-size: 2.75rem;
+    --boxes-small-icon-size: 2.75rem;
+    --boxes-icon-bg: transparent;
     --boxes-icon-color: var(--bs-primary, #0d6efd);
-    --boxes-icon-margin-bottom: 1.5rem;
+    --boxes-icon-margin-bottom: 1rem;
     --boxes-icon-mobile-margin-bottom: 1rem;
     /* Typography - Titles */
     --boxes-title-font-size: clamp(1.375rem, 1.1rem + .5vw, 1.75rem);
@@ -107,12 +107,12 @@
     align-items: center;
     justify-content: center;
     transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
 }
 
 .derafu-block-boxes__icon i {
     color: var(--boxes-icon-color);
-    font-size: calc(var(--boxes-icon-size) * 0.3);
+    font-size: calc(var(--boxes-icon-size) * .55);
     transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -264,7 +264,7 @@
     }
 
     .derafu-block-boxes__icon i {
-        font-size: calc(var(--boxes-tablet-icon-size) * 0.3);
+        font-size: calc(var(--boxes-tablet-icon-size) * .55);
     }
 
     .derafu-block-boxes__title {
@@ -293,7 +293,7 @@
     }
 
     .derafu-block-boxes__icon i {
-        font-size: calc(var(--boxes-mobile-icon-size) * 0.3);
+        font-size: calc(var(--boxes-mobile-icon-size) * .55);
     }
 
     .derafu-block-boxes__title {
@@ -327,7 +327,7 @@
     }
 
     .derafu-block-boxes__icon i {
-        font-size: calc(var(--boxes-small-icon-size) * 0.3);
+        font-size: calc(var(--boxes-small-icon-size) * .55);
     }
 
     .derafu-block-boxes__title {

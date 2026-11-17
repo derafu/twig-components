@@ -90,7 +90,9 @@
     }
 
     .derafu-block-scrollspy__list-item a {
-        white-space: nowrap;
+        white-space: normal;
+        max-width: 24ch;
+        line-height: 1.4;
         padding: 0.6rem 0.8rem;
     }
 
