@@ -37,8 +37,13 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
-                {% if this.badge is not null and this.badge != '' %}
-                    <div class="derafu-block-text-video__badge"><div class="badge">{{ this.badge|raw }}</div></div>
+                {% set badges = this.badge is iterable ? this.badge : (this.badge is not null and this.badge != '' ? [this.badge] : []) %}
+                {% if badges|length > 0 %}
+                    <div class="derafu-block-text-video__badge">
+                        {% for badge in badges %}
+                            <div class="badge">{{ badge|raw }}</div>
+                        {% endfor %}
+                    </div>
                 {% endif %}
                 {% if this.note is not null and this.note != '' %}
                     <div class="derafu-block-text-video__note small">{{ this.note|raw }}</div>

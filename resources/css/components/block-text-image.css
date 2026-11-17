@@ -158,6 +158,9 @@
 }
 
 .derafu-block-text-image__badge {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--text-image-badge-gap, .5rem);
     margin: 0 0 var(--text-image-badge-spacing, 1rem);
 }
 

@@ -105,9 +105,11 @@ class TextVideoComponent extends AbstractComponent
     private array $items = [];
 
     /**
-     * Optional status label text after the list, rendered with raw in Twig.
+     * Optional status labels after the list. Each label is rendered with raw in Twig.
+     *
+     * @var string|string[]|null
      */
-    private ?string $badge = null;
+    private string|array|null $badge = null;
 
     /**
      * Optional supporting note text before the actions, rendered with raw in Twig.
@@ -156,12 +158,18 @@ class TextVideoComponent extends AbstractComponent
         return $this;
     }
 
-    public function getBadge(): ?string
+    /**
+     * @return string|string[]|null
+     */
+    public function getBadge(): string|array|null
     {
         return $this->badge;
     }
 
-    public function setBadge(?string $badge): static
+    /**
+     * @param string|string[]|null $badge
+     */
+    public function setBadge(string|array|null $badge): static
     {
         $this->badge = $badge;
 

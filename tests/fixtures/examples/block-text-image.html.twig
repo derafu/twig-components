@@ -90,6 +90,25 @@ show_source: true
     note="<p>Check the <a href='#text-image-options'>configuration guide</a>.</p><p>Workspace settings determine which options are available.</p>"
 />
 
+<h2 class="h4 mx-3 mt-5">Multiple labels</h2>
+<p class="mx-3">Pass a string for one badge or an array of strings for several. Each string can contain markup. The labels share the same styles and wrap onto new lines as needed.</p>
+
+<twig:block-text-image
+    class="container my-4"
+    image="assets/derafu-dev-programmer.png"
+    title="Connect the tools your team uses"
+    content="<p>Show the available integrations without adding markup around the component.</p>"
+    :badge="[
+        'Project management',
+        '<strong>Shared</strong> calendars',
+        'Team messaging',
+        'Document storage',
+        'Reporting and analytics',
+        'Customer support',
+        'A longer integration label that wraps naturally on narrow screens'
+    ]"
+/>
+
 <h2 class="h4 mx-3 mt-5">Long content and layout checks</h2>
 <p class="mx-3">Compare long labels, notes, item text and actions on narrow screens.</p>
 

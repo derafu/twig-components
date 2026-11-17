@@ -20,6 +20,7 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionNamedType;
+use ReflectionUnionType;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 /**
@@ -69,6 +70,9 @@ final class ComponentAccessorsTest extends TestCase
         $component = new $class();
         $parameter = (new ReflectionMethod($class, $setter))->getParameters()[0];
         $type = $parameter->getType();
+        if ($type instanceof ReflectionUnionType) {
+            $type = $type->getTypes()[0];
+        }
         $this->assertInstanceOf(ReflectionNamedType::class, $type);
 
         $value = match ($type->getName()) {

@@ -135,6 +135,28 @@ final class ComponentBehaviorTest extends RendersComponents
     }
 
     #[Test]
+    #[DataProvider('provideTextMediaComponents')]
+    public function textMediaRenderOneBadgeOrAListWithTheSameMarkup(string $component, string $media): void
+    {
+        $template = '<twig:' . $component . ' id="badges-example" title="Heading" content="Body" :badge="badge" ' . $media . ' />';
+        foreach ([null, '', []] as $badge) {
+            $html = $this->render($template, ['badge' => $badge]);
+            $this->assertStringNotContainsString('derafu-' . $component . '__badge', $html);
+        }
+
+        $single = $this->render($template, ['badge' => '<strong>Available</strong>']);
+        $list = $this->render($template, ['badge' => ['<strong>Available</strong>']]);
+        $this->assertSame($single, $list);
+
+        $html = $this->render($template, ['badge' => ['<strong>Available</strong>', '0', 'A longer label for narrow screens']]);
+        $this->assertStringContainsString('<div class="badge"><strong>Available</strong></div>', $html);
+        $this->assertStringContainsString('<div class="badge">0</div>', $html);
+        $this->assertStringContainsString('<div class="badge">A longer label for narrow screens</div>', $html);
+        $this->assertSame(1, substr_count($html, 'class="derafu-' . $component . '__badge"'));
+        $this->assertSame(3, substr_count($html, 'class="badge"'));
+    }
+
+    #[Test]
     public function aTitleKeepsItsOptionalIntroductionAndHeadingIdAbsentByDefault(): void
     {
         $html = $this->render('<twig:block-title id="title-root" title="A heading" />');
